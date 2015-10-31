@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7a2dd3e4c6444a6f2a5b93cb62f474b4",
-    "content-hash": "8136e94d64230edb7fcb3f1c6abe9476",
+    "hash": "5e0627e71a20b93fc3ae06eb805d0fee",
+    "content-hash": "07b24e5f64a6b5c12d629e1b8c3bec63",
     "packages": [
         {
             "name": "adrexia/dashboardmods",
@@ -38,63 +38,27 @@
             "time": "2015-02-08 05:20:50"
         },
         {
-            "name": "adrexia/gamesevent",
+            "name": "adrexia/memberprofiles",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/adrexia/silverstripe-gamesevent.git",
-                "reference": "72acddabddcd7646bf248ff0340b3ef5e740f409"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/adrexia/silverstripe-gamesevent/zipball/72acddabddcd7646bf248ff0340b3ef5e740f409",
-                "reference": "72acddabddcd7646bf248ff0340b3ef5e740f409",
-                "shasum": ""
-            },
-            "require": {
-                "ajshort/silverstripe-memberprofiles": "*",
-                "mateusz/frontend": "*",
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1",
-                "studiobonito/silverstripe-spamprotection-honeypot": "1.1.0"
-            },
-            "type": "silverstripe-module",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Naomi Guyer",
-                    "email": "naomi@silverstripe.com"
-                }
-            ],
-            "description": "Provides management interfaces for gaming events",
-            "keywords": [
-                "silverstripe"
-            ],
-            "time": "2015-10-23 11:34:45"
-        },
-        {
-            "name": "ajshort/silverstripe-memberprofiles",
-            "version": "0.4",
-            "source": {
-                "type": "git",
                 "url": "https://github.com/adrexia/silverstripe-memberprofiles.git",
-                "reference": "6c6fd8d36438116a826d9ac487ee9c2c1f1e193d"
+                "reference": "3b09315b5c8f9e5f9c18ad93922126d630b3abc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adrexia/silverstripe-memberprofiles/zipball/6c6fd8d36438116a826d9ac487ee9c2c1f1e193d",
-                "reference": "6c6fd8d36438116a826d9ac487ee9c2c1f1e193d",
+                "url": "https://api.github.com/repos/adrexia/silverstripe-memberprofiles/zipball/3b09315b5c8f9e5f9c18ad93922126d630b3abc1",
+                "reference": "3b09315b5c8f9e5f9c18ad93922126d630b3abc1",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
+                "silverstripe/cms": "3.*",
+                "silverstripe/framework": "3.*"
             },
             "replace": {
-                "silverstripe/memberprofiles": "*"
+                "ajshort/silverstripe-memberprofiles": "self.version",
+                "silverstripe-australia/memberprofiles": "self.version",
+                "silverstripe/memberprofiles": "self.version"
             },
             "suggest": {
                 "ajshort/silverstripe-gridfieldextensions": "Allows drag-and-drop reordering of fields"
@@ -125,9 +89,9 @@
                 "silverstripe"
             ],
             "support": {
-                "source": "https://github.com/adrexia/silverstripe-memberprofiles/tree/3.1"
+                "source": "https://github.com/adrexia/silverstripe-memberprofiles/tree/master"
             },
-            "time": "2013-09-15 12:31:44"
+            "time": "2015-10-31 00:51:18"
         },
         {
             "name": "composer/installers",
@@ -135,13 +99,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "e420b539e8d7b38b7c6f3f99dccc0386bd3dfe41"
+                "reference": "bd9b14f094c89c8b5804a4e41edeb7853bb85046"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/e420b539e8d7b38b7c6f3f99dccc0386bd3dfe41",
-                "reference": "e420b539e8d7b38b7c6f3f99dccc0386bd3dfe41",
+                "url": "https://api.github.com/repos/composer/installers/zipball/bd9b14f094c89c8b5804a4e41edeb7853bb85046",
+                "reference": "bd9b14f094c89c8b5804a4e41edeb7853bb85046",
                 "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "1.0.0"
             },
             "replace": {
                 "roundcube/plugin-installer": "*",
@@ -151,9 +118,9 @@
                 "composer/composer": "1.0.*@dev",
                 "phpunit/phpunit": "4.1.*"
             },
-            "type": "composer-installer",
+            "type": "composer-plugin",
             "extra": {
-                "class": "Composer\\Installers\\Installer",
+                "class": "Composer\\Installers\\Plugin",
                 "branch-alias": {
                     "dev-master": "1.0-dev"
                 }
@@ -222,7 +189,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2015-06-13 15:30:38"
+            "time": "2015-10-29 23:28:48"
         },
         {
             "name": "embed/embed",
@@ -273,6 +240,38 @@
                 "twitter cards"
             ],
             "time": "2015-06-27 17:19:54"
+        },
+        {
+            "name": "heyday/silverstripe-colorpalette",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heyday/silverstripe-colorpalette.git",
+                "reference": "14a08abcc1dde7bb671873181e3c48f9c00f537a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heyday/silverstripe-colorpalette/zipball/14a08abcc1dde7bb671873181e3c48f9c00f537a",
+                "reference": "14a08abcc1dde7bb671873181e3c48f9c00f537a",
+                "shasum": ""
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cam Spiers",
+                    "email": "camspiers@gmail.com"
+                },
+                {
+                    "name": "Kyle Beattie",
+                    "email": "kyle@heyday.co.nz"
+                }
+            ],
+            "description": "A coor palette picker for SilverStripe CMS",
+            "time": "2013-07-28 06:19:51"
         },
         {
             "name": "jonom/silverstripe-betternavigator",
@@ -1146,6 +1145,51 @@
             "time": "2015-09-28 11:06:44"
         },
         {
+            "name": "titledk/silverstripe-calendar",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adrexia/silverstripe-calendar.git",
+                "reference": "248253f8113f9063bf4349a60cd7464d4891b29d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adrexia/silverstripe-calendar/zipball/248253f8113f9063bf4349a60cd7464d4891b29d",
+                "reference": "248253f8113f9063bf4349a60cd7464d4891b29d",
+                "shasum": ""
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "calendar",
+                "screenshots": [
+                    "docs/img/preview.png",
+                    "docs/img/screenshots/frontend-fullcalendar.png"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anselm Christophersen",
+                    "email": "ac@anselm.dk"
+                },
+                {
+                    "name": "Colin Burns",
+                    "email": "ccburns@gmail.com"
+                }
+            ],
+            "description": "Highly flexible calendar system for SilverStripe",
+            "homepage": "https://github.com/titledk/silverstripe-calendar",
+            "keywords": [
+                "calendar",
+                "events",
+                "silverstripe"
+            ],
+            "time": "2015-10-01 08:38:15"
+        },
+        {
             "name": "unclecheese/betterbuttons",
             "version": "dev-master",
             "source": {
@@ -1231,13 +1275,14 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "mateusz/frontend": 20,
+        "adrexia/memberprofiles": 20,
         "unclecheese/betterbuttons": 20,
         "silverstripe/dashboard": 20,
-        "adrexia/gamesevent": 20,
         "silverstripe/standardsediting": 20,
         "jonom/silverstripe-betternavigator": 20,
         "adrexia/dashboardmods": 20,
-        "sheadawson/silverstripe-linkable": 20
+        "sheadawson/silverstripe-linkable": 20,
+        "heyday/silverstripe-colorpalette": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

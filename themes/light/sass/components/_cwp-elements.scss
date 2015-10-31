@@ -1,0 +1,106 @@
+/*
+ * CWP styled elements
+ */
+.nonvisual-indicator,
+.sr-only { // Content often used by people using screenreaders
+	clip: rect(0 0 0 0);
+	height: 1px; width: 1px;
+	margin: -1px; padding: 0; border: 0;
+	overflow: hidden;
+	position: absolute;
+}
+
+// Add bootstraps pull-directions
+.pull-right {
+	float:right;
+}
+
+.pull-left {
+	float:left;
+}
+
+.clearfix {
+	clear:both;
+}
+
+iframe {
+	border: 0;
+}
+
+// limit size of parent element to size of icon
+.show-icon-only {
+	display:block;
+	overflow:hidden;
+	width:20px;
+}
+
+// Generic style for meta data
+.meta-data {
+	font-size: $base-font-size - 3;
+	font-weight: normal;
+}
+
+// Helper classes to customise icons
+.icon-dark {
+	color: $body-font-color;
+	&:visited {
+		color: $body-font-color;
+	}
+	&:hover {
+		color: $body-link-hover-color;
+		text-decoration: none;
+	}
+}
+.icon-small {
+	font-size:1em;
+}
+
+/**
+ * Accessibility Skiplinks for screen readers, allow users to bypass
+ * content recurring on every page to access the menu
+ * or the content directly additionally for regular users by using tab
+ */
+.skip-links a {
+	height:1px;
+	top:-110%;
+	overflow:hidden;
+	padding: 5px 10px;
+	position:absolute;
+	width:1px;
+
+	&:focus, &:active {
+		display: inline-block;
+		height:auto;
+		position:static;
+		width:auto;
+	}
+}
+
+/*
+ * General styling for the footer at the bottom of content
+ */
+.content-footer {
+	margin-top:50px;
+	float:right;
+	a {
+		font-size:0.9em;
+	}
+	.pull-left {
+		a {
+			padding-right:20px;
+		}
+	}
+	.print-share {
+		text-align:right;
+		a {
+			padding-left:20px;
+		}
+	}
+	.last-edited {
+		text-align:right;
+	}
+}
+
+.social-links {
+	text-align:right;
+}

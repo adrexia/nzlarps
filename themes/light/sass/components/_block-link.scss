@@ -1,0 +1,92 @@
+/* Masonry feature styling (used on the homepage) */
+
+.block-container {
+	margin: 40px 0 20px 10px;
+	@include respond(all-phones) {
+		margin: 20px 0 20px 0;
+	}
+}
+
+.block-link {
+	@include fancytiles(3,3,2);
+	display:inline-block;
+	text-align: center;
+	padding: 0;
+
+	@include respond(all-phones) {
+		width:100%;
+	}
+
+	.oldie & {
+		width: 373px;
+	}
+	&::selection {
+		background: transparent;
+	}
+
+	a {
+		@include transition-property(background-color, color);
+		@include transition-duration(0.3s);
+		margin: 0px 20px 20px 0;
+		padding: 35px 40px 40px;
+		color: #333;
+		display: block;
+		border-top: 5px solid #333;
+		background-color: #fff;
+
+		height: 100%;
+
+		@include respond(all-phones) {
+			padding: 10px 15px 15px;
+			margin: 0 0 10px;
+		}
+
+
+		&:hover,
+		&:focus {
+			@include transition-duration(0.3s);
+			background-color:#333;
+			color: #fff;
+
+			h3, h4, a, p{
+				color: #fff;
+			}
+			h3 {
+				border-color:rgba(#fff, 0.5);
+			}
+		}
+
+		@for $i from 1 through $brand-num {
+			&.#{nth($brand-title, $i)} {
+				border-top: 5px solid nth($brand-list, $i);
+
+				&:hover,
+				&:focus {
+					background-color: nth($brand-list, $i);
+					text-shadow: rgba(darken(nth($brand-list, $i), 20%),0.8) 0px 0px 5px;
+				}
+			}
+		}
+
+		h3 {
+			font-size: 30px;
+			margin: 0;
+			padding-right: 0;
+			text-transform: uppercase;
+			@include respond(all-phones) {
+				font-size: 1.3rem;
+			}
+		}
+
+
+		p {
+			font-size:15px;
+			margin-bottom:15px;
+			margin-top: 30px;
+		}
+
+		h3, h4, p {
+			color: #333;
+		}
+	}
+}

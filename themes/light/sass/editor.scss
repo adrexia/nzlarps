@@ -1,0 +1,53 @@
+/**
+ * This support file is used to style the WYSIWYG editor in the CMS
+ */
+
+.typography {/* Adjust for CMS */
+	padding:20px;
+	table, tr, td{
+		font-size:13px;
+	}
+}
+
+@charset "UTF-8";
+
+@import "modular-scale";
+
+@import "compass";
+@import "compass/reset";
+
+@import "var/settings";
+@import "var/lists";
+@import "var/icons/entypo";
+
+@import "ui/images";
+@import "ui/tables";
+
+
+// Global Gumby Functions
+
+@import "functions/breakpoints";
+@import "functions/strip-units";
+@import "functions/grid-calc";
+@import "functions/height-calc";
+@import "functions/em";
+@import "functions/even";
+// Global Gumby Mixins
+
+@import "functions/clearfix";
+@import "functions/typography";
+@import "functions/shapes";
+@import "functions/responsivity";
+@import "functions/line-and-height";
+@import "functions/visibility";
+
+@import "components/base";
+@import "components/fonts";
+@import "components/_typography";
+@import "components/silverstripe-type";
+@import "components/alpha-change";
+
+
+h2:first-child, p:first-child {
+	margin-top: 0;
+}

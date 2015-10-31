@@ -40,9 +40,15 @@ class CustomSiteConfig extends DataExtension {
 		$fields->addFieldToTab('Root.SocialMedia', $twitterUsername = new TextField('TwitterUsername', 'Twitter username'));
 		$twitterUsername->setRightTitle('Twitter username (eg, http://twitter.com/<strong>username</strong>)');
 
-		$fields->addFieldToTab('Root.Logos', $logoField = new UploadField('Logo', 'Logo, to appear in the top left.'));
+		$fields->addFieldToTab('Root.Logos', $logoField = new UploadField('Logo', 'Logo'));
 		$logoField->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
 		$logoField->setConfig('allowedMaxFileNumber', 1);
+
+		$fields->addFieldToTab('Root.Logos', $logoField = new UploadField('LogoLight', 'Light Logo, for dark backgrounds'));
+		$logoField->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
+		$logoField->setConfig('allowedMaxFileNumber', 1);
+
 		$fields->addFieldToTab('Root.Logos', new TextField('LogoText', 'Logo Text'));
+
 	}
 }

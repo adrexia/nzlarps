@@ -1,0 +1,122 @@
+/* Buttons */
+
+// Buttons
+@import "../functions/button-size";
+
+// Button structure
+.btn, .skiplink, .doRegister {
+  display: inline-block;
+  width: auto;
+  background: transparent;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  -webkit-appearance: none;
+  font-family: $header-font-family;
+  font-weight: $button-font-weight;
+  padding: 0;
+  text-align: center;
+  line-height: 2em;
+  border-radius: 0;
+
+  &.active {
+      background: #fff;
+  }
+
+  &:hover,
+  &:focus {
+      background: rgba(#fff, 0.2);
+      text-decoration: none;
+  }
+
+  &.active {
+      > a, a:visited, input, button, > span {
+          color: $air;
+          text-shadow: none;
+      }
+  }
+
+  > a, a:visited, input, button, > span {
+    display: block;
+    padding: 0 $default-button-padding;
+    color: $white;
+    height: 100%;
+    &:hover,
+    &:focus {
+        color: $white;
+    }
+  }
+
+  input, button {
+    line-height: 35px;
+    background: none;
+    border: none;
+    width: 100%;
+    font-size: 100%;
+    cursor: pointer;
+    font-family: $header-font-family;
+    font-weight: $button-font-weight;
+    @include appearance(none);
+  }
+}
+
+// Button Shapes & Sizes
+.btn, .skiplink {
+  @include button-size(medium);
+
+
+  @include respond(desktop) {
+    &.xlarge {
+        @include button-size(xlarge);
+    }
+    &.large {
+        @include button-size(large);
+    }
+  }
+
+  &.medium {
+    @include button-size(medium);
+    a {
+      padding: 0 ms(1);
+    }
+    @include respond(all-phones) {
+        @include button-size(small);
+        a {
+            padding: 0 10px;
+        }
+    }
+  }
+  &.small {
+    @include button-size(small);
+    a {
+      padding: 0 ms(-1);
+    }
+  }
+
+  &.oval {
+    @include shape(oval);
+  }
+
+  &.pill-left {
+    @include shape(pill-left);
+  }
+
+  &.pill-right {
+    @include shape(pill-right);
+  }
+}
+
+// Button Colors & Styles
+.btn, .skiplink, .doRegister {
+    &.default {
+        background: transparent;
+        border: 1px solid #333;
+        color: #333;
+        &:hover,
+        &:focus {
+            background: rgba(0,0,0, 0.05);
+        }
+        > a, input, button, a:visited, span {
+            color: #333;
+        }
+    }
+}

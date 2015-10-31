@@ -4,29 +4,43 @@ class Page extends SiteTree {
 	private static $icon = "mysite/images/sitetree_images/page.png";
 
 	private static $db = array(
+		'Intro' => 'Text',
+		'Colour' => 'Varchar(255)'
 	);
 
 	private static $has_one = array(
+		'SplashImage' => 'Image'
 	);
+
+	public function getCMSFields() {
+		$fields = parent::getCMSFields();
+
+		$fields->insertBefore(TextareaField::create('Intro', 'Intro'),'Content');
+
+		$fields->insertAfter(
+			ColorPaletteField::create(
+				"Colour", "Colour",
+				array(
+					'night'=> '#333333',
+					'air'=> '#009EE2',
+					'earth'=> ' #79c608',
+					'passion'=> '#F15051',
+					'people'=> '#de347f',
+					'inspiration'=> '#783980'
+				)
+			), "Intro"
+		);
+
+		$fields->insertBefore(UploadField::create('SplashImage', 'Splash Image'),'Content');
+
+		return $fields;
+	}
 
 	public function getCurrentRegistration(){
 		$member = Member::currentUser();
 		if(!$member) return false;
-		
-		$reg = Registration::get()->filter(array(
-			'MemberID' => $member->ID,
-			'ParentID' => $this->getCurrentEvent()->ID,
-		));
 
-		if(!$reg){
-			return false;
-		}
-
-		return $reg->First();
-	}
-
-	public function getCurrentEvent(){
-		return SiteConfig::current_site_config()->CurrentEvent();
+		return $member;
 	}
 
 }
@@ -52,14 +66,9 @@ class Page_Controller extends ContentController {
 
 	public function init() {
 		parent::init();
-
+		Requirements::set_force_js_to_bottom(true);
 	}
 
-
-
-	public function getGameListingPage(){
-		return GameListingPage::get()->First();
-	}
 
 	public function getCurrentSliderItems() {
 		return $this->SliderItems()->filter('Archived', false);
@@ -73,13 +82,6 @@ class Page_Controller extends ContentController {
 		return HomePage::get_one('HomePage');
 	}
 
-	public function getGroupedGames(){
-		return GroupedList::create(Game::get()->filter(array(
-			'ParentID' => $this->getCurrentEvent()->ID,
-			'Status'=> true
-			))->sort('Session'));
-	}
-
 	public function LoginLink() {
 		return Controller::join_links(
 			Injector::inst()->get('Security')->Link(),
@@ -88,7 +90,7 @@ class Page_Controller extends ContentController {
 		);
 	}
 
-	public function CMSAccess() { 
+	public function CMSAccess() {
 		return Permission::check('ADMIN') || Permission::check('CMS_ACCESS_LeftAndMain');
 	}
 
@@ -101,4 +103,7 @@ class Page_Controller extends ContentController {
 		return str_replace("-",  " ", $title);
 	}
 
+	public function UseDarkLogo() {
+		return $this->Colour === 'night' || $this->Colour === 'inspiration';
+	}
 }

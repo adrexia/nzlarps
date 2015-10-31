@@ -1,0 +1,134 @@
+// Generic custom css (anything longer than a screen view should have its own file)
+
+.label.success {
+	color: #fff;
+}
+
+.btn-login {
+	padding-top: 50px;
+}
+
+@media only screen and (max-width: 767px) {
+
+	.header {
+		padding-top: 45px;
+	}
+	.btn-login .meta-data {
+		display: none;
+	}
+
+
+	.btn-login {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding-top: 0;
+		width: 100% !important; //override an important
+
+		> p {
+			float: none;
+		}
+
+		.btn {
+			width: 100%;
+			&.rounded {
+				border-radius: 0;
+			}
+		}
+	}
+}
+
+.page-header {
+	margin-top: 20px;
+	text-align: center;
+	color: #fff;
+	text-shadow: rgba(darken($air, 10%), 0.8) 0px 0px 20px;
+
+	h1 {
+		margin-bottom: 35px;
+	}
+
+	* {
+		color: #fff;
+	}
+
+	.btn {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+
+	.secondary-menu {
+		margin-bottom: 22px;
+		@include respond(all-phones) {
+			margin-bottom: 0;
+		}
+	}
+
+	.nav-list {
+		margin-bottom: 15px;
+		margin-right: -20px;
+		@include respond(all-phones) {
+			margin: 0 20px;
+		}
+		.btn {
+			margin-top: 0;
+			margin-bottom: 15px;
+			margin-right: 20px;
+			@include respond(all-phones) {
+				margin-right: 5px;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+.main {
+	background: #fff;
+	min-height: 370px;
+
+	padding: 30px 150px 50px;
+	text-align: center;
+
+	@include respond(desktop) {
+		&.calendar {
+			padding-left: 70px;
+			padding-right: 70px;
+			.contentwrap {
+				padding-left: 80px;
+				padding-right: 80px;
+			}
+		}
+	}
+	@include respond(tablets) {
+		padding: 30px 50px 50px;
+		&.calendar {
+			padding-left: 30px;
+			padding-right: 30px;
+			.contentwrap {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+		}
+	}
+	@include respond(all-phones) {
+		padding: 30px;
+	}
+
+	&.first {
+		margin-top: -100px;
+	}
+	p {
+		font-size: 1.2rem;
+		@include respond(tablets) {
+			font-size: 1.1rem;
+		}
+		@include respond(all-phones) {
+			font-size: 1rem;
+		}
+	}
+	@include respond(all-phones) {
+		> p:first-child {
+			margin-top: 10px;
+		}
+	}
+}

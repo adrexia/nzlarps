@@ -1,0 +1,169 @@
+/* Navigation (with dropdowns) */
+
+.navbar {
+  font-family: $header-font-family;
+  width: 100%;
+  min-height: 30px;
+  display: block;
+  margin-bottom: 20px;
+  background: $navbar-color; // Change this color in settings to change the navbar color
+  position: relative;
+
+  @include respond(all-phones) {
+    .row {
+        padding: 0;
+    }
+  }
+
+  &.fixed {
+    position: fixed;
+    z-index: 99999;
+  }
+  &.pinned {
+    position: absolute;
+  }
+  a.toggle {
+    display: none;
+  }
+}
+
+body #BetterNavigator {
+    @include respond(tablets) {
+        top: 83px;
+    }
+    @include respond(all-phones) {
+        top: 83px;
+    }
+}
+
+.navbar .logo {
+  display: inline-block;
+  margin: 0 $gutter 0 0;
+  padding: 0;
+  a {
+    display: block;
+    padding: 0 20px;
+    @include respond(all-phones) {
+        padding: 0;
+    }
+
+    img {
+        max-height: 95%;
+        margin-bottom: 0;
+
+        @include respond(all-phones) {
+            max-width: 70%;
+        }
+    }
+  }
+}
+
+.navbar ul {
+  margin: 0;
+  float: none;
+
+  li {
+    text-align: center;
+    padding-bottom: 0;
+    margin: 0;
+    display: inline-block;
+    float: left;
+    color: #fff;
+
+    &.pull-right {
+        float:right;
+        @include respond(all-phones) {
+            margin-right: 10px;
+        }
+    }
+
+    &:not(.logo) {
+        @include respond(all-phones) {
+            &.nav-first {
+                clear: both;
+                padding-left: 11px;
+            }
+        }
+        > a {
+            padding-top: 13px;
+            padding-bottom: 14px;
+            @include respond(all-phones) {
+                padding: 10px 18px 7px;
+                font-size: 0.9em;
+            }
+        }
+
+        &.login {
+            > a {
+                @include respond(all-phones) {
+                    padding-top: 5px;
+                    font-size: 0.8rem;
+                    &:first-child {
+                        padding-right: 0;
+                        padding-left: 0;
+                    }
+                    &:last-child {
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    > a {
+      display: inline-block;
+      padding: 0 ms(0);
+      white-space: nowrap;
+      color: $navbar-link-color;
+      text-shadow: 0 1px 2px darken($navbar-color, 20%),
+                   0 1px 0 darken($navbar-color, 20%);
+
+      @include font-size($norm);
+      i.icon-popup {
+        position: absolute;
+      }
+    }
+    .btn {
+      border-color: darken($navbar-color, 30%) !important;
+    }
+  }
+}
+
+.navcontain {
+  height: $navcontain-height;
+}
+
+.gumby-no-touch .navbar ul li > a:hover,
+.gumby-no-touch .navbar ul li > a:focus,
+.gumby-touch .navbar ul li > a.current,
+.gumby-touch .navbar ul li > a.section  {
+  position: relative;
+  background: darken($navbar-color, 15%);
+  z-index: 1000;
+}
+
+
+.navbar ul li > a.current,
+.navbar ul li > a.section  {
+    position: relative;
+
+    &:after {
+        position: absolute;
+        bottom: -10px;
+        left: 35%;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid darken($navbar-color, 15%);
+        content: '';
+
+        @include respond(all-phones) {
+            display: none;
+        }
+    }
+}
+
+.gumby-touch .navbar a:hover {
+  color: $navbar-link-color !important;
+}

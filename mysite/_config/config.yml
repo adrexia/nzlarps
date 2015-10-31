@@ -1,6 +1,6 @@
 ---
 Name: mysite
-After: 'framework/*','cms/*'
+After: 'framework/*','cms/*, calendar/*'
 ---
 # YAML configuration for SilverStripe
 # See http://doc.silverstripe.org/framework/en/topics/configuration
@@ -17,6 +17,12 @@ DBField:
 LeftAndMain:
   extra_requirements_css:
    - 'mysite/css/custom.css'
+Member:
+  extensions:
+   - MemberExtension
+SecurityAdmin:
+  extensions:
+   - SecurityAdminExtension
 
 ErrorPage:
   icon: "mysite/images/sitetree_images/error.png"
@@ -24,7 +30,12 @@ UserDefinedForm:
   icon: "mysite/images/sitetree_images/form.png"
   extensions:
    - UserDefinedFormExtension
-
+CalendarAdmin:
+  menu_icon: "mysite/images/sitetree_images/event.png"
+CalendarPage:
+  icon: "mysite/images/sitetree_images/event.png"
+EventPage:
+  icon: "mysite/images/sitetree_images/date-recurring.png"
 SubmittedForm:
   extensions:
    - SubmittedFormExtension
@@ -32,3 +43,6 @@ SubmittedForm:
 Link:
   extensions:
    - LinkExtension
+
+FormSpamProtectionExtension:
+  default_spam_protector: '\StudioBonito\SilverStripe\SpamProtection\Honeypot\SpamProtector\HoneypotSpamProtector'

@@ -1,0 +1,56 @@
+// Colours based on alphabet
+.label.alpha-change {
+	background-color: $passion;
+	color: #fff;
+	border-radius: 3px;
+}
+.label.alpha-change-border {
+	border-color: rgba($passion, 0.5);
+}
+
+.w,.y,.i,.g {
+	&.alpha-change {
+		background-color: $inspiration;
+		color: #fff;
+	}
+	&.alpha-change-border {
+		border-color: rgba($inspiration, 0.5);
+	}
+}
+
+.f,.x,.t,.h, {
+	&.alpha-change {
+		background-color: $night;
+		color: #fff;
+	}
+	&.alpha-change-border {
+		border-color: rgba($night, 0.5);
+	}
+}
+.j,.k,.l,.m {
+	&.alpha-change {
+		background-color: darken($air, 25%);
+		color: #fff;
+	}
+	&.alpha-change-border {
+		border-color: rgba($air, 0.5);
+	}
+}
+.p,.q,.v,.s {
+	&.alpha-change {
+		background-color: $earth;
+		color: #fff;
+	}
+	&.alpha-change-border {
+		border-color: rgba($earth,0.5);
+	}
+}
+.r,.u,.o,.n {
+	&.alpha-change {
+		background-color: $people;
+		color: #fff;
+	}
+	&.alpha-change-border {
+		border-color: rgba($people, 0.5);
+	}
+}

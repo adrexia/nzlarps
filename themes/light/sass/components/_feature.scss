@@ -1,0 +1,182 @@
+/* Masonry feature styling (used on the homepage) */
+
+
+.main-features{
+	@include respond(tablets) {
+		margin: 0 30px;
+	}
+
+	.feature-content {
+		margin-bottom:250px;
+		position:relative;
+		margin-left: -50px;
+		margin-right: -50px;
+		@include respond(all-phones) {
+			margin: 0;
+			.item  .feature-block {
+				margin: 0;
+			}
+		}
+	}
+}
+
+.feature-content .item {
+	@include box-sizing(border-box);
+	@include fancytiles(3,2,1);
+
+	padding-left: 0;
+	padding-bottom: 10px;
+	padding-right: 0;
+	text-align: center;
+
+	@include respond(all-phones) {
+		width:100%;
+	}
+	.oldie & {
+		width: 373px;
+	}
+	&::selection {
+		background: transparent;
+	}
+
+	.feature-block {
+		@include transition-property(background-color, color);
+		@include transition-duration(0.3s);
+		color: #333;
+		display: block;
+		border-top: 5px solid #333;
+		background-color: #fff;
+		margin: 0px 10px 0px 0;
+		height: 100%;
+
+		&.link:hover,
+		&.link:focus {
+			@include transition-duration(0.3s);
+			background-color:#333;
+			color: #fff;
+			span.btn.oval {
+				border: 1px solid #fff;
+				border: 1px solid rgba(#fff, 0.5);
+				background: rgba(0,0,0,0.2);
+
+				span {
+					color: #fff;
+					text-shadow: none;
+				}
+			}
+			img {
+				opacity:0.45;
+			}
+			h3, h4, a, p{
+				color: #fff;
+			}
+			h3, .listing-item{
+				border-color:rgba(#fff, 0.5);
+			}
+		}
+
+		@for $i from 1 through $brand-num {
+			&.#{nth($brand-title, $i)} {
+				border-top: 5px solid nth($brand-list, $i);
+				&.link:hover,
+				&.link:focus {
+					background-color: nth($brand-list, $i);
+					text-shadow: rgba(darken(nth($brand-list, $i), 20%),0.8) 0px 0px 5px;
+				}
+
+				h3 a {
+					&:hover,
+					&:focus {
+						color: nth($brand-list, $i);
+						text-shadow: rgba(#000,0.8) 0px 0px 1px;
+					}
+				}
+			}
+		}
+	}
+
+	.text {
+		@include clearfix;
+		@include user-select(none);
+		padding: 0px 50px 30px;
+
+		&.has-images {
+			text-align:left;
+			.listing-item{
+				float:left;
+				width:100%;
+			}
+			.img-wrap, .img-placeholder{
+				margin:25px 0;
+				width:35%;
+				float:left;
+				height:100%;
+				overflow:hidden;
+			}
+			.first .img-wrap{
+				margin-top:5px;
+			}
+			.text-block{
+				@include clearfix;
+				width:65%;
+				float:left;
+				padding-left:30px;
+			}
+			h4{
+				font-size:18px;
+			}
+		}
+	}
+
+	.listing-item {
+		border-bottom: 1px solid #333;
+		p {
+			margin-bottom:15px;
+			margin-top: 30px;
+		}
+		&.first{
+			h4{
+				margin-top:0;
+			}
+		}
+		&.last{
+			border-bottom:0;
+			padding-bottom:40px;
+		}
+	}
+
+	/* Typography styles within masonry features */
+
+	// We want a dark background so hover will darken the image
+	.img-wrap {
+		background: #000;
+	}
+
+	img {
+		display: block;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	h3 {
+		font-size: 30px;
+		margin: 30px 40px 0;
+		padding-right: 0;
+		text-transform: uppercase;
+	}
+
+	h4 {
+		border-bottom:0;
+		font-size:22px;
+		margin-top:20px;
+	}
+	p {
+		font-size:15px;
+		margin-bottom:15px;
+		margin-top: 30px;
+	}
+
+	h3, h4, a, p {
+		color: #333;
+	}
+}

@@ -1,0 +1,175 @@
+.splash-overlay.cropped {
+	position: relative;
+	.splash,
+	.overlay {
+		min-height: 430px;
+	}
+	.page-header {
+		padding-bottom: 115px;
+	}
+
+	&.dark {
+		.splash {
+			background-color: #fff;
+		}
+	}
+
+	@include respond(tablets) {
+		h1  {
+			font-size: 4rem;
+		}
+	}
+}
+
+@include respond(all-phones) {
+	.splash-overlay {
+		position: relative;
+		.splash,
+		.overlay {
+			min-height: 675px;
+		}
+		.page-header {
+			padding-bottom: 28px;
+		}
+
+		&.dark {
+			.splash {
+				background-color: #fff;
+			}
+		}
+		h1 {
+			margin-bottom: 20px;
+			margin-top: 10px;
+			font-size: 2rem;
+		}
+		p.lead {
+			font-size: 1rem;
+		}
+	}
+}
+
+@include respond(tablets) {
+	.splash-overlay {
+		position: relative;
+		.splash,
+		.overlay {
+			min-height: 675px;
+		}
+		.page-header {
+			padding-bottom: 28px;
+		}
+
+		&.dark {
+			.splash {
+				background-color: #fff;
+			}
+		}
+
+		p.lead {
+			font-size: 1rem;
+			margin-bottom: 5px;
+			margin-top: 0;
+		}
+	}
+}
+
+.splash,
+.overlay {
+	min-height: 675px;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+	top: 0;
+}
+
+.splash {
+	background-size: cover;
+	background-color: #000;
+}
+
+
+
+.overlay {
+	background: $air;
+	opacity: 0.8;
+	@include background-image (linear-gradient(top, darken( $air, 10%) 15%,  $air));
+
+	.fullheight & {
+		@include background-image (linear-gradient(top, darken( $air, 20%) 10%,  $air));
+	}
+}
+
+
+
+.splash-overlay {
+	@for $i from 1 through $brand-num {
+		&.#{nth($brand-title, $i)} {
+			.overlay {
+				background: nth($brand-list, $i);
+				@include background-image (
+					linear-gradient(
+						top,
+						darken(nth($brand-list, $i), 10%) 10%,
+						nth($brand-list, $i)
+					)
+				);
+
+				.fullheight & {
+					@include background-image (linear-gradient(top, darken(nth($brand-list, $i), 20%) 10%, nth($brand-list, $i)));
+				}
+			}
+
+			&.night {
+				.overlay {
+					background: nth($brand-list, $i);
+					@include background-image (
+						linear-gradient(
+							top,
+							lighten(nth($brand-list, $i), 10%) 10%,
+							darken(nth($brand-list, $i), 40%)
+						)
+					);
+
+					.fullheight & {
+						@include background-image (linear-gradient(top, lighten(nth($brand-list, $i), 20%) 10%, darken(nth($brand-list, $i), 40%)));
+					}
+				}
+			}
+			.page-header {
+				color: #fff;
+				text-shadow: rgba(darken(nth($brand-list, $i), 10%), 0.8) 0px 0px 20px;
+			}
+
+			.navbar {
+				background: nth($brand-list-contrast, $i);
+				ul li > a.current,
+				ul li > a.section  {
+
+					&:after {
+						border-top: 10px solid nth($brand-list-contrast, $i);
+					}
+					&:hover,
+					&:focus {
+						&:after {
+							border-top: 10px solid darken(nth($brand-list-contrast, $i), 15%);
+						}
+					}
+				}
+			}
+
+			.btn {
+				&.active {
+					> a, a:visited, input, button, > span {
+						color: nth($brand-list, $i);
+						text-shadow: none;
+						&:hover,
+						&:focus {
+							color: $white;
+						}
+					}
+				}
+			}
+		}
+	}
+}
