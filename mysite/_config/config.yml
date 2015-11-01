@@ -23,6 +23,9 @@ Member:
 SecurityAdmin:
   extensions:
    - SecurityAdminExtension
+Event:
+     extensions:
+      - EventExtension
 
 ErrorPage:
   icon: "mysite/images/sitetree_images/error.png"

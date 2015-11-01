@@ -11,39 +11,21 @@
   a {
     color: #fff;
   }
-  @each $shade in $ui-coloring {
-    &.#{nth($shade, 1)} {
-      background: nth($shade, 2);
-      border: 1px solid nth($shade, 2);
-      @if nth($shade, 1) == default {
-        color: #333;
-        &:hover,
-        &focus {
-          border-color: darken(nth($shade, 2), 5%);
-        }
-        a {
-          color: #333;
-        }
+
+  @for $i from 1 through $brand-num {
+      &.#{nth($brand-title, $i)} {
+          color: #fff;
+          background: nth($brand-list, $i);
+          border: 1px solid nth($brand-list, $i);
+
+          a:hover &,
+          a:focus & {
+              background: #fff;
+              color: nth($brand-list, $i);
+              text-shadow: none;
+              border: 1px solid #fff;
+          }
       }
-      @if nth($shade, 1) == warning {
-        color: darken(nth($shade, 2), 40%);
-        a {
-          color: darken(nth($shade, 2), 40%);
-        }
-      }
-    }
-  }
-  &.light {
-    background: #fff;
-    color: $body-font-color;
-    border: 1px solid $default-color;
-    a {
-      color: $body-link-color;
-    }
-  }
-  &.dark {
-    background: #212121;
-    border: 1px solid #212121;
   }
 }
 

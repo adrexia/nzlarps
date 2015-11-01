@@ -17,7 +17,8 @@ class Region extends DataObject implements PermissionProvider {
 		'Intro' => 'Text',
 		'Content' => 'HTMLText',
 		'Sort' => 'Int',
-		'Archived' => 'Boolean'
+		'Archived' => 'Boolean',
+		'HideFromRegionLists' => 'Boolean'
 	);
 
 	/**
@@ -71,12 +72,21 @@ class Region extends DataObject implements PermissionProvider {
 			), "Title"
 		);
 
+
+		$fields->removeByName('HideFromRegionLists');
+
+
 		// Archived
 		$fields->removeByName('Archived');
 		$fields->addFieldToTab('Root.Main', $group = new CompositeField(
-			$label = new LabelField("LabelArchive","Archive this feature?"),
+			$labelHide = new LabelField("LabelHideFromRegionLists","Hide from region lists?"),
+			new CheckboxField('HideFromRegionLists',
+			"e.g. if you need a region for an event that isn't a regular NZLarp's region"),
+			$label = new LabelField("LabelArchive","Archive this region?"),
 			new CheckboxField('Archived', '')
 		));
+
+		$labelHide->addExtraClass("left");
 
 		$group->addExtraClass("special field");
 		$label->addExtraClass("left");
@@ -90,6 +100,14 @@ class Region extends DataObject implements PermissionProvider {
 	 */
 	public function URLSegment($action = 'region') {
 		return Controller::join_links($action, $this->ID);
+	}
+
+	public function getColourName() {
+		if($this->Colour) {
+			return $this->Colour;
+		} else {
+			return 'air';
+		}
 	}
 
 

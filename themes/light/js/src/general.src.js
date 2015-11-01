@@ -4,7 +4,6 @@
 $(function() {
 	"use strict";
 
-
 	if($('.tag-field.genre').length > 0){
 
 		$(".tag-field.genre input").tagsInput({

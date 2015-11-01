@@ -5,8 +5,10 @@ class Page extends SiteTree {
 
 	private static $db = array(
 		'Intro' => 'Text',
-		'Colour' => 'Varchar(255)'
+		'Colour' => 'Varchar(255)',
+		'ExtraContent' => 'HTMLText'
 	);
+
 
 	private static $has_one = array(
 		'SplashImage' => 'Image'
@@ -16,6 +18,7 @@ class Page extends SiteTree {
 		$fields = parent::getCMSFields();
 
 		$fields->insertBefore(TextareaField::create('Intro', 'Intro'),'Content');
+		$fields->insertAfter(HTMLEditorField::create('ExtraContent'), 'Content');
 
 		$fields->insertAfter(
 			ColorPaletteField::create(
@@ -103,7 +106,15 @@ class Page_Controller extends ContentController {
 		return str_replace("-",  " ", $title);
 	}
 
+	public function CountCharacters($string) {
+		return strlen($string);
+	}
+
 	public function UseDarkLogo() {
 		return $this->Colour === 'night' || $this->Colour === 'inspiration';
+	}
+
+	public function getFutureEvents() {
+		return CalendarHelper::coming_events();
 	}
 }

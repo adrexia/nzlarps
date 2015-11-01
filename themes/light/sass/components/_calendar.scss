@@ -1,5 +1,40 @@
 
 
+
+td.fc-mon,
+td.fc-tue,
+td.fc-wed,
+td.fc-thu {
+	background: #f9f9f9;
+	max-width: 80px;
+}
+
+
+td.fc-fri,
+td.fc-sat,
+td.fc-sun {
+
+	min-width: 180px;
+}
+
+
+.fc-event {
+    margin-bottom: 5px;
+}
+.fc-event-inner {
+	background: rgba(0,0,0,0.15);
+	font-size: 0.9em;
+	padding: 3px 8px 8px;
+	line-height: 1.2em;
+}
+
+.fc-event-time {
+	font-size: 0.9em;
+	text-align: right;
+	padding: 0 5px 0 0;
+	display: block;
+}
+
 .calendar {
 	margin-top: 50px;
 }

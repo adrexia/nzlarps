@@ -8,12 +8,6 @@
 		padding-bottom: 115px;
 	}
 
-	&.dark {
-		.splash {
-			background-color: #fff;
-		}
-	}
-
 	@include respond(tablets) {
 		h1  {
 			font-size: 4rem;
@@ -32,11 +26,6 @@
 			padding-bottom: 28px;
 		}
 
-		&.dark {
-			.splash {
-				background-color: #fff;
-			}
-		}
 		h1 {
 			margin-bottom: 20px;
 			margin-top: 10px;
@@ -57,12 +46,6 @@
 		}
 		.page-header {
 			padding-bottom: 28px;
-		}
-
-		&.dark {
-			.splash {
-				background-color: #fff;
-			}
 		}
 
 		p.lead {

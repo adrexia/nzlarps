@@ -5,18 +5,6 @@ class AboutPage extends Page {
 	private static $icon = "mysite/images/sitetree_images/about.png";
 	public $pageIcon = "mysite/images/sitetree_images/about.png";
 
-	private static $db = array(
-		'ExtraContent' => 'HTMLText'
-	);
-
-	public function getCMSFields() {
-		$fields = parent::getCMSFields();
-
-		$fields->insertAfter(HTMLEditorField::create('ExtraContent'), 'Content');
-
-		return $fields;
-	}
-
 }
 
 class AboutPage_Controller extends Page_Controller {
@@ -40,7 +28,7 @@ class AboutPage_Controller extends Page_Controller {
 	 * @return ArrayList
 	 */
 	public function CurrentRegions() {
-		return Region::get()->filter('Archived', false)->sort('Sort');
+		return Region::get()->filter(array('Archived'=> false, 'HideFromRegionLists' => false))->sort('Sort');
 	}
 
 

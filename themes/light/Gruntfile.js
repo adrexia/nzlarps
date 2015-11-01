@@ -34,7 +34,6 @@ grunt.initConfig({
           'js/src/libs/ui/gumby.radiobtn.js',
           'js/src/libs/ui/gumby.tabs.js',
           'js/src/libs/ui/gumby.navbar.js',
-          'js/src/libs/ui/gumby.fittext.js',
           'js/src/libs/ui/jquery.validation.js',
           'js/src/libs/gumby.init.js',
           "js/src/libs/tags-input/jquery.tagsinput.js",

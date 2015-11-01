@@ -84,11 +84,12 @@
 					text-shadow: rgba(darken(nth($brand-list, $i), 20%),0.8) 0px 0px 5px;
 				}
 
-				h3 a {
+				h3 a,
+				h4 a {
 					&:hover,
 					&:focus {
 						color: nth($brand-list, $i);
-						text-shadow: rgba(#000,0.8) 0px 0px 1px;
+						text-shadow: none;
 					}
 				}
 			}
@@ -129,7 +130,12 @@
 	}
 
 	.listing-item {
+
 		border-bottom: 1px solid #333;
+
+		&.first {
+			padding-top: 25px;
+		}
 		p {
 			margin-bottom:15px;
 			margin-top: 30px;
@@ -178,5 +184,62 @@
 
 	h3, h4, a, p {
 		color: #333;
+	}
+
+	// Events
+
+	.label + h3,
+	.label + h4 {
+		margin-top: 5px;
+		margin-bottom: 0;
+	}
+
+	h4.with-region {
+		margin-bottom: 5px;
+
+		+ .region {
+			margin-top:0;
+			margin-bottom: 30px;
+		}
+	}
+
+	h3, h4 {
+		.subhead {
+			display: block;
+		}
+	}
+
+	a:hover,
+	a:focus {
+		.meta-data {
+			color: #fff;
+
+		}
+	}
+
+	.meta-data {
+		margin-bottom: 5px;
+	}
+
+	.dayOfMonth {
+		line-height: 1em;
+	}
+
+	.month, .region {
+		font-size: 0.8em;
+		text-transform: uppercase;
+		display: block;
+		text-align: center;
+		line-height: 18px;
+	}
+
+	.month {
+		margin-top: 5px;
+	}
+
+	.region {
+		margin-top: 15px;
+		height: auto;
+		display: inline-block;
 	}
 }

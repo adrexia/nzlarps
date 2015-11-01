@@ -27,6 +27,14 @@ h1 {
     @include font-size($reallybig);
   }
 
+  &.small {
+    @include font-size($xxxlarge - 10);
+  }
+
+  &.smallest {
+    @include font-size($xxlarge + 3);
+  }
+
   &.page-header{
     margin-bottom:30px;
   }

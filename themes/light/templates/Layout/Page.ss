@@ -6,6 +6,12 @@
 			<% include RelatedPages %>
 			$PageComments
 		</div>
+
+		<% if $ExtraContent %>
+		<div class="main mtm">
+			$ExtraContent.RichLinks
+		</div>
+		<% end_if %>
 		<footer class="content-footer columns twelve">
 			<% include PrintShare %>
 			<% include LastEdited %>

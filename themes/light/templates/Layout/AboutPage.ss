@@ -18,9 +18,11 @@
 			<% end_loop %>
 		</div>
 
+		<% if $ExtraContent %>
 		<div class="main">
 			$ExtraContent.RichLinks
 		</div>
+		<% end_if %>
 
 
 		<footer class="content-footer columns twelve">

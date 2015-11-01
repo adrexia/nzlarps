@@ -1,10 +1,6 @@
 <div class="row">
 	<div class="columns twelve">
 		<div class="main typography first calendar" role="main" id="main">
-			<div class="contentwrap">
-				$Content.RichLinks
-			</div>
-
 			<div class="fullcalendar">
 
 				<% include CalendarPageMenu CurrentMenu='calendarview' %>

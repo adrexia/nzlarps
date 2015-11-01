@@ -5,8 +5,14 @@
 
 			<div class="EventDetail">
 				<% with Event %>
-					<h2>$Title</h2>
-					<div class="datesAndTimeframe subhead">
+					<h2>
+						<% if $Region %>
+							$Region.Title, 
+						<% end_if %>
+						$StartDateTime.DayOfMonth
+						$StartDateTime.Format('F, Y')
+					</h2>
+					<p class="subhead">
 						<% if $StartAndEndDates %>
 							<span>$StartAndEndDates</span>
 						<% else %>
@@ -16,17 +22,25 @@
 								<span>$FormattedTimeframe</span>
 							<% end_if %>
 						<% end_if %>
-					</div>
+
+					</p>
 					<% if $EventPage %>
 						<% with $EventPage %>
 							<a href="$Link" style="margin: 12px 0 0 19px;display: block;">Go to the $Title page</a>
 						<% end_with %>
 					<% end_if %>
+
 					$Details
 				<% end_with %>
 			</div>
 
 		</div>
+
+		<% if $Event.ExtraContent %>
+			<div class="main mtm">
+				$Event.ExtraContent.RichLinks
+			</div>
+		<% end_if %>
 		<footer class="content-footer columns twelve">
 			<% include PrintShare %>
 			<% include LastEdited %>
