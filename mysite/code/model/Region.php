@@ -27,7 +27,7 @@ class Region extends DataObject implements PermissionProvider {
 	 */
 	private static $has_one = array(
 		'Parent' => 'Page',
-		'Image' => 'Image'
+		'SplashImage' => 'Image'
 	);
 
 	/**
@@ -81,7 +81,7 @@ class Region extends DataObject implements PermissionProvider {
 		$fields->addFieldToTab('Root.Main', $group = new CompositeField(
 			$labelHide = new LabelField("LabelHideFromRegionLists","Hide from region lists?"),
 			new CheckboxField('HideFromRegionLists',
-			"e.g. if you need a region for an event that isn't a regular NZLarp's region"),
+			"e.g. if you need a region for an event that isn't a branch location"),
 			$label = new LabelField("LabelArchive","Archive this region?"),
 			new CheckboxField('Archived', '')
 		));

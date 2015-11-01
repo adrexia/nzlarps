@@ -1,13 +1,11 @@
 <div class="row">
 	<div class="columns twelve">
 		<div class="main typography first" role="main" id="main">
-			$Content.RichLinks
-
 			<div class="EventDetail">
 				<% with Event %>
 					<h2>
 						<% if $Region %>
-							$Region.Title, 
+							$Region.Title,
 						<% end_if %>
 						$StartDateTime.DayOfMonth
 						$StartDateTime.Format('F, Y')
