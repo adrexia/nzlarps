@@ -109,7 +109,7 @@ class MemberExtension extends DataExtension {
 
 		if(!$this->owner->MemberNumber) {
 
-			$this->owner->MemberNumber = Member::get()->sort('ID')->last()->ID + 1;
+			$this->owner->MemberNumber = Member::get()->sort('ID')->last()->ID + 300;
 
 		}
 

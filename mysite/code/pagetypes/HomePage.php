@@ -29,6 +29,7 @@ class HomePage extends Page {
 		$config->addComponent(new GridFieldOrderableRows());
 
 		$fields->removeByName('Content');
+		$fields->removeByName('ExtraContent');
 
 		return $fields;
 	}

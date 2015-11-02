@@ -44,10 +44,6 @@ class CustomSiteConfig extends DataExtension {
 		$logoField->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
 		$logoField->setConfig('allowedMaxFileNumber', 1);
 
-		$fields->addFieldToTab('Root.Logos', $logoField = new UploadField('LogoLight', 'Light Logo, for dark backgrounds'));
-		$logoField->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
-		$logoField->setConfig('allowedMaxFileNumber', 1);
-
 		$fields->addFieldToTab('Root.Logos', new TextField('LogoText', 'Logo Text'));
 
 	}
