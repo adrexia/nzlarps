@@ -35,7 +35,7 @@
 		"sheadawson/silverstripe-linkable": "dev-master",
 		"unclecheese/display-logic": "1.2.1",
 		"studiobonito/silverstripe-spamprotection-honeypot": "1.1.0",
-		"titledk/silverstripe-calendar" : "1.0.1",
+		"adrexia/silverstripe-calendar" : "dev-master",
 		"heyday/silverstripe-colorpalette": "dev-master"
 	},
 	"config": {

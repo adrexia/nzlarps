@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5e0627e71a20b93fc3ae06eb805d0fee",
-    "content-hash": "07b24e5f64a6b5c12d629e1b8c3bec63",
+    "hash": "8534263842e0a8e96eecaf63fec88b76",
+    "content-hash": "99d8cd06b0ed74cc721803d93fd702d3",
     "packages": [
         {
             "name": "adrexia/dashboardmods",
@@ -92,6 +92,53 @@
                 "source": "https://github.com/adrexia/silverstripe-memberprofiles/tree/master"
             },
             "time": "2015-10-31 00:51:18"
+        },
+        {
+            "name": "adrexia/silverstripe-calendar",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adrexia/silverstripe-calendar.git",
+                "reference": "a7678c3522273bda06221a3204409ef362319bdf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adrexia/silverstripe-calendar/zipball/a7678c3522273bda06221a3204409ef362319bdf",
+                "reference": "a7678c3522273bda06221a3204409ef362319bdf",
+                "shasum": ""
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "calendar",
+                "screenshots": [
+                    "docs/img/preview.png",
+                    "docs/img/screenshots/frontend-fullcalendar.png"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anselm Christophersen",
+                    "email": "ac@anselm.dk"
+                },
+                {
+                    "name": "Colin Burns",
+                    "email": "ccburns@gmail.com"
+                }
+            ],
+            "description": "Highly flexible calendar system for SilverStripe",
+            "homepage": "https://github.com/titledk/silverstripe-calendar",
+            "keywords": [
+                "calendar",
+                "events",
+                "silverstripe"
+            ],
+            "support": {
+                "source": "https://github.com/adrexia/silverstripe-calendar/tree/1.0.1b"
+            },
+            "time": "2015-11-02 06:50:04"
         },
         {
             "name": "composer/installers",
@@ -358,12 +405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sheadawson/silverstripe-linkable.git",
-                "reference": "65247e07ba1722b1c3494538d0e424be3b716506"
+                "reference": "29534b2b0f878d183c4f0cf8dc64fba34120643a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sheadawson/silverstripe-linkable/zipball/65247e07ba1722b1c3494538d0e424be3b716506",
-                "reference": "65247e07ba1722b1c3494538d0e424be3b716506",
+                "url": "https://api.github.com/repos/sheadawson/silverstripe-linkable/zipball/29534b2b0f878d183c4f0cf8dc64fba34120643a",
+                "reference": "29534b2b0f878d183c4f0cf8dc64fba34120643a",
                 "shasum": ""
             },
             "require": {
@@ -375,7 +422,10 @@
             },
             "type": "silverstripe-module",
             "extra": {
-                "installer-name": "linkable"
+                "installer-name": "linkable",
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -398,7 +448,7 @@
                 "link",
                 "silverstripe"
             ],
-            "time": "2015-10-12 07:49:58"
+            "time": "2015-11-01 09:53:31"
         },
         {
             "name": "silverstripe-australia/gridfieldextensions",
@@ -1145,51 +1195,6 @@
             "time": "2015-09-28 11:06:44"
         },
         {
-            "name": "titledk/silverstripe-calendar",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/adrexia/silverstripe-calendar.git",
-                "reference": "248253f8113f9063bf4349a60cd7464d4891b29d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/adrexia/silverstripe-calendar/zipball/248253f8113f9063bf4349a60cd7464d4891b29d",
-                "reference": "248253f8113f9063bf4349a60cd7464d4891b29d",
-                "shasum": ""
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "calendar",
-                "screenshots": [
-                    "docs/img/preview.png",
-                    "docs/img/screenshots/frontend-fullcalendar.png"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anselm Christophersen",
-                    "email": "ac@anselm.dk"
-                },
-                {
-                    "name": "Colin Burns",
-                    "email": "ccburns@gmail.com"
-                }
-            ],
-            "description": "Highly flexible calendar system for SilverStripe",
-            "homepage": "https://github.com/titledk/silverstripe-calendar",
-            "keywords": [
-                "calendar",
-                "events",
-                "silverstripe"
-            ],
-            "time": "2015-10-01 08:38:15"
-        },
-        {
             "name": "unclecheese/betterbuttons",
             "version": "dev-master",
             "source": {
@@ -1282,6 +1287,7 @@
         "jonom/silverstripe-betternavigator": 20,
         "adrexia/dashboardmods": 20,
         "sheadawson/silverstripe-linkable": 20,
+        "adrexia/silverstripe-calendar": 20,
         "heyday/silverstripe-colorpalette": 20
     },
     "prefer-stable": false,
