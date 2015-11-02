@@ -8,7 +8,6 @@ silverstripe-cache
 .idea
 .DS_Store
 vendor/
-.htaccess
 .sass-cache/
 cms/*
 framework/*
