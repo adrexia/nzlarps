@@ -29,6 +29,19 @@
 							</div>
 						</div>
 
+				<% else_if $Type =='Project' && $Projects() %>
+
+					<div class="item">
+						<div class="feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
+							<h3>
+								<a href="$Link.Link">$Title</a>
+							</h3>
+							<article class="text">
+								<% include FeatureListing Items=$Projects, Type=Projects %>
+							</article>
+						</div>
+					</div>
+
 				<% else_if $Type == Content %>
 				<div class="item">
 
@@ -51,7 +64,7 @@
 						<% end_if %>
 
 						<% if $Image %>
-							<div class="img-wrap">$Image.SetWidth(390)</div>
+							<div class="img-wrap">$Image.SetWidth(430)</div>
 						<% end_if %>
 
 					<% if $Link %></a><% else %></div><% end_if %>

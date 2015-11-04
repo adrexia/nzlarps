@@ -1,18 +1,25 @@
 <div class="row">
 	<div class="columns twelve">
-		<div class="main typography first calendar" role="main" id="main">
-			<h2>Upcoming Events</h2>
+		<div class="main typography first" role="main" id="main">
 			$Content.RichLinks
+			$Form
+			<% include RelatedPages %>
+			$PageComments
 		</div>
 
 		<% if $getFutureEvents %>
 			<div class="Events ptl">
-				<% include EventListEvents Events=$FutureEvents %>
+				<% include EventListEvents Events=$AllEvents %>
 			</div>
 		<% else %>
 			<p><em class"noEventsMsg">No upcoming events</em></p>
 		<% end_if %>
 
+		<% if $ExtraContent %>
+		<div class="main mtm">
+			$ExtraContent.RichLinks
+		</div>
+		<% end_if %>
 		<footer class="content-footer columns twelve">
 			<% include PrintShare %>
 			<% include LastEdited %>

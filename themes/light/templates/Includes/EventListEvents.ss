@@ -1,9 +1,9 @@
 <div class="row features">
 	<div class="columns twelve">
 		<div class="feature-content slides masonry-items js-isotope" id="feature-group">
-			<% loop $FutureEvents %>
+			<% loop $Events %>
 
-			<div class="item">
+			<div class="item <% if $getIsPastEvent() %>past<% end_if %>">
 
 				<a href="$InternalLink" class="link feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
 
@@ -39,7 +39,7 @@
 					</article>
 
 					<% if $SmallImage %>
-						<div class="img-wrap">$SmallImage.SetWidth(390)</div>
+						<div class="img-wrap">$SmallImage.SetWidth(430)</div>
 					<% end_if %>
 				</a>
 			</div>

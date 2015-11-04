@@ -12,11 +12,12 @@ class FeatureItem extends DataObject {
 	 */
 	private static $db = array(
 		'Title' => 'Varchar(255)',
-		'Type' => 'Enum("Content, Events, News", "Content")',
+		'Type' => 'Enum("Content, Events, News, Project", "Content")',
 		'Colour' => 'Varchar(255)',
 		'Content' => 'Text',
 		'LinkLabel' => 'Varchar(255)',
 		'NumberToDisplay' =>'Int',
+		'ProjectType' =>'Enum("Project, Affiliate","Project")',
 		'Sort' => 'Int',
 		'Archived' => 'Boolean'
 	);
@@ -67,12 +68,15 @@ class FeatureItem extends DataObject {
 
 		$content = $fields->dataFieldByName('Content');
 		$numberToDisplay = $fields->dataFieldByName('NumberToDisplay');
+		$projectType = $fields->dataFieldByName('ProjectType');
 
 		$link = $fields->dataFieldByName('LinkID');
 
 		$image = $fields->dataFieldByName('Image');
 
 		$fields->removeByName('Image');
+
+		$fields->insertBefore($projectType,'Content');
 
 		$fields->insertAfter(
 			OptionSetField::create(
@@ -98,12 +102,13 @@ class FeatureItem extends DataObject {
 		$fields->insertAfter($linkLabel = new TextField("LinkLabel","Link Label"), "LinkID");
 		$fields->insertAfter($imageLogin = DisplayLogicWrapper::create($image), 'LinkLabel');
 		$imageLogin->hideUnless("Type")->isEqualTo("Content");
-		// $content->hideUnless("Type")->isEqualTo("Content");
-		$link->hideUnless("Type")->isEqualTo("Content");
+
+		$link->hideUnless("Type")->isEqualTo("Content")->orIf("Type")->isEqualTo("Project");
 		$linkLabel->hideUnless("LinkID")->isGreaterThan(0)->andIf("Type")->isEqualTo("Content");
 
 
 		$numberToDisplay->hideIf("Type")->isEqualTo("Content");
+		$projectType->hideUnless("Type")->isEqualTo("Project");
 
 
 		// Archived
@@ -177,6 +182,10 @@ class FeatureItem extends DataObject {
 
 	public function getEvents() {
 		return CalendarHelper::coming_events();
+	}
+
+	public function getProjects() {
+		return ProjectPage::get()->filter(array('Type' => $this->ProjectType, 'State' => 'Current'));
 	}
 
 	public function CalendarPage() {

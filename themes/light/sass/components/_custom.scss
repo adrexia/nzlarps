@@ -55,6 +55,9 @@
 	.btn {
 		margin-top: 30px;
 		margin-bottom: 30px;
+		&.large {
+			margin-bottom: 50px;
+		}
 	}
 
 	.secondary-menu {

@@ -29,6 +29,10 @@
 	padding-right: 0;
 	text-align: center;
 
+	&.past {
+		opacity: 0.5;
+	}
+
 	@include respond(all-phones) {
 		width:100%;
 	}

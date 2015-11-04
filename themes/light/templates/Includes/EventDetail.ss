@@ -22,13 +22,14 @@
 						<% end_if %>
 
 					</p>
-					<% if $EventPage %>
-						<% with $EventPage %>
-							<a href="$Link" style="margin: 12px 0 0 19px;display: block;">Go to the $Title page</a>
-						<% end_with %>
-					<% end_if %>
 
 					$Details
+
+					<% if $EventPage %>
+						<% with $EventPage %>
+							<a href="$Link" class="btn medium oval default"><span>More $Title</span></a>
+						<% end_with %>
+					<% end_if %>
 				<% end_with %>
 			</div>
 
