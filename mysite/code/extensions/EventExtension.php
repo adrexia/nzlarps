@@ -42,13 +42,15 @@ class EventExtension extends DataExtension {
 		$details = $fields->dataFieldByName('Details');
 		$event = $fields->dataFieldByName('EventPageID');
 
-		$fields->insertAfter($event, 'Categories');
+		$fields->removeByName('CalendarID');
+
+		$fields->insertAfter($event, 'TimeFrameType');
 		$fields->insertAfter(
 			$region = DropdownField::create(
 				'RegionID',
 				'Region',
 				Region::get()->map('ID', 'Title')),
-			'Categories');
+			'EventPageID');
 
 
 		$region->setEmptyString(' ');
