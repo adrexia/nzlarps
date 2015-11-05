@@ -35,11 +35,13 @@ class ProjectListingPage extends Page {
 class ProjectListingPage_Controller extends Page_Controller {
 
 	public function getProjects() {
-		if(!$this->Type) {
+		$projectpages = ProjectPage::get();
+		if(!$this->Type || !$projectpages) {
 			return false;
 		}
 
 		return ProjectPage::get()->filter(array('Type' => $this->Type))->sort(array('State' => 'Asc','Title' => 'Asc'));
+
 	}
 
 }

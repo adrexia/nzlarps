@@ -77,7 +77,7 @@ class Page_Controller extends ContentController {
 		return $this->SliderItems()->filter('Archived', false);
 	}
 
-	public function getMemberProfilePage(){
+	public function getMemberProfilePage() {
 		return MemberProfilePage::get()->First();
 	}
 
