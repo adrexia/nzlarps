@@ -4,12 +4,13 @@
 			<div class="main" role="main" id="main">
 				<h2>
 					Details
-					<span class="subhead meta-data">$Tagline</span>
 				</h2>
+				<p class="subhead">$Tagline</p>
 				<ul>
+					<li><strong>Contact:</strong> $Contact</li>
 					<li><strong>Type:</strong> $Type</li>
 					<li><strong>State:</strong> $State</li>
-					<li><strong>Contact:</strong> $Contact</li>
+
 				</ul>
 			</div>
 			$Content.RichLinks.Pagebreaks
