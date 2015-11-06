@@ -1,10 +1,15 @@
 <div class="row">
 	<div class="columns twelve">
 		<div class="top-panel" role="main" id="main">
+			<% if $Content %>
 			$Content.RichLinks.Pagebreaks
-			$Form
-			<% include RelatedPages %>
-			$PageComments
+			<% end_if %>
+
+			<% if $Form %>
+			<div class="main">
+				$Form
+			</div>
+			<% end_if %>
 		</div>
 
 
