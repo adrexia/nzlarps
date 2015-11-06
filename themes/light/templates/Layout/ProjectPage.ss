@@ -5,13 +5,14 @@
 				<h2>
 					Details
 				</h2>
-				<p class="subhead">$Tagline</p>
+				<% if $Tagline %><p class="subhead">$Tagline</p><% end_if %>
+				<% if $Contact || $Type || $State %>
 				<ul>
-					<li><strong>Contact:</strong> $Contact</li>
-					<li><strong>Type:</strong> $Type</li>
-					<li><strong>State:</strong> $State</li>
-
+					<% if $Contact %><li><strong>Contact:</strong> $Contact</li><% end_if %>
+					<% if $Type %><li><strong>Type:</strong> $Type</li><% end_if %>
+					<% if $State %><li><strong>State:</strong> $State</li><% end_if %>
 				</ul>
+				<% end_if %>
 			</div>
 			$Content.RichLinks.Pagebreaks
 			$Form
