@@ -2,11 +2,11 @@
 	<div class="columns twelve">
 		<div class="top-panel" role="main" id="main">
 			<div class="main" role="main" id="main">
+				<% if $Contact || $Type || $State || $Tagline %>
 				<h2>
 					Details
 				</h2>
 				<% if $Tagline %><p class="subhead">$Tagline</p><% end_if %>
-				<% if $Contact || $Type || $State %>
 				<ul>
 					<% if $Contact %><li><strong>Contact:</strong> $Contact</li><% end_if %>
 					<% if $Type %><li><strong>Type:</strong> $Type</li><% end_if %>
