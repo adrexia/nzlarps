@@ -44,6 +44,8 @@ class EventExtension extends DataExtension {
 
 		$fields->removeByName('CalendarID');
 
+		$fields->insertAfter(HiddenField::create('CalendarID'), 'TimeFrameType');
+
 		$fields->insertAfter($event, 'TimeFrameType');
 		$fields->insertAfter(
 			$region = DropdownField::create(
