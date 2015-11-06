@@ -35,3 +35,11 @@
     border-bottom: 1px solid #236184;
     background: #338DC1;
 }
+
+.inline-short-list .optionset li {
+	width: 100px;
+}
+
+.no-pagebreak .defaultSkin .mceButton.mce_pagebreak {
+	display: none;
+}

@@ -7,6 +7,29 @@ class RegistrationPage extends MemberProfilePage {
 
 	private static $hide_ancestor = "MemberProfilePage";
 
+	private static $singular_name = 'Registration Page';
+	private static $description = 'Lets users signup for NZLarps membership, and check their details.';
+
+	public function getCMSFields() {
+		$fields = parent::getCMSFields();
+
+
+		$fields->removeByName('Features');
+		$fields->removeByName('ExtraContent');
+
+		$regContent = $fields->dataFieldByName('RegistrationContent');
+		$afterContent = $fields->dataFieldByName('AfterRegistrationContent');
+		$profileContent = $fields->dataFieldByName('ProfileContent');
+
+		$regContent->addExtraClass('no-pagebreak');
+		$afterContent->addExtraClass('no-pagebreak');
+		$profileContent->addExtraClass('no-pagebreak');
+
+
+
+		return $fields;
+	}
+
 }
 
 class RegistrationPage_Controller extends MemberProfilePage_Controller {

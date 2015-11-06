@@ -14,7 +14,7 @@
 }
 
 .external img{
-	display: none;	
+	display: none;
 }
 
 @media only screen and (max-width: 767px) {
@@ -93,10 +93,13 @@
 	}
 }
 
+.top-panel {
+	margin-top: -100px;
+}
+
 .main {
 	background: #fff;
-	min-height: 370px;
-
+	min-height: 250px;
 	padding: 30px 150px 50px;
 	text-align: center;
 
@@ -125,9 +128,6 @@
 		padding: 30px;
 	}
 
-	&.first {
-		margin-top: -100px;
-	}
 	p {
 		font-size: 1.2rem;
 		@include respond(tablets) {

@@ -5,6 +5,15 @@ class AboutPage extends Page {
 	private static $icon = "mysite/images/sitetree_images/about.png";
 	public $pageIcon = "mysite/images/sitetree_images/about.png";
 
+	private static $singular_name = 'About Page';
+	private static $description = 'A page to show regions.';
+
+	public function getCMSFields() {
+		$fields = parent::getCMSFields();
+		$fields->removeByName('Features');
+		return $fields;
+	}
+
 }
 
 class AboutPage_Controller extends Page_Controller {
@@ -30,6 +39,5 @@ class AboutPage_Controller extends Page_Controller {
 	public function CurrentRegions() {
 		return Region::get()->filter(array('Archived'=> false, 'HideFromRegionLists' => false))->sort('Sort');
 	}
-
 
 }

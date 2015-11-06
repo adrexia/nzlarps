@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="columns twelve">
-		<div class="main typography first" role="main" id="main">
+		<div class="main top-panel" role="main" id="main">
 			<div class="EventDetail">
 				<% with Event %>
 					<h2>

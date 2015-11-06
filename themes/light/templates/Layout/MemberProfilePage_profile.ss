@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="columns twelve">
-		<div class="main typography first" role="main" id="main">
+		<div class="main typography top-panel" role="main" id="main">
 			<% with $CurrentMember %>
 				<h2>Your Membership</h2>
 				<% if $MembershipStatus == 'Applied' %>

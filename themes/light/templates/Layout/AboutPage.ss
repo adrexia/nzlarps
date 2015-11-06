@@ -1,8 +1,7 @@
 <div class="row">
-
 	<div class="columns twelve"  role="main" id="main">
-		<div class="main typography first">
-			$Content.RichLinks
+		<div class="top-panel">
+			$Content.RichLinks.Pagebreaks
 			$Form
 			<% include RelatedPages %>
 			$PageComments
@@ -19,8 +18,8 @@
 		</div>
 
 		<% if $ExtraContent %>
-		<div class="main">
-			$ExtraContent.RichLinks
+		<div class="mtm">
+			$ExtraContent.RichLinks.Pagebreaks
 		</div>
 		<% end_if %>
 

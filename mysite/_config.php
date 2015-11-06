@@ -22,3 +22,13 @@ CalendarConfig::init(array(
 		'enabled' => false,
 	)
 ));
+
+$standardsEditor = HtmlEditorConfig::get('standards');
+
+$standardsEditor->setOptions(array(
+	'theme_advanced_buttons3' => 'pagebreak',
+	'pagebreak_separator' => '<!--break-->',
+));
+
+$standardsEditor->enablePlugins('pagebreak');
+$standardsEditor->insertButtonsAfter('separator', 'pagebreak');

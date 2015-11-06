@@ -42,6 +42,25 @@
 						</div>
 					</div>
 
+				<% else_if $Type == HTML %>
+					<div class="item">
+						<div class="<% end_if %> feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
+							<h3>
+								<% if $Title %>$Title<% end_if %>
+							</h3>
+							<% if $HTML %>
+							<article class="text">
+								$HTML
+							</article>
+							<% end_if %>
+
+							<% if $Image %>
+								<div class="img-wrap">$Image.SetWidth(430)</div>
+							<% end_if %>
+
+						</div>
+					</div>
+
 				<% else_if $Type == Content %>
 				<div class="item">
 

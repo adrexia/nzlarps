@@ -5,7 +5,7 @@
 	<div class="row">
 		<% include SecondaryMenu %>
 		<div class="columns nine">
-			<div class="main typography" role="main" id="main">
+			<div class="main typography top-panel" role="main" id="main">
 				<h1 class="page-header">$Title</h1>
 				<div class="content member-profile<% if IsSelf %> member-profile-self<% end_if %>">$Content
 
@@ -18,9 +18,9 @@
 						$Me
 					</div>
 				<% end_loop %>
-				
+
 				$Form
-				
+
 				$PageComments
 			</div>
 			</div>

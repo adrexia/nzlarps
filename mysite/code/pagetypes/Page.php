@@ -14,11 +14,15 @@ class Page extends SiteTree {
 		'SplashImage' => 'Image'
 	);
 
+	private static $has_many = array(
+		'FeatureItems' => 'FeatureItem'
+	);
+
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
 		$fields->insertBefore(TextareaField::create('Intro', 'Intro'),'Content');
-		$fields->insertAfter(HTMLEditorField::create('ExtraContent'), 'Content');
+
 
 		$fields->insertAfter(
 			ColorPaletteField::create(
@@ -35,6 +39,27 @@ class Page extends SiteTree {
 		);
 
 		$fields->insertBefore(UploadField::create('SplashImage', 'Splash Image'),'Content');
+
+
+		if(!$this->ClassName === "CalendarPage") {
+
+			$fields->insertAfter(HTMLEditorField::create('ExtraContent'), 'Content');
+
+			$gridField = new GridField(
+				'FeatureItems',
+				'FeatureItems',
+				$this->FeatureItems()->sort(array('Sort'=>'ASC','Archived'=>'ASC')),
+				$config = GridFieldConfig_RelationEditor::create()
+			);
+			$gridField->setModelClass('FeatureItem');
+			$fields->addFieldToTab('Root.Features', $gridField);
+
+			$config->addComponent(new GridFieldOrderableRows());
+
+		} else {
+			$content = $fields->dataFieldByName('Content');
+			$content->addExtraClass('no-pagebreak');
+		}
 
 		return $fields;
 	}
@@ -116,5 +141,23 @@ class Page_Controller extends ContentController {
 
 	public function getFutureEvents() {
 		return CalendarHelper::coming_events();
+	}
+
+	/**
+	 * Get the {@link FeatureItem} objects attached to this page
+	 *
+	 * @return ArrayList
+	 */
+	public function FeatureItems() {
+		return $this->getComponents('FeatureItems')->sort('SortOrder');
+	}
+
+	/**
+	 * Get the {@link FeatureItem} objects attached to this page that are not Archived
+	 *
+	 * @return ArrayList
+	 */
+	public function CurrentFeatureItems() {
+		return $this->FeatureItems()->filter('Archived', false)->sort('Sort');
 	}
 }

@@ -14,6 +14,7 @@ SiteConfig:
 DBField:
   extensions:
    - RichLinksExtension
+   - PagebreaksExtension
 LeftAndMain:
   extra_requirements_css:
    - 'mysite/css/custom.css'

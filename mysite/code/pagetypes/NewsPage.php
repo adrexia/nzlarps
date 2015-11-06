@@ -4,6 +4,10 @@ class NewsPage extends Page {
 	private static $icon = "mysite/images/sitetree_images/home.png";
 	public $pageIcon = "mysite/images/sitetree_images/home.png";
 
+	private static $singular_name = 'News Page';
+	private static $description = 'A page to list news.';
+
+
 	private static $has_many = array(
 		'NewsItems' => 'NewsItem'
 	);

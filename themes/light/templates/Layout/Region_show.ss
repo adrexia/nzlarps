@@ -1,11 +1,9 @@
 <div class="row">
 
 	<div class="columns twelve">
-		<div class="main typography first" role="main" id="main">
-			$Content.RichLinks
+		<div class="top-panel" role="main" id="main">
+			$Content.RichLinks.Pagebreaks
 			$Form
-			<% include RelatedPages %>
-			$PageComments
 		</div>
 		<div class="row block-container">
 			<% loop CurrentRegions %>

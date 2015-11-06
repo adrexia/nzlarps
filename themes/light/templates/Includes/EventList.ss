@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="columns twelve">
-		<div class="main typography first calendar" role="main" id="main">
+		<div class="main top-panel calendar" role="main" id="main">
 			<h2>Upcoming Events</h2>
 			$Content.RichLinks
 		</div>

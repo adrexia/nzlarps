@@ -12,9 +12,10 @@ class FeatureItem extends DataObject {
 	 */
 	private static $db = array(
 		'Title' => 'Varchar(255)',
-		'Type' => 'Enum("Content, Events, News, Project", "Content")',
+		'Type' => 'Enum("Content, HTML, Events, News, Project", "Content")',
 		'Colour' => 'Varchar(255)',
 		'Content' => 'Text',
+		'HTML' => 'HTMLText',
 		'LinkLabel' => 'Varchar(255)',
 		'NumberToDisplay' =>'Int',
 		'ProjectType' =>'Enum("Project, Affiliate","Project")',
@@ -27,7 +28,7 @@ class FeatureItem extends DataObject {
 	 * @static
 	 */
 	private static $has_one = array(
-		'Parent' => 'HomePage',
+		'Parent' => 'Page',
 		'Link' => 'SiteTree',
 		'Image' => 'Image'
 	);
@@ -69,6 +70,11 @@ class FeatureItem extends DataObject {
 		$content = $fields->dataFieldByName('Content');
 		$numberToDisplay = $fields->dataFieldByName('NumberToDisplay');
 		$projectType = $fields->dataFieldByName('ProjectType');
+		$html = $fields->dataFieldByName('HTML');
+
+		$html->setRows(20);
+
+		$html->addExtraClass('no-pagebreak');
 
 		$link = $fields->dataFieldByName('LinkID');
 
@@ -79,11 +85,13 @@ class FeatureItem extends DataObject {
 		$fields->insertBefore($projectType,'Content');
 
 		$fields->insertAfter(
-			OptionSetField::create(
+			$type = OptionSetField::create(
 				"Type", "Type",
 				$this->dbObject('Type')->enumValues()
 			), "Colour"
 		);
+
+		$type->addExtraClass('inline-short-list');
 
 		$fields->insertAfter(
 			ColorPaletteField::create(
@@ -103,12 +111,16 @@ class FeatureItem extends DataObject {
 		$fields->insertAfter($imageLogin = DisplayLogicWrapper::create($image), 'LinkLabel');
 		$imageLogin->hideUnless("Type")->isEqualTo("Content");
 
+		$html->hideUnless("Type")->isEqualTo("HTML");
+
 		$link->hideUnless("Type")->isEqualTo("Content")->orIf("Type")->isEqualTo("Project");
 		$linkLabel->hideUnless("LinkID")->isGreaterThan(0)->andIf("Type")->isEqualTo("Content");
 
 
-		$numberToDisplay->hideIf("Type")->isEqualTo("Content");
+		$numberToDisplay->hideIf("Type")->isEqualTo("Content")->orIf("Type")->isEqualTo("HTML");
 		$projectType->hideUnless("Type")->isEqualTo("Project");
+
+		$content->hideIf("Type")->isEqualTo("HTML");
 
 
 		// Archived
