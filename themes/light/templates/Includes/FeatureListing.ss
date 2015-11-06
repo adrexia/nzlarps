@@ -12,6 +12,8 @@
 						<span class="author">by $Author</span>
 					<% end_if %>
 
+					<% if $Tagline %>$Tagline<% end_if %>
+
 					<% if $StartDateTime %>
 						$StartDateTime.DayOfMonth
 						$StartDateTime.Format('F, Y')

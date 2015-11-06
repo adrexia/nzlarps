@@ -15,6 +15,7 @@ class FeatureItem extends DataObject {
 		'Type' => 'Enum("Content, HTML, Events, News, Project", "Content")',
 		'Colour' => 'Varchar(255)',
 		'Content' => 'Text',
+		'SubTitle' => 'Varchar(255)',
 		'HTML' => 'HTMLText',
 		'LinkLabel' => 'Varchar(255)',
 		'NumberToDisplay' =>'Int',
@@ -71,6 +72,7 @@ class FeatureItem extends DataObject {
 		$numberToDisplay = $fields->dataFieldByName('NumberToDisplay');
 		$projectType = $fields->dataFieldByName('ProjectType');
 		$html = $fields->dataFieldByName('HTML');
+		$subtitle = $fields->dataFieldByName('SubTitle');
 
 		$html->setRows(20);
 
@@ -112,6 +114,7 @@ class FeatureItem extends DataObject {
 		$imageLogin->hideUnless("Type")->isEqualTo("Content");
 
 		$html->hideUnless("Type")->isEqualTo("HTML");
+		$subtitle->hideUnless("Type")->isEqualTo("HTML");
 
 		$link->hideUnless("Type")->isEqualTo("Content")->orIf("Type")->isEqualTo("Project");
 		$linkLabel->hideUnless("LinkID")->isGreaterThan(0)->andIf("Type")->isEqualTo("Content");

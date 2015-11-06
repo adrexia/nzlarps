@@ -41,7 +41,7 @@ class Page extends SiteTree {
 		$fields->insertBefore(UploadField::create('SplashImage', 'Splash Image'),'Content');
 
 
-		if(!$this->ClassName === "CalendarPage") {
+		if($this->ClassName !== "CalendarPage") {
 
 			$fields->insertAfter(HTMLEditorField::create('ExtraContent'), 'Content');
 

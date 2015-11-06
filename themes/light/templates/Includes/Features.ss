@@ -34,7 +34,9 @@
 					<div class="item">
 						<div class="feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
 							<h3>
-								<a href="$Link.Link">$Title</a>
+								<a href="$Link.Link">
+									$Title
+								</a>
 							</h3>
 							<article class="text">
 								<% include FeatureListing Items=$Projects, Type=Projects %>
@@ -42,11 +44,12 @@
 						</div>
 					</div>
 
-				<% else_if $Type == HTML %>
+				<% else_if $Type == 'HTML' %>
 					<div class="item">
-						<div class="<% end_if %> feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
+						<div class="feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
 							<h3>
 								<% if $Title %>$Title<% end_if %>
+								<% if $SubTitle %><span class="subhead meta-data">$SubTitle</span><% end_if %>
 							</h3>
 							<% if $HTML %>
 							<article class="text">

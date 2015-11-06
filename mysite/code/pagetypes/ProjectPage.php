@@ -16,6 +16,7 @@ class ProjectPage extends EventPage {
 	private static $db = array (
 		'Type' => 'Enum("Project, Affiliate","Project")',
 		'State' => 'Enum("Current, Past","Current")',
+		'Tagline' => 'Varchar(255)',
 		'Contact' => 'Varchar(255)'
 	);
 
@@ -40,6 +41,7 @@ class ProjectPage extends EventPage {
 			$this->dbObject('State')->enumValues()
 		), 'Intro');
 
+		$fields->insertBefore(TextField::create('Tagline'), 'Intro');
 		$fields->insertBefore(TextField::create('Contact'), 'Intro');
 		$fields->insertBefore(LinkField::create('LinkID'), 'Intro');
 

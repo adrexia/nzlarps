@@ -7,11 +7,12 @@
 			$PageComments
 		</div>
 
+
 		<% if $CurrentFeatureItems %>
 			<div class="ptl">
 				<% include Features %>
 			</div>
-		<% else %>
+		<% end_if %>
 
 		<% if $ExtraContent %>
 		<div class="mtm">
