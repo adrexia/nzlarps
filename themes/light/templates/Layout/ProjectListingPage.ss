@@ -21,6 +21,7 @@
 
 									<h3>
 										<% if $Title %>$Title<% end_if %>
+										$Tagline
 									</h3>
 
 									<article class="text">
@@ -40,8 +41,6 @@
 						</div>
 					</div>
 				</div>
-
-
 
 			</div>
 		<% end_if %>

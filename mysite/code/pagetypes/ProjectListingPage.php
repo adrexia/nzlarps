@@ -21,6 +21,8 @@ class ProjectListingPage extends Page {
 
 		$fields = parent::getCMSFields();
 
+		$fields->removeByName('Features');
+
 		$fields->insertBefore(DropdownField::create(
 			'Type',
 			'Type',
