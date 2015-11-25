@@ -35,11 +35,13 @@ html, body {
 }
 
 
-.text-center { @extend %text-center; }
-.text-left { @extend %text-left; }
-.text-right { @extend %text-right; }
 
 // Partial to align Text Left or Right
 %text-center { text-align: center; }
 %text-left { text-align: left; }
 %text-right { text-align: right; }
+
+
+.text-center { @extend %text-center; }
+.text-left { @extend %text-left; }
+.text-right { @extend %text-right; }
