@@ -1,6 +1,8 @@
 <div class="row">
 	<div class="columns twelve">
 		<div class="main top-panel" role="main" id="main">
+
+			<% include BackButton %>
 			<div class="EventDetail">
 				<% with Event %>
 					<h2>

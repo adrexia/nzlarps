@@ -94,6 +94,10 @@ class Region extends DataObject implements PermissionProvider {
 		return $fields;
 	}
 
+	public function getParent() {
+		return AboutPage::get_one('AboutPage');
+	}
+
 
 	/*
 	 * Returns the url suffix to append to the current controllors url

@@ -2,6 +2,8 @@
 	<div class="columns twelve">
 		<div class="top-panel" role="main" id="main">
 			<div class="main" role="main" id="main">
+				<% include BackButton %>
+				
 				<% if $Contact || $Parent.Type || $State || $Tagline %>
 				<h2>
 					Details

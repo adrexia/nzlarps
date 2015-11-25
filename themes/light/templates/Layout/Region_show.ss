@@ -2,6 +2,7 @@
 
 	<div class="columns twelve">
 		<div class="top-panel" role="main" id="main">
+			<% include BackButton Parent=$getParent() %>
 			$Content.RichLinks.Pagebreaks
 			$Form
 		</div>

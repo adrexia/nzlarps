@@ -1,6 +1,7 @@
 <div class="row">
 	<div class="columns twelve"  role="main" id="main">
 		<div class="top-panel">
+			<% include BackButton %>
 			$Content.RichLinks.Pagebreaks
 			$Form
 			<% include RelatedPages %>

@@ -2,6 +2,7 @@
 	<div class="columns twelve">
 		<div class="top-panel" role="main" id="main">
 			<% if $Content %>
+			<% include BackButton %>
 			$Content.RichLinks.Pagebreaks
 			<% end_if %>
 

@@ -98,6 +98,7 @@
 }
 
 .main {
+	position: relative;
 	background: #fff;
 	min-height: 250px;
 	padding: 30px 150px 50px;
@@ -152,4 +153,38 @@
 
 .text-uppercase {
 	text-transform: uppercase;
+}
+
+.top-panel {
+	position: relative;
+}
+
+.back-link {
+	line-height: 40px;
+	position:absolute;
+	left: 30px;
+	top: 30px;
+	color: #333;
+	z-index: 3;
+
+	.text {
+		font-weight: 100;
+		vertical-align: text-bottom;
+		color: #333;
+		padding-left: 10px;
+		font-size: 18px;
+		line-height: 37px;
+		font-variant: small-caps;
+	}
+
+	&:hover,
+	&:focus {
+		color: $body-link-color;
+		.text {
+			color: $body-link-color;
+		}
+		path {
+			fill: $body-link-color;
+		}
+	}
 }
