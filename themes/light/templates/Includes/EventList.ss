@@ -10,7 +10,7 @@
 				<% include EventListEvents Events=$FutureEvents %>
 			</div>
 		<% else %>
-			<p class"text-center"><em class"noEventsMsg">No upcoming events</em></p>
+			<p class="text-center"><em class"noEventsMsg">No upcoming events</em></p>
 		<% end_if %>
 
 		<footer class="content-footer columns twelve">
