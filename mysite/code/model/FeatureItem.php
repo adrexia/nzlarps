@@ -19,7 +19,6 @@ class FeatureItem extends DataObject {
 		'HTML' => 'HTMLText',
 		'LinkLabel' => 'Varchar(255)',
 		'NumberToDisplay' =>'Int',
-		'ProjectType' =>'Enum("Project, Affiliate","Project")',
 		'Sort' => 'Int',
 		'Archived' => 'Boolean'
 	);
@@ -31,7 +30,8 @@ class FeatureItem extends DataObject {
 	private static $has_one = array(
 		'Parent' => 'Page',
 		'Link' => 'SiteTree',
-		'Image' => 'Image'
+		'Image' => 'Image',
+		'ProjectPage' => 'ProjectListingPage',
 	);
 
 	/**
@@ -70,7 +70,7 @@ class FeatureItem extends DataObject {
 
 		$content = $fields->dataFieldByName('Content');
 		$numberToDisplay = $fields->dataFieldByName('NumberToDisplay');
-		$projectType = $fields->dataFieldByName('ProjectType');
+		$projectPage = $fields->dataFieldByName('ProjectPageID');
 		$html = $fields->dataFieldByName('HTML');
 		$subtitle = $fields->dataFieldByName('SubTitle');
 
@@ -84,7 +84,7 @@ class FeatureItem extends DataObject {
 
 		$fields->removeByName('Image');
 
-		$fields->insertBefore($projectType,'Content');
+		$fields->insertBefore($projectPage,'Content');
 
 		$fields->insertAfter(
 			$type = OptionSetField::create(
@@ -121,7 +121,7 @@ class FeatureItem extends DataObject {
 
 
 		$numberToDisplay->hideIf("Type")->isEqualTo("Content")->orIf("Type")->isEqualTo("HTML");
-		$projectType->hideUnless("Type")->isEqualTo("Project");
+		$projectPage->hideUnless("Type")->isEqualTo("Project");
 
 		$content->hideIf("Type")->isEqualTo("HTML");
 
@@ -200,7 +200,7 @@ class FeatureItem extends DataObject {
 	}
 
 	public function getProjects() {
-		return ProjectPage::get()->filter(array('Type' => $this->ProjectType, 'State' => 'Current'));
+		return ProjectPage::get()->filter(array('ParentID' => $this->ProjectPageID, 'State' => 'Current'));
 	}
 
 	public function CalendarPage() {

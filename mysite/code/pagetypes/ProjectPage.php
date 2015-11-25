@@ -14,7 +14,6 @@ class ProjectPage extends EventPage {
 	public $pageIcon = "mysite/images/sitetree_images/stack-hearts.png";
 
 	private static $db = array (
-		'Type' => 'Enum("Project, Affiliate","Project")',
 		'State' => 'Enum("Current, Past","Current")',
 		'Tagline' => 'Varchar(255)',
 		'Contact' => 'Varchar(255)'
@@ -30,12 +29,6 @@ class ProjectPage extends EventPage {
 		$fields = parent::getCMSFields();
 
 		$fields->removeByName('Features');
-
-		$fields->insertBefore(DropdownField::create(
-			'Type',
-			'Type',
-			$this->dbObject('Type')->enumValues()
-		), 'Intro');
 
 		$fields->insertBefore(DropdownField::create(
 			'State',

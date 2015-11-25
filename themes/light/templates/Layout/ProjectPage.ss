@@ -2,14 +2,14 @@
 	<div class="columns twelve">
 		<div class="top-panel" role="main" id="main">
 			<div class="main" role="main" id="main">
-				<% if $Contact || $Type || $State || $Tagline %>
+				<% if $Contact || $Parent.Type || $State || $Tagline %>
 				<h2>
 					Details
 				</h2>
 				<% if $Tagline %><p class="subhead">$Tagline</p><% end_if %>
 				<ul>
 					<% if $Contact %><li><strong>Contact:</strong> $Contact</li><% end_if %>
-					<% if $Type %><li><strong>Type:</strong> $Type</li><% end_if %>
+					<% if $Parent.Type %><li><strong>Type:</strong> $Parent.Type</li><% end_if %>
 					<% if $State %><li><strong>State:</strong> $State</li><% end_if %>
 				</ul>
 				<% end_if %>

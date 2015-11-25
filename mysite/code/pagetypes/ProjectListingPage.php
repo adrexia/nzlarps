@@ -14,7 +14,7 @@ class ProjectListingPage extends Page {
 	private static $description = 'A page to list projects and affliates.';
 
 	private static $db = array (
-		'Type' => 'Enum("Project, Affiliate","Project")'
+		'Type' => 'Enum("Project, Affiliate", "Project")'
 	);
 
 	public function getCMSFields() {
@@ -38,12 +38,11 @@ class ProjectListingPage_Controller extends Page_Controller {
 
 	public function getProjects() {
 		$projectpages = ProjectPage::get();
-		if(!$this->Type || !$projectpages) {
+		if(!$projectpages) {
 			return false;
 		}
 
-		return ProjectPage::get()->filter(array('Type' => $this->Type))->sort(array('State' => 'Asc','Title' => 'Asc'));
-
+		return $projectpages->filter(array('ParentID' => $this->ID))->sort(array('State' => 'Asc','Title' => 'Asc'));
 	}
 
 }
