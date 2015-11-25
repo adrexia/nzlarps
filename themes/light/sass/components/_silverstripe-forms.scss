@@ -38,7 +38,7 @@ input.text, textarea {
 	@include font-size($norm);
 	line-height:36px;
 	height:36px;
-	background-color:$default-color;
+	background-color: #f7f7f7;
 	border:1px solid #ccc;
 	width: 100%;
 	&:focus {

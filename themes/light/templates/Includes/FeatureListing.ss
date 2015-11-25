@@ -7,31 +7,33 @@
 				<a href="<% if $Link %>$Link<% else %>$InternalLink<% end_if %>">
 					<% if $Title %>$Title<% end_if %>
 				</a>
-				<span class="subhead pts meta-data">
-					<% if $Author %>
-						<span class="author">by $Author</span>
-					<% end_if %>
+				<% if $Author || $Tagline || $StartDateTime || $Region %>
+					<span class="subhead pts pb0 meta-data">
+						<% if $Author %>
+							<span class="author">by $Author</span>
+						<% end_if %>
 
-					<% if $Tagline %>$Tagline<% end_if %>
+						<% if $Tagline %>$Tagline<% end_if %>
 
-					<% if $StartDateTime %>
-						$StartDateTime.DayOfMonth
-						$StartDateTime.Format('F, Y')
+						<% if $StartDateTime %>
+							$StartDateTime.DayOfMonth
+							$StartDateTime.Format('F, Y')
 
-						<% if $StartAndEndDates %>
-							$StartAndEndDates
-						<% else %>
-							<% if $AllDay %>
-								All Day
+							<% if $StartAndEndDates %>
+								$StartAndEndDates
 							<% else %>
-								$FormattedTimeframe
+								<% if $AllDay %>
+									All Day
+								<% else %>
+									$FormattedTimeframe
+								<% end_if %>
 							<% end_if %>
 						<% end_if %>
-					<% end_if %>
-					<% if $Region %><br />
-						<span class="text-uppercase">$Region.Title</span>
-					<% end_if %>
-				</span>
+						<% if $Region %><br />
+							<span class="text-uppercase">$Region.Title</span>
+						<% end_if %>
+					</span>
+				<% end_if %>
 
 
 			</h4>

@@ -25,7 +25,7 @@
 				<% include EventListEvents Events=$AllEvents %>
 			</div>
 		<% else %>
-			<p><em class"noEventsMsg">No upcoming events</em></p>
+			<p class"text-center"><em class"noEventsMsg">No upcoming events</em></p>
 		<% end_if %>
 
 		<% if $ExtraContent %>
