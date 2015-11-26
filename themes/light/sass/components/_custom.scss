@@ -168,13 +168,15 @@
 	z-index: 3;
 
 	.text {
-		font-weight: 100;
+		font-family: $header-font-family;
+		font-weight: normal;
 		vertical-align: text-bottom;
-		color: #333;
+		color: #444;
 		padding-left: 10px;
 		font-size: 18px;
 		line-height: 37px;
 		font-variant: small-caps;
+		text-rendering: optimizeLegibility;
 	}
 
 	&:hover,
