@@ -42,9 +42,13 @@ class EventExtension extends DataExtension {
 		$details = $fields->dataFieldByName('Details');
 		$event = $fields->dataFieldByName('EventPageID');
 
-		$fields->removeByName('CalendarID');
 
-		$fields->insertAfter(HiddenField::create('CalendarID'), 'TimeFrameType');
+		$cID = Calendar::get_one('Calendar')->ID;
+
+		$fields->push($calendar = HiddenField::create('CalendarID', 'Calendar'));
+
+		$calendar->setValue($cID);
+
 
 		$fields->insertAfter($event, 'TimeFrameType');
 		$fields->insertAfter(
