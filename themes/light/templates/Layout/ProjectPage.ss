@@ -3,8 +3,8 @@
 		<div class="top-panel" role="main" id="main">
 			<div class="main" role="main" id="main">
 				<% include BackButton %>
-				
-				<% if $Contact || $Parent.Type || $State || $Tagline %>
+
+				<% if $Contact || $Parent.Type || $State || $Tagline || $Website %>
 				<h2>
 					Details
 				</h2>
@@ -13,6 +13,7 @@
 					<% if $Contact %><li><strong>Contact:</strong> $Contact</li><% end_if %>
 					<% if $Parent.Type %><li><strong>Type:</strong> $Parent.Type</li><% end_if %>
 					<% if $State %><li><strong>State:</strong> $State</li><% end_if %>
+					<% if $Website %><li><strong>Website:</strong> $Website</li><% end_if %>
 				</ul>
 				<% end_if %>
 			</div>

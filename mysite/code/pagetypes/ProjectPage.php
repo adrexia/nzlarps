@@ -20,7 +20,7 @@ class ProjectPage extends EventPage {
 	);
 
 	private static $has_one = array (
-		'Link' => 'Link',
+		'Website' => 'Link',
 		'SmallImage' => 'Image'
 	);
 
@@ -38,7 +38,7 @@ class ProjectPage extends EventPage {
 
 		$fields->insertBefore(TextField::create('Tagline'), 'Intro');
 		$fields->insertBefore(TextField::create('Contact'), 'Intro');
-		$fields->insertBefore(LinkField::create('LinkID'), 'Intro');
+		$fields->insertBefore(LinkField::create('WebsiteID'), 'Intro');
 
 		$fields->insertBefore(UploadField::create(
 			'SmallImage',
