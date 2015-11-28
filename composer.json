@@ -32,7 +32,7 @@
 		"silverstripe/standardsediting": "dev-master",
 		"jonom/silverstripe-betternavigator": "dev-master",
 		"adrexia/dashboardmods": "dev-master",
-		"sheadawson/silverstripe-linkable": "dev-master",
+		"sheadawson/silverstripe-linkable": "1.1.*",
 		"unclecheese/display-logic": "1.2.1",
 		"studiobonito/silverstripe-spamprotection-honeypot": "1.1.0",
 		"adrexia/silverstripe-calendar" : "dev-master",
