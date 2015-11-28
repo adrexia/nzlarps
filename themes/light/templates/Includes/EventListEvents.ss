@@ -30,13 +30,17 @@
 						<% if $Title %>$Title<% end_if %>
 					</h3>
 
-					<article class="text">
-						<p>$Intro</p>
-						<br/>
-						<span class="btn oval default medium">
-							<span>Read More</span>
-						</span>
-					</article>
+
+						<article class="text">
+							<% if not $Short %>
+								<p>$Intro</p>
+							<% end_if %>
+							<br/>
+							<span class="btn oval default medium">
+								<span>Read More</span>
+							</span>
+						</article>
+
 
 					<% if $SmallImage %>
 						<div class="img-wrap">$SmallImage.SetWidth(430)</div>

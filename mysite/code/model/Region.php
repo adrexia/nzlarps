@@ -98,6 +98,10 @@ class Region extends DataObject implements PermissionProvider {
 		return AboutPage::get_one('AboutPage');
 	}
 
+	public function getEvents() {
+		return CalendarHelper::coming_events()->filter(array('RegionID' => $this->ID));
+	}
+
 
 	/*
 	 * Returns the url suffix to append to the current controllors url

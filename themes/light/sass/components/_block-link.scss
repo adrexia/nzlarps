@@ -1,7 +1,8 @@
 /* Masonry feature styling (used on the homepage) */
 
 .block-container {
-	margin: 40px 0 20px 10px;
+	margin: 40px -20px 20px -20px;
+	width: 102%;
 	@include respond(all-phones) {
 		margin: 20px 0 20px 0;
 	}
@@ -27,7 +28,7 @@
 	a {
 		@include transition-property(background-color, color);
 		@include transition-duration(0.3s);
-		margin: 0px 20px 20px 0;
+		margin: 0px 0px 20px 20px;
 		padding: 35px 40px 40px;
 		color: #333;
 		display: block;

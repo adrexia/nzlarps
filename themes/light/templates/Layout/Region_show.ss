@@ -6,6 +6,19 @@
 			$Content.RichLinks.Pagebreaks
 			$Form
 		</div>
+
+		<% if $Events %>
+			<h2 class="text-center listing-heading first">Upcoming Events</h2>
+			<div class="Events ptl">
+				<% include EventListEvents Events=$Events, Short="Short" %>
+			</div>
+
+
+		<% end_if %>
+
+
+
+		<h2 class="text-center listing-heading <% if not $Events %>first<% end_if %>">All Regions</h2>
 		<div class="row block-container">
 			<% loop CurrentRegions %>
 			<div class="block-link">
@@ -14,6 +27,7 @@
 				</a>
 			</div>
 			<% end_loop %>
+
 		</div>
 
 		<footer class="content-footer columns twelve">
