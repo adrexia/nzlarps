@@ -18,29 +18,14 @@ class MemberApprovalEmail extends Email {
 	 *
 	 * @var string
 	 */
-	const DEFAULT_TEMPLATE = "
+	const DEFAULT_TEMPLATE = '
 <p>
 	Dear $Member.FirstName,
 </p>
 
 <p>
 	Thank you for joining NZLarps!
-</p>
-
-<p
-As a member you will receive discounted entry to games, a 10% discount on Paddywhack products, and you will be able to vote each year in NZLARPS' internal elections. We will also provide funding and support if you wish to run a game.
-</p>
-
-
-<p>We recommend that you join the Diatribe online forums (http://diatribe.co.nz/) in order to keep track of upcoming games and Society business. If you are in Wellington there is also a Google group (viewtopic.php?f=32&t=9362) for notifications. You might also want to keep an eye on the NZLARPS community calendar.</p>
-
-<p>
-Thank you for supporting larp in New Zealand.
-</p>
-<p>
-Malcolm Harbrow <br />
-NZLARPS National Secretary
-</p>";
+</p>';
 
 
 	/**
