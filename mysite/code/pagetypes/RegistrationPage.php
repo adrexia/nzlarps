@@ -280,6 +280,8 @@ class RegistrationPage_Controller extends MemberProfilePage_Controller {
 
 		if($member->MembershipStatus === 'Expired' || $member->MembershipStatus === 'Not applied') {
 			$member->MembershipStatus = 'Applied';
+			$email = new MemberConfirmationEmail($this, $member);
+			$email->send();
 		}
 
 		$groupIds = $this->getSettableGroupIdsFrom($form, $member);
@@ -298,6 +300,9 @@ class RegistrationPage_Controller extends MemberProfilePage_Controller {
 			'Your details have been updated.',
 			'good'
 		);
+
+
+
 		return $this->redirectBack();
 	}
 
