@@ -123,7 +123,7 @@ class FeatureItem extends DataObject {
 		$numberToDisplay->hideIf("Type")->isEqualTo("Content")->orIf("Type")->isEqualTo("HTML");
 		$projectPage->hideUnless("Type")->isEqualTo("Project");
 
-		$content->hideIf("Type")->isEqualTo("HTML");
+		$content->hideUnless("Type")->isEqualTo("Content");
 
 
 		// Archived
@@ -189,11 +189,6 @@ class FeatureItem extends DataObject {
 		return _t('GridField.Live', 'Live');
 	}
 
-	public function getNewsItems() {
-		$list = 0;
-		// @todo
-		return $list;
-	}
 
 	public function getEvents() {
 		return CalendarHelper::coming_events();

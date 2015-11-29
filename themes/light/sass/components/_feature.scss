@@ -18,6 +18,11 @@
 			}
 		}
 	}
+	&.top-panel {
+		.feature-content {
+			margin-bottom: 0;
+		}
+	}
 }
 
 .feature-content .item {
@@ -28,6 +33,12 @@
 	padding-bottom: 10px;
 	padding-right: 0;
 	text-align: center;
+
+	&.large {
+		@include fancytiles(2,2,1);
+		padding-left: 0;
+		padding-right: 0;
+	}
 
 	&.past {
 		opacity: 0.5;
@@ -88,12 +99,26 @@
 					text-shadow: rgba(darken(nth($brand-list, $i), 20%),0.8) 0px 0px 5px;
 				}
 
-				h3 a,
-				h4 a {
+				h3 a {
 					&:hover,
 					&:focus {
 						color: nth($brand-list, $i);
-						text-shadow: none;
+						@if nth($brand-title, $i) == "night" {
+							color: $body-link-color;
+						}
+					}
+				}
+
+
+				.listing-item a {
+					&:hover,
+					&:focus {
+						background: nth($brand-list, $i);
+						text-shadow: rgba(darken(nth($brand-list, $i), 20%),0.8) 0px 0px 5px;
+						@if nth($brand-title, $i) == "night" {
+							background: $body-link-color;
+							text-shadow: rgba(darken($body-link-color, 20%),0.8) 0px 0px 5px;
+						}
 					}
 				}
 			}
@@ -134,22 +159,33 @@
 	}
 
 	.listing-item {
+		border-bottom: 1px solid #F5F5F5;
 
 		&.first {
-			padding-top: 25px;
-		}
-		p {
-			margin-bottom:15px;
-			margin-top: 30px;
-		}
-		&.first {
-			h4 {
-				margin-top:0;
-			}
+			border-top: 1px solid #F5F5F5;
+			margin-top: 25px;
 		}
 		&.last {
-			border-bottom:0;
-			padding-bottom:40px;
+			border-bottom: 0;
+		}
+
+		a {
+			display: block;
+			@include transition-property(background-color, color);
+			@include transition-duration(0.3s);
+			&:hover,
+			&:focus {
+				@include transition-property(background-color, color);
+				@include transition-duration(0.3s);
+				* {
+					color: #fff;
+				}
+			}
+		}
+
+		p {
+			margin-bottom: 20px;
+			margin-top: 0px;
 		}
 	}
 
@@ -180,7 +216,7 @@
 		margin-bottom: 0;
 	}
 	p {
-		font-size:15px;
+		font-size: 15px;
 		margin-bottom:15px;
 		margin-top: 30px;
 	}

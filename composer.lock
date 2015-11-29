@@ -99,12 +99,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/adrexia/silverstripe-calendar.git",
-                "reference": "51d4da178c5cfeeb05639a1e4751cb8b4cfcf4fe"
+                "reference": "23e731dc7bbf3b0464b3d3d29b07c3afff11c62b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adrexia/silverstripe-calendar/zipball/51d4da178c5cfeeb05639a1e4751cb8b4cfcf4fe",
-                "reference": "51d4da178c5cfeeb05639a1e4751cb8b4cfcf4fe",
+                "url": "https://api.github.com/repos/adrexia/silverstripe-calendar/zipball/23e731dc7bbf3b0464b3d3d29b07c3afff11c62b",
+                "reference": "23e731dc7bbf3b0464b3d3d29b07c3afff11c62b",
                 "shasum": ""
             },
             "type": "silverstripe-module",
@@ -138,7 +138,7 @@
             "support": {
                 "source": "https://github.com/adrexia/silverstripe-calendar/tree/master"
             },
-            "time": "2015-11-28 04:13:02"
+            "time": "2015-11-29 02:54:41"
         },
         {
             "name": "composer/installers",

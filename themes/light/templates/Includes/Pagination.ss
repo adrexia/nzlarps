@@ -1,13 +1,13 @@
 <% if MoreThanOnePage %>
-	<div class="pagination-wrap endless-scroll clear columns ten push_two">
-			
+	<div class="pagination-wrap endless-scroll clear">
+
 	<ul id="PageNumbers" class="pagination endless pagination-nav" $PaginationMetadata(2)>
 	<% if FirstPage %>
 		<li class="prev disabled"><a class="prev paginate-left disabled">&laquo;</a></li>
 	<% else %>
 		<li class="prev"><a class="prev paginate-left" href="$PrevLink">&laquo;</a></li>
 	<% end_if %>
-	
+
 	<% loop Pages %>
 		<% if CurrentBool %>
 			<li class="active">
@@ -24,7 +24,7 @@
 	<% if LastPage %>
 		<li class="next disabled"><a class="next paginate-right disabled">&raquo;</a></li>
 	<% else %>
-		<li class="next"><a class="next paginate-right" href="$NextLink">&raquo;</a></li>	
+		<li class="next"><a class="next paginate-right" href="$NextLink">&raquo;</a></li>
 	<% end_if %>
 	</ul>
 	</div>

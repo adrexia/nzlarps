@@ -1,11 +1,11 @@
 <?php
 class NewsPage extends Page {
 
-	private static $icon = "mysite/images/sitetree_images/home.png";
-	public $pageIcon = "mysite/images/sitetree_images/home.png";
+	private static $icon = "mysite/images/sitetree_images/news.png";
+	public $pageIcon = "mysite/images/sitetree_images/news.png";
 
 	private static $singular_name = 'News Page';
-	private static $description = 'A page to list news.';
+	private static $description = 'A page that lists news and annoucements';
 
 
 	private static $has_many = array(
@@ -15,22 +15,26 @@ class NewsPage extends Page {
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-		$fields->insertBefore(LinkField::create('JoinLinkID', 'JoinLink'), 'Content');
-
 
 		$gridField = new GridField(
 			'NewsItems',
 			'NewsItems',
-			$this->NewsItems()->sort(array('Sort'=>'ASC','Archived'=>'ASC')),
+			$this->NewsItems()->sort(array('Created'=>'ASC', 'Archived'=>'ASC')),
 			$config = GridFieldConfig_RelationEditor::create()
 		);
-		$gridField->setModelClass('NewsItems');
-		$fields->addFieldToTab('Root.News', $gridField);
+		$gridField->setModelClass('NewsItem');
+		$fields->addFieldtoTab('Root.News', $gridField);
 		$config->addComponent(new GridFieldOrderableRows());
 
 		$fields->removeByName('Content');
+		$fields->removeByName('ExtraContent');
+		$fields->removeByName('Features');
 
 		return $fields;
+	}
+	
+	public function RecentNews(){
+		return $this->NewsItems()->exclude('Archived', 1)->sort(array('Created'=>'DESC'));
 	}
 
 }
@@ -38,16 +42,14 @@ class NewsPage extends Page {
 class NewsPage_Controller extends Page_Controller {
 
 
-	public function getNews($pageSize = 5) {
-		$items =  $this->NewsItems()->sort(array('Sort'=>'ASC','Created'=>'ASC'));
+	public function getNews($pageSize = 6) {
+		$items = $this->RecentNews();
 		// Apply pagination
 		$list = new AjaxPaginatedList($items, $this->request);
 		$list->setPageLength($pageSize);
 		return $list;
 	}
 
-	public function RecentNews($pageSize = 10){
-		return $this->NewsItems()->Limit($pageSize);
-	}
+
 
 }

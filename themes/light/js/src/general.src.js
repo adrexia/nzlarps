@@ -31,9 +31,9 @@ $(function() {
 					contentSelector: '.pagination-content',
 					templates: {
 							main:
-									'<div class="ss-pagination">'+
-											'<a class="btn metro medium info rounded" href="#" data-page-number="<%= nextPage %>"><span class="text">Show More</span> <span class="loading-icon"><i class="icon-blank">&nbsp;</i></span></a>'+
-									'</div>'
+								'<div class="ss-pagination">'+
+										'<a class="btn default medium info rounded" href="#" data-page-number="<%= nextPage %>"><span class="text">Show More</span> <span class="loading-icon"><i class="icon-blank">&nbsp;</i></span></a>'+
+								'</div>'
 					}
 			});
 

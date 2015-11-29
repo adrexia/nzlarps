@@ -3,17 +3,15 @@
 	<div class="columns twelve">
 		<div class="feature-content slides masonry-items js-isotope" id="feature-group">
 			<% loop CurrentFeatureItems %>
-				<% if $Type =='News' && $NewsItems() %>
+				<% if $Type =='News' && $NewsPage.NewsItems() %>
 
 					<div class="item">
-						<a href="$ContentSource.Link" class="feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
+						<div class="feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
 							<h3>
 								<a href="$NewsPage.Link">$Title</a>
 							</h3>
-							<article class="text">
-								<% include FeatureListing Items=$NewsItems, Type=News %>
-							</article>
-						</a>
+							<% include FeatureListing Items=$NewsPage.RecentNews, Type=News %>
+						</div>
 					</div>
 
 				<% else_if $Type =='Events' && $Events() %>
@@ -23,9 +21,7 @@
 								<h3>
 									<a href="$CalendarPage.Link">$Title</a>
 								</h3>
-								<article class="text">
-									<% include FeatureListing Items=$Events, Type=Events %>
-								</article>
+								<% include FeatureListing Items=$Events, Type=Events %>
 							</div>
 						</div>
 
@@ -38,9 +34,7 @@
 									$Title
 								</a>
 							</h3>
-							<article class="text">
-								<% include FeatureListing Items=$Projects, Type=Projects %>
-							</article>
+							<% include FeatureListing Items=$Projects, Type=Projects %>
 						</div>
 					</div>
 

@@ -13,12 +13,12 @@
 
 					<h3>
 						<span class="subhead meta-data">
-							$StartDateTime.DayOfMonth
-							$StartDateTime.Format('F, Y')
-
 							<% if $StartAndEndDates %>
 								$StartAndEndDates
 							<% else %>
+								<% if $StartDateTime %>
+									$StartDateTime.Format('d M Y')
+								<% end_if %>
 								<% if $AllDay %>
 									All Day
 								<% else %>
