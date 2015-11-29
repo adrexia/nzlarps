@@ -108,9 +108,12 @@ class MemberExtension extends DataExtension {
 		parent::onBeforeWrite();
 
 		if(!$this->owner->MemberNumber) {
-
 			$this->owner->MemberNumber = Member::get()->sort('ID')->last()->ID + 300;
+		}
 
+		if($this->owner->isChanged('MembershipStatus') && $this->owner->MembershipStatus==='Verified') {
+			$email = new MemberApprovalEmail(RegistrationPage::get_one('RegistrationPage'), $this->owner);
+			$email->send();
 		}
 
 	}

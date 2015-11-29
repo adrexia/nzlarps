@@ -10,9 +10,15 @@ class RegistrationPage extends MemberProfilePage {
 	private static $singular_name = 'Registration Page';
 	private static $description = 'Lets users signup for NZLarps membership, and check their details.';
 
+
+	private static $db = array(
+		'ApprovalEmailSubject'  => 'Varchar(255)',
+		'ApprovalEmailTemplate' => 'Text',
+	);
+
+
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
-
 
 		$fields->removeByName('Features');
 		$fields->removeByName('ExtraContent');
@@ -25,7 +31,8 @@ class RegistrationPage extends MemberProfilePage {
 		$afterContent->addExtraClass('no-pagebreak');
 		$profileContent->addExtraClass('no-pagebreak');
 
-
+		$fields->insertAfter('EmailTemplate', TextareaField::create('ApprovalEmailTemplate','Approval Email Template'));
+		$fields->insertAfter('EmailTemplate', TextField::create('ApprovalEmailSubject','Approval Email Subject'));
 
 		return $fields;
 	}
