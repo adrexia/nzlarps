@@ -31,8 +31,8 @@ class RegistrationPage extends MemberProfilePage {
 		$afterContent->addExtraClass('no-pagebreak');
 		$profileContent->addExtraClass('no-pagebreak');
 
-		$fields->insertAfter('EmailTemplate', TextareaField::create('ApprovalEmailTemplate','Approval Email Template'));
-		$fields->insertAfter('EmailTemplate', TextField::create('ApprovalEmailSubject','Approval Email Subject'));
+		$fields->insertAfter(TextareaField::create('ApprovalEmailTemplate','Approval Email Template'), 'EmailTemplate');
+		$fields->insertAfter(TextField::create('ApprovalEmailSubject','Approval Email Subject'), 'EmailTemplate');
 
 		return $fields;
 	}
