@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="columns twelve">
-		<div class="top-panel" role="main" id="main">
+		<div class="top-panel <% if URLSegment == Security %>collapse<% end_if %>" role="main" id="main">
 			<% if $Content %>
 			<% include BackButton %>
 			$Content.RichLinks.Pagebreaks

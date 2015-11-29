@@ -96,6 +96,10 @@
 .top-panel {
 	margin-top: -100px;
 }
+.collapse .main {
+	padding-bottom: 40px;
+	min-height: 0px;
+}
 
 .main {
 	position: relative;
@@ -103,6 +107,16 @@
 	min-height: 250px;
 	padding: 30px 150px 50px;
 	text-align: center;
+
+	+ .main:not(.mtm) {
+		padding-top: 0;
+		> form {
+			margin-top: 0;
+			fieldset>.field:first-child {
+				margin-top: 0;
+			}
+		}
+	}
 
 	@include respond(desktop) {
 		&.calendar {
