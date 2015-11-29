@@ -14,6 +14,8 @@ class RegistrationPage extends MemberProfilePage {
 	private static $db = array(
 		'ApprovalEmailSubject'  => 'Varchar(255)',
 		'ApprovalEmailTemplate' => 'Text',
+		'ExpiryReminderEmailSubject' => 'Varchar(255)',
+		'ExpiryReminderEmailTemplate' => 'Text'
 	);
 
 
@@ -33,6 +35,9 @@ class RegistrationPage extends MemberProfilePage {
 
 		$fields->insertAfter(TextareaField::create('ApprovalEmailTemplate','Approval Email Template'), 'EmailTemplate');
 		$fields->insertAfter(TextField::create('ApprovalEmailSubject','Approval Email Subject'), 'EmailTemplate');
+
+		$fields->insertAfter(TextareaField::create('ExpiryReminderEmailTemplate','Expiry Reminder Email Template'), 'ApprovalEmailTemplate');
+		$fields->insertAfter(TextField::create('ExpiryReminderEmailSubject','Expiry Reminder Email Subject'), 'ApprovalEmailTemplate');
 
 		return $fields;
 	}

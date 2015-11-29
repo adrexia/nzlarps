@@ -36,7 +36,8 @@
 		"unclecheese/display-logic": "1.2.1",
 		"studiobonito/silverstripe-spamprotection-honeypot": "1.1.0",
 		"adrexia/silverstripe-calendar" : "dev-master",
-		"heyday/silverstripe-colorpalette": "dev-master"
+		"heyday/silverstripe-colorpalette": "dev-master",
+		"silverstripe/crontask": "*"
 	},
 	"config": {
 		"process-timeout": 600

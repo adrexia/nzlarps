@@ -6,6 +6,7 @@
 class MemberExtension extends DataExtension {
 
 	private static $db = array(
+		'Notified' => 'Boolean', // stores whether an expiry email has been sent
 		'HomePhone' => 'Varchar(255)',
 		'WorkPhone' => 'Varchar(255)',
 		'MobilePhone' => 'Varchar(255)',
@@ -44,6 +45,7 @@ class MemberExtension extends DataExtension {
 	public function populateDefaults() {
 		$this->owner->JoinedDate = date('Y-m-d');
 		$this->owner->ExpiryDate = date('Y-m-d', strtotime('+1 year'));
+		$this->owner->Notified = 0;
 
 		parent::populateDefaults();
 	}
@@ -114,6 +116,7 @@ class MemberExtension extends DataExtension {
 		if($this->owner->isChanged('MembershipStatus') && $this->owner->MembershipStatus==='Verified') {
 			$email = new MemberApprovalEmail(RegistrationPage::get_one('RegistrationPage'), $this->owner);
 			$email->send();
+			$this->Notified = 0;
 		}
 
 	}
