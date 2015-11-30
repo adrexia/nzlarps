@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="columns twelve">
-		<div class="top-panel" role="main" id="main">
+		<div class="top-panel collapse" role="main" id="main">
 			<div class="main" role="main" id="main">
 				<% include BackButton %>
 

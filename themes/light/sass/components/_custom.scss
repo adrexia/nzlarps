@@ -99,6 +99,9 @@
 .collapse .main {
 	padding-bottom: 40px;
 	min-height: 0px;
+	:first-child {
+		margin-top: 0;
+	}
 }
 
 .main {
