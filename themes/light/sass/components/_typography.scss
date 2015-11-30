@@ -271,7 +271,8 @@ blockquote {
 }
 
 hr {
-  border: 1px solid $horizontal-rule-color;
+  border: 0;
+  border-bottom: 1px solid #F5F5F5;
   clear: both;
   margin: 16px 0 18px;
   height: 0;
