@@ -177,12 +177,18 @@
 }
 
 .back-link {
+
 	line-height: 40px;
 	position:absolute;
 	left: 30px;
 	top: 30px;
 	color: #333;
 	z-index: 3;
+
+	// hide from phones
+	@include respond(all-phones) {
+		display: none;
+	}
 
 	.text {
 		font-family: $header-font-family;
