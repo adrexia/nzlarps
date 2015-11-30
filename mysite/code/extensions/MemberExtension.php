@@ -33,8 +33,8 @@ class MemberExtension extends DataExtension {
 	 */
 	private static $summary_fields = array(
 		'Region.Title',
-		'MemberNumber',
 		'MembershipStatus',
+		'MemberNumber',
 		'ExpiryDate'
 	);
 
@@ -50,8 +50,23 @@ class MemberExtension extends DataExtension {
 		parent::populateDefaults();
 	}
 
+	public function prepMemberNumber() {
+		if ($this->owner->MembershipStatus !== "Not applied") {
+			return $this->owner->MemberNumber;
+		} else {
+			return 0;
+		}
+	}
+
 
 	public function updateCMSFields(FieldList $fields) {
+
+		$fields->insertBefore(new Tab('MembershipDetails', 'Membership Details'), 'Main');
+
+		//move first and ;astname
+		$fields->addFieldToTab('Root.MembershipDetails', $fields->dataFieldByName('FirstName'));
+		$fields->addFieldToTab('Root.MembershipDetails', $fields->dataFieldByName('Surname'));
+		$fields->addFieldToTab('Root.MembershipDetails', $fields->dataFieldByName('Email'));
 
 		$fields->addFieldToTab('Root.MembershipDetails', $region = DropdownField::create(
 			'RegionID',
@@ -81,7 +96,10 @@ class MemberExtension extends DataExtension {
 
 		$fields->addFieldToTab('Root.MembershipDetails', TextareaField::create('NotesForMember'));
 
-		$fields->addFieldToTab('Root.MembershipDetails', TextField::create('MemberNumber'));
+		if ($this->owner->MembershipStatus !== "Not applied") {
+			$fields->addFieldToTab('Root.MembershipDetails', TextField::create('MemberNumber'));
+		}
+
 		$fields->addFieldToTab('Root.MembershipDetails', TextField::create('HomePhone'));
 		$fields->addFieldToTab('Root.MembershipDetails', TextField::create('WorkPhone'));
 		$fields->addFieldToTab('Root.MembershipDetails', TextField::create('MobilePhone'));

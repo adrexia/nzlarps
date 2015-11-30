@@ -8,11 +8,23 @@ class SecurityAdminExtension extends Extension {
 	public function updateEditForm($form) {
 
 		$gridField = $form->Fields()->fieldByName('Root.Users.Members');
+		$config = $gridField->getConfig();
 
-		$gridField->getConfig()->getComponentByType('GridFieldExportButton')
+		$config->getComponentByType('GridFieldExportButton')
 			->setExportColumns(
 				singleton($this->sanitiseClassName('Member'))->getExportFields()
 			);
+
+		$columns = $config->getComponentByType('GridFieldDataColumns');
+
+		$columns->setFieldFormatting(array(
+			'MemberNumber' => function($value, $item) {
+				return $item->prepMemberNumber();
+			}
+		));
+
+		$config->getComponentByType('GridFieldPaginator')->setItemsPerPage(100);
+
 
 	}
 
