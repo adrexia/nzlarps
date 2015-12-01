@@ -22,11 +22,14 @@
 
 									<h3>
 										<% if $Title %>$Title<% end_if %>
-										$Tagline
 									</h3>
 
 									<article class="text">
-										<p>$Intro</p>
+										<% if $Intro %>
+											<p>$Intro</p>
+										<% else_if $Tagline %>
+											<p>$Tagline</p>
+										<% end_if %>
 										<br/>
 										<span class="btn oval default medium">
 											<span>Read More</span>
