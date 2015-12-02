@@ -79,7 +79,7 @@
 	.nav-list {
 		margin-bottom: 15px;
 		@include respond(all-phones) {
-			margin: 0 20px;
+			margin: 0 10px;
 		}
 		.btn {
 			margin-top: 0;
@@ -101,6 +101,12 @@
 	min-height: 0px;
 	:first-child {
 		margin-top: 0;
+	}
+}
+
+@include respond(all-phones) {
+	.layout > .row {
+		padding: 0 10px;
 	}
 }
 

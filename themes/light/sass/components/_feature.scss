@@ -5,6 +5,12 @@
 	@include respond(tablets) {
 		margin: 0 30px;
 	}
+	.features {
+		@include respond(all-phones) {
+			margin-top: -30px;
+			padding: 0px 10px;
+		}
+	}
 
 	.feature-content {
 		margin-bottom:250px;
@@ -129,6 +135,9 @@
 		@include clearfix;
 		@include user-select(none);
 		padding: 0px 50px 30px;
+		@include respond(all-phones) {
+			padding: 0px 30px 30px;
+		}
 
 		&.has-images {
 			text-align:left;
@@ -207,6 +216,9 @@
 		margin: 30px 40px 0;
 		padding-right: 0;
 		text-transform: uppercase;
+		@include respond(all-phones) {
+			margin: 30px 20px 0;
+		}
 	}
 
 	h4 {
