@@ -22455,26 +22455,24 @@ $(function() {
 $(function() {
 	"use strict";
 
-	function setFilter (filterBy){
-		$('.js-filters').find('.success').removeClass('success');
-		$('.label[data-filter="'+filterBy+'"]').addClass('success');
-		$container.isotope({ filter: filterBy });
-	}
+	var $container = $('.js-isotope');
 
 	function init () {
-		setupIsotope();
-		attachEvents();
+		if ($container.length > 0) {
+			setupIsotope();
+			attachEvents();
+		}
 	}
 
 	function setupIsotope() {
 		// init Isotope
-		var $container = $('.js-isotope').isotope({
+		$container = $('.js-isotope').isotope({
 			itemSelector: '.item',
 			layoutMode: 'masonry',
 			gutter: 10,
 			resizesContainer: true
-		}),
-		hash = window.location.hash.substring(1),
+		});
+		var hash = window.location.hash.substring(1),
 		genreClass = '.' + hash;
 
 		// Apply from anchor
@@ -22492,6 +22490,13 @@ $(function() {
 		}, 500);
 	}
 
+	function setFilter (filterBy){
+		$('.js-filters').find('.success').removeClass('success');
+		$('.label[data-filter="'+filterBy+'"]').addClass('success');
+		$container.isotope({ filter: filterBy });
+	}
+
+
 	function attachEvents() {
 		$('.js-filters').on( 'click', '.label', function() {
 			setFilter($(this).attr('data-filter'));
@@ -22499,11 +22504,8 @@ $(function() {
 
 		if($('.pagination.endless').length > 0) {
 			$('.pagination.endless').on('ssendlessafterpagefetch', function(event){
-					console.log('yep');
-					$('.js-isotope').isotope( 'destroy' );
-
-					setupIsotope();
-
+				$('.js-isotope').isotope( 'destroy' );
+				setupIsotope();
 			});
 		}
 	}
