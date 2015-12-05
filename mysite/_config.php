@@ -27,7 +27,7 @@ $standardsEditor = HtmlEditorConfig::get('standards');
 
 $standardsEditor->setOptions(array(
 	'theme_advanced_buttons3' => 'pagebreak',
-	'pagebreak_separator' => '<div class="break"><!--break--></div>',
+	'pagebreak_separator' => '<span class="break"><!--break--></span>',
 ));
 
 $standardsEditor->enablePlugins('pagebreak');
