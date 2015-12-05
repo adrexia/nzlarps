@@ -43,7 +43,7 @@ grunt.initConfig({
           'js/src/isotope.src.js',
           '../../calendar/javascript/pagetypes/CalendarPage.js',
          '../../calendar/thirdparty/fullcalendar/1.6.1/jquery/jquery-ui-1.10.2.custom.min.js',
-         '../../calendar/thirdparty/fullcalendar/1.6.1/fullcalendar/fullcalendar.min.js',
+         '../../calendar/thirdparty/fullcalendar/1.6.1/fullcalendar/fullcalendar.js',
          '../../calendar/thirdparty/xdate/xdate.js',
          '../../calendar/javascript/fullcalendar/PublicFullcalendarView.js'
       ],
@@ -73,7 +73,7 @@ grunt.initConfig({
   },
   watch: {
     js: {
-        files: ['js/**/*.js'],
+        files: ['js/**/*.js', '../../calendar/thirdparty/fullcalendar/1.6.1/fullcalendar/fullcalendar.js'],
         tasks: ['jshint', 'concat', 'uglify']
     },
     scss: {

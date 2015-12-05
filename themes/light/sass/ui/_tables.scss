@@ -8,6 +8,8 @@ table {
 	margin-bottom: 20px;
 	width: 100%;
 	border: $table-border-size $table-border-style $table-border-color;
+	border-radius: $table-border-radius;
+	border-collapse: separate;
 
 	caption {
 		text-align: center;
@@ -27,6 +29,11 @@ table {
 		border-top: $table-cell-border-size $table-cell-border-style $table-cell-border-color;
 	}
 
+	thead th {
+		padding: 15px 10px;
+		text-align: center;
+	}
+
 	tr td, tbody tr td {
 		font-size: $norm;
 	}
@@ -37,13 +44,8 @@ table {
 
 	thead {
 		background-color: $table-thead-bgcolor;
-		color: #fff;
-
-		@for $i from 1 through $brand-num {
-			.#{nth($brand-title, $i)} & {
-				background-color: nth($brand-list, $i);
-			}
-		}
+		color: #888;
+		text-transform: uppercase;
 
 		a {
 			color: #fff;
@@ -72,40 +74,38 @@ table {
 		background-color: $table-stripe-bgcolor;
 	}
 
-	&.rounded {
-		border-radius: $table-border-radius;
-		border-collapse: separate;
+	//rounded
 
-		caption + thead tr:first-child th:first-child,
-		caption + tr td:first-child,
-		> thead tr:first-child th:first-child,
-		> thead tr:first-child td:first-child,
-		> tr:first-child td:first-child {
-			border-top-left-radius: $table-border-radius;
-		}
-
-		caption + thead tr:first-child th:last-child,
-		caption + tr td:last-child,
-		> thead tr:first-child th:last-child,
-		> thead tr:first-child td:last-child,
-		> tr:first-child td:last-child {
-			border-top-right-radius: $table-border-radius;
-		}
-
-		thead ~ tr:last-child td:last-child,
-		tbody tr:last-child td:last-child {
-			border-bottom-right-radius: $table-border-radius;
-		}
-
-		thead ~ tr:last-child td:first-child,
-		tbody tr:last-child td:first-child {
-			border-bottom-left-radius: $table-border-radius;
-		}
-
-		thead th, thead td,
-		caption + tbody tr:first-child td,
-		> tbody:first-child tr:first-child td {
-			border-top: 0;
-		}
+	caption + thead tr:first-child th:first-child,
+	caption + tr td:first-child,
+	> thead tr:first-child th:first-child,
+	> thead tr:first-child td:first-child,
+	> tr:first-child td:first-child {
+		border-top-left-radius: $table-border-radius;
 	}
+
+	caption + thead tr:first-child th:last-child,
+	caption + tr td:last-child,
+	> thead tr:first-child th:last-child,
+	> thead tr:first-child td:last-child,
+	> tr:first-child td:last-child {
+		border-top-right-radius: $table-border-radius;
+	}
+
+	thead ~ tr:last-child td:last-child,
+	tbody tr:last-child td:last-child {
+		border-bottom-right-radius: $table-border-radius;
+	}
+
+	thead ~ tr:last-child td:first-child,
+	tbody tr:last-child td:first-child {
+		border-bottom-left-radius: $table-border-radius;
+	}
+
+	thead th, thead td,
+	caption + tbody tr:first-child td,
+	> tbody:first-child tr:first-child td {
+		border-top: 0;
+	}
+
 }
