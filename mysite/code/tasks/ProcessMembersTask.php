@@ -28,9 +28,9 @@ class ProcessMembersTask extends BuildTask implements CronTask {
 					$email = new MemberReminderEmail($register, $member);
 					$email->send();
 
-
 					$member->write();
 					$count++;
+
 				} catch (Exception $e) {
 					echo '<p>Failed to send email, or update: ' . $member->FirstName . '</p>' ;
 				}
@@ -44,20 +44,26 @@ class ProcessMembersTask extends BuildTask implements CronTask {
 
 	public function handleExpiredMembers() {
 		$expiredMembers = $this->getExpiredMembers();
+		$register = RegistrationPage::get_one('RegistrationPage');
 		$count = 0;
 
 		foreach($expiredMembers as $member) {
 			$member->MembershipStatus = 'Expired';
 
 			try {
+				$email = new MemberExpiredEmail($register, $member);
+				$email->send();
+
 				$member->write();
 				$count++;
+
+				echo '<p>Email sent to:' . $member->Email . ' </p>';
 			} catch(ValidationException $e) {
 				echo '<p>Failed to update record: ' . $member->FirstName . '</p>' ;
 			}
 		}
 
-		echo '<p>' . $count . ' members set to expired</p>';
+		echo '<p>' . $count . ' members notified of expired membership</p>';
 	}
 
 	// Notify members due to expire in 29 days
@@ -74,11 +80,11 @@ class ProcessMembersTask extends BuildTask implements CronTask {
 
 	public function getExpiredMembers() {
 		$date = new DateTime();
-		$today = $date->setTimestamp(strtotime('now'));
+		$tomorrow = $date->setTimestamp(strtotime('tomorrow'));
 
 		return Member::get()->filter(array(
 			'MembershipStatus' => 'Verified',
-			'ExpiryDate' => $today->format('Y-m-d H:i:s')
+			'ExpiryDate:LessThan' => $tomorrow->format('Y-m-d H:i:s')
 		));
 	}
 

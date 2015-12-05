@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b374896d69e7d6b9dffa02428a9c8c19",
-    "content-hash": "68c9b6b6301d88e518123b40e2033b02",
+    "hash": "52419d51f6fe4eb42f5bc64bf6e2364d",
+    "content-hash": "a5a450f55243a64917b382f7aeabe350",
     "packages": [
         {
             "name": "adrexia/dashboardmods",
@@ -1169,16 +1169,16 @@
         },
         {
             "name": "silverstripe/userforms",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-userforms.git",
-                "reference": "606b20bf7206fac684d7c65a24e3897a4d64f740"
+                "reference": "f180a1e8b9497c861ec42818ae500aa536d7c465"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/606b20bf7206fac684d7c65a24e3897a4d64f740",
-                "reference": "606b20bf7206fac684d7c65a24e3897a4d64f740",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-userforms/zipball/f180a1e8b9497c861ec42818ae500aa536d7c465",
+                "reference": "f180a1e8b9497c861ec42818ae500aa536d7c465",
                 "shasum": ""
             },
             "require": {
@@ -1194,7 +1194,7 @@
             "type": "silverstripe-module",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0.x-dev"
+                    "dev-master": "3.1.x-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1228,7 +1228,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2015-09-20 21:10:28"
+            "time": "2015-11-19 20:56:29"
         },
         {
             "name": "studiobonito/silverstripe-spamprotection-honeypot",
