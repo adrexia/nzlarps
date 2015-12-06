@@ -35,7 +35,8 @@ class MemberExtension extends DataExtension {
 		'Region.Title',
 		'MembershipStatus',
 		'MemberNumber',
-		'ExpiryDate'
+		'ExpiryDate',
+		'JoinedDate'
 	);
 
 
@@ -43,10 +44,8 @@ class MemberExtension extends DataExtension {
 	 * Sets the Date field to the current date.
 	 */
 	public function populateDefaults() {
-		$this->owner->JoinedDate = date('Y-m-d');
 		$this->owner->ExpiryDate = date('Y-m-d', strtotime('+1 year'));
 		$this->owner->Notified = 0;
-
 		parent::populateDefaults();
 	}
 
@@ -129,6 +128,10 @@ class MemberExtension extends DataExtension {
 
 		if(!$this->owner->MemberNumber) {
 			$this->owner->MemberNumber = Member::get()->sort('ID')->last()->ID + 300;
+		}
+
+		if(!$this->owner->JoinedDate && $this->owner->MembershipStatus==='Verified') {
+			$this->owner->JoinedDate = date('Y-m-d');
 		}
 
 		if($this->owner->isChanged('MembershipStatus') && $this->owner->MembershipStatus==='Verified') {
