@@ -14,7 +14,7 @@
 
 				<% with $Level(1) %>
 					<li class="first">
-						<a href="$Link" class="<% if $LinkingMode = current %>active<% end_if %> btn medium oval">
+						<a href="$Link" class="<% if $LinkingMode = current || $LinkingMode = section %>active<% end_if %> btn medium oval">
 							<span>$MenuTitle</span>
 						</a>
 					</li>
@@ -22,7 +22,7 @@
 
 				<% loop Menu(2) %>
 					<li class="<% if $Last %> last<% end_if %>">
-						<a href="$Link" class="<% if $LinkingMode = current %>active<% end_if %> btn medium oval">
+						<a href="$Link" class="<% if $LinkingMode = current || $LinkingMode = section %>active<% end_if %> btn medium oval">
 							<span>$MenuTitle</span>
 						</a>
 					</li>
