@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "52419d51f6fe4eb42f5bc64bf6e2364d",
-    "content-hash": "a5a450f55243a64917b382f7aeabe350",
+    "hash": "5ec1db92c70618416af7cb7c1b26ca9b",
+    "content-hash": "a5ec7dd146e373edae64f7153cddbd12",
     "packages": [
         {
             "name": "adrexia/dashboardmods",
@@ -911,6 +911,43 @@
             "time": "2014-08-21 01:25:03"
         },
         {
+            "name": "silverstripe/redirectedurls",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe-labs/silverstripe-redirectedurls.git",
+                "reference": "df00741921eca49307a41b82385f9ddc1d411df8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-redirectedurls/zipball/df00741921eca49307a41b82385f9ddc1d411df8",
+                "reference": "df00741921eca49307a41b82385f9ddc1d411df8",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": ">=3.0.0"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sam Minnee",
+                    "email": "sam@silverstripe.com"
+                }
+            ],
+            "description": "Provides a system for users to configure arbitrary redirections in the CMS",
+            "keywords": [
+                "redirect",
+                "redirectedurls",
+                "silverstripe",
+                "urls"
+            ],
+            "time": "2015-05-14 11:29:37"
+        },
+        {
             "name": "silverstripe/restfulserver",
             "version": "1.0.2",
             "source": {
@@ -1379,7 +1416,8 @@
         "jonom/silverstripe-betternavigator": 20,
         "adrexia/dashboardmods": 20,
         "adrexia/silverstripe-calendar": 20,
-        "heyday/silverstripe-colorpalette": 20
+        "heyday/silverstripe-colorpalette": 20,
+        "silverstripe/redirectedurls": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

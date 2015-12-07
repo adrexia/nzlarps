@@ -1,0 +1,25 @@
+.body { font-family: arial,helvetica,sans-serif; font-size:small; color:black }
+.title { font-family: arial,helvetica,sans-serif; color:black; font-weight: bold }
+.largetitle { font-family: arial,helvetica,sans-serif; color:black; font-weight: bold; font-size: medium }
+.subtitle { font-family: arial,helvetica,sans-serif; color:black; font-weight: bold; font-style: italic; font-size: small }
+
+.news { font-family: times,serif; color:black; font-size: medium; text-align:justify}
+.newssmall { font-family: times,serif; color:black; font-weight: bold; font-size: x-small}
+.newssubtitle { font-family: times,serif; color:black; font-weight: bold; font-style: normal; font-size: medium; text-align:left}
+.newstitle { font-family: times,serif; color:black; font-weight: bold; font-style: italic; font-size: large; text-align:left}
+
+.menu { font-family:arial,helvetica,sans-serif; font-weight:bold; color: white }
+A.menu:link { color:white; text-decoration:none }
+A.menu:visited { color:white; text-decoration:none }
+A.menu:hover { color:silver; text-decoration:none }
+A.menu:active { color:silver; text-decoration:none }
+
+.menucurrent { font-family:arial,helvetica,sans-serif; font-weight:bold; color:black; text-decoration:none }
+
+ .submenu { font-family:arial,helvetica,sans-serif; font-weight:bold; color: white; font-size: x-small }
+A.submenu:link { color:white; text-decoration:none }
+A.submenu:visited { color:white; text-decoration:none }
+A.submenu:hover { color:silver; text-decoration:none }
+A.submenu:active { color:silver; text-decoration:none }
+
+.submenucurrent { font-family:arial,helvetica,sans-serif; font-weight:bold; color:black; font-size: x-small }

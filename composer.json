@@ -37,7 +37,8 @@
 		"studiobonito/silverstripe-spamprotection-honeypot": "1.1.0",
 		"adrexia/silverstripe-calendar" : "dev-master",
 		"heyday/silverstripe-colorpalette": "dev-master",
-		"silverstripe/crontask": "*"
+		"silverstripe/crontask": "*",
+		"silverstripe/redirectedurls": "dev-master"
 	},
 	"config": {
 		"process-timeout": 600
