@@ -10,9 +10,6 @@ $(function() {
 			facebook: {
 				app_id: "448326078706391"
 			},
-			// googlePlus: {
-			// 	enabled: false
-			// },
 			reddit: {
 				enabled: false
 			},
