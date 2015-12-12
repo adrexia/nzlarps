@@ -38,7 +38,7 @@ class ProjectPage extends EventPage {
 
 		$fields->insertBefore(TextField::create('Tagline'), 'Intro');
 		$fields->insertBefore(TextField::create('Contact'), 'Intro');
-		$fields->insertBefore(LinkField::create('WebsiteID'), 'Intro');
+		$fields->insertBefore(LinkField::create('WebsiteID', 'Website'), 'Intro');
 
 		$fields->insertBefore(UploadField::create(
 			'SmallImage',

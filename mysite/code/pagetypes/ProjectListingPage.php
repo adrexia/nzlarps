@@ -21,7 +21,7 @@ class ProjectListingPage extends Page {
 
 		$fields = parent::getCMSFields();
 
-		$fields->removeByName('Features');
+		$fields->insertAfter(HTMLEditorField::create('ExtraContent'), 'Content');
 
 		$fields->insertBefore(DropdownField::create(
 			'Type',

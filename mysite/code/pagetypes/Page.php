@@ -41,7 +41,7 @@ class Page extends SiteTree {
 		$fields->insertBefore(UploadField::create('SplashImage', 'Splash Image'),'Content');
 
 
-		if($this->ClassName !== "CalendarPage") {
+		if($this->ClassName === "Page" || $this->ClassName === "HomePage") {
 
 			$fields->insertAfter(HTMLEditorField::create('ExtraContent'), 'Content');
 
@@ -56,9 +56,23 @@ class Page extends SiteTree {
 
 			$config->addComponent(new GridFieldOrderableRows());
 
-		} else {
+		} else if($this->ClassName === "CalendarPage") {
 			$content = $fields->dataFieldByName('Content');
 			$content->addExtraClass('no-pagebreak');
+
+			$events = Event::get()->sort(array('StartDateTime'=>'Desc'))->filterByCallback(function($record) {
+				return !$record->getIsPastEvent();
+			});
+
+			$gridField = new GridField(
+				'Event',
+				'Upcoming Events',
+				$events,
+				$config = GridFieldConfig_RecordEditor::create()
+			);
+			$gridField->setModelClass('Event');
+			$fields->addFieldToTab('Root.UpcomingEvents', $gridField);
+
 		}
 
 		return $fields;

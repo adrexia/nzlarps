@@ -10,7 +10,18 @@ class AboutPage extends Page {
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
-		$fields->removeByName('Features');
+		$fields->insertAfter(HTMLEditorField::create('ExtraContent'), 'Content');
+
+		$gridField = new GridField(
+			'Region',
+			'Regions',
+			Region::get(),
+			$config = GridFieldConfig_RecordEditor::create()
+		);
+		$gridField->setModelClass('Region');
+		$fields->addFieldToTab('Root.Regions', $gridField);
+
+
 		return $fields;
 	}
 

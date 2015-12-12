@@ -37,6 +37,7 @@ grunt.initConfig({
           'js/src/libs/ui/jquery.validation.js',
           'js/src/libs/gumby.init.js',
           "js/src/libs/tags-input/jquery.tagsinput.js",
+          "js/src/libs/sharebutton/share-button.js",
           'js/src/libs/parsleyjs/dist/parsley.js',
           'js/src/libs/gumby.min.js',
           'js/src/general.src.js',

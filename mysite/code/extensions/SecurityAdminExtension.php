@@ -20,6 +20,9 @@ class SecurityAdminExtension extends Extension {
 		$columns->setFieldFormatting(array(
 			'MemberNumber' => function($value, $item) {
 				return $item->prepMemberNumber();
+			},
+			'LastEdited' => function($value, $item) {
+				return $item->LastEditedNice();
 			}
 		));
 

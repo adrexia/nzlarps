@@ -36,7 +36,8 @@ class MemberExtension extends DataExtension {
 		'MembershipStatus',
 		'MemberNumber',
 		'ExpiryDate',
-		'JoinedDate'
+		'JoinedDate',
+		'LastEdited'
 	);
 
 
@@ -120,6 +121,10 @@ class MemberExtension extends DataExtension {
 		$joined->setConfig('showdropdown', true);
 		$joined->setConfig('dateformat', 'dd-MM-YYYY');
 
+	}
+
+	public function LastEditedNice() {
+		return $this->owner->dbObject('LastEdited')->Nice();
 	}
 
 

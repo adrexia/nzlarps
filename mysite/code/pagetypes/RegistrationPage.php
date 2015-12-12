@@ -44,6 +44,41 @@ class RegistrationPage extends MemberProfilePage {
 		$fields->insertAfter(TextareaField::create('ExpiryEmailTemplate','Expiry Email Template'), 'ExpiryReminderEmailTemplate');
 		$fields->insertAfter(TextField::create('ExpiryEmailSubject','Expiry Email Subject'), 'ExpiryReminderEmailTemplate');
 
+
+		$fields->addFieldToTab('Root.Members', LiteralField::create(
+			'MembersNote', '<p class="message"><strong>Note:</strong> This list has been filtered to include current and pending members only. Use the Members admin area for handling expired memberships and non-member website users.</p>'
+		));
+
+		$members = Member::get()->exclude(array(
+			'MembershipStatus'=>'Not applied',
+			'MembershipStatus'=>'Expired'
+		))->sort(array('ExpiryDate'=> 'ASC'));
+
+		$gridField = new GridField(
+			'Members',
+			'NZLARP Members',
+			$members,
+			$config = GridFieldConfig_RecordEditor::create()
+		);
+
+		$gridField->setModelClass('Member');
+		$columns = $config->getComponentByType('GridFieldDataColumns');
+
+		$columns->setFieldFormatting(array(
+			'MemberNumber' => function($value, $item) {
+				return $item->prepMemberNumber();
+			},
+			'LastEdited' => function($value, $item) {
+				return $item->LastEditedNice();
+			}
+		));
+
+
+		$fields->addFieldToTab('Root.Members', $gridField);
+
+		$config->getComponentByType('GridFieldPaginator')->setItemsPerPage(200);
+
+
 		return $fields;
 	}
 
@@ -152,6 +187,8 @@ class RegistrationPage_Controller extends MemberProfilePage_Controller {
 			$form->sessionMessage($e->getResult()->message(), 'bad');
 			return;
 		}
+
+		$this->sendAdminEmail($member);
 
 		return $member;
 	}
@@ -289,6 +326,21 @@ class RegistrationPage_Controller extends MemberProfilePage_Controller {
 		return $form;
 	}
 
+	public function sendAdminEmail($member) {
+		$email = Email::create();
+
+		$email->setTo('secretary@nzlarps.org');
+		$email->setBcc('it@nzlarps.org');
+		$email->setSubject("New member application");
+
+		$content = $this->customise(new ArrayData(array(
+			'Member' => $Member
+		)))->renderWith('NewMemberEmail');
+
+		$email->setBody($content);
+		$email->send();
+	}
+
 	/**
 	 * Updates an existing Member's profile.
 	 */
@@ -299,6 +351,8 @@ class RegistrationPage_Controller extends MemberProfilePage_Controller {
 			$member->MembershipStatus = 'Applied';
 			$email = new MemberConfirmationEmail($this, $member);
 			$email->send();
+
+			$this->sendAdminEmail($member);
 		}
 
 		$groupIds = $this->getSettableGroupIdsFrom($form, $member);

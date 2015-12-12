@@ -7,8 +7,7 @@ class EventExtension extends DataExtension {
 
 	private static $db = array(
 		'Intro' => 'Text',
-		'Colour' => 'Varchar(255)',
-		'ExtraContent' => 'HTMLText'
+		'Colour' => 'Varchar(255)'
 	);
 
 	private static $has_one = array(
@@ -64,9 +63,6 @@ class EventExtension extends DataExtension {
 		$fields->removeByName('RelatedPage');
 
 		$fields->addFieldToTab('Root.Details', TextareaField::create('Intro', 'Intro'));
-		$fields->insertAfter($extra = HTMLEditorField::create('ExtraContent'), 'Intro');
-
-		$extra->addExtraClass('stacked');
 
 		$fields->insertAfter($details, 'Intro');
 
@@ -98,6 +94,10 @@ class EventExtension extends DataExtension {
 
 		return $colours['air'];
 
+	}
+
+	public function Level($num) {
+		return CalendarPage::get_one('CalendarPage');
 	}
 
 }

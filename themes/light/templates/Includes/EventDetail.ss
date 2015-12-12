@@ -1,6 +1,7 @@
 <div class="row">
 	<div class="columns twelve">
 		<div class="main top-panel" role="main" id="main">
+			
 
 			<% include BackButton %>
 			<div class="EventDetail">
@@ -22,9 +23,8 @@
 								<span>$FormattedTimeframe</span>
 							<% end_if %>
 						<% end_if %>
-
 					</p>
-
+					<share-button></share-button>
 					$Details
 
 					<% if $EventPage %>
@@ -36,12 +36,6 @@
 			</div>
 
 		</div>
-
-		<% if $Event.ExtraContent %>
-			<div class="main mtm">
-				$Event.ExtraContent.RichLinks
-			</div>
-		<% end_if %>
 		<footer class="content-footer columns twelve">
 			<% include PrintShare %>
 			<% include LastEdited %>

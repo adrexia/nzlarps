@@ -10,9 +10,38 @@ class ProcessMembersTask extends BuildTask implements CronTask {
 	 * Main task function
 	 */
 	public function run($request)  {
-		$this->handleExpiryingMembers();
-		$this->handleExpiredMembers();
+		$expiring = $this->handleExpiryingMembers();
+		$expired = $this->handleExpiredMembers();
+
+		$newMembers = $this->getApplyingMembers();
+
+		if ($expiring->Count() > 0 || $expired->Count() > 0 || $newMembers->Count() > 0) {
+			$this->emailReport($expired, $expiring, $newMembers);
+		}
 	}
+
+
+	public function emailReport($expired, $expiring, $newMembers) {
+		$email = Email::create();
+
+		$to = 'secretary@nzlarps.org, treasurer@nzlarps.org';
+
+		$email->setTo($to);
+		$email->setBcc('it@nzlarps.org');
+		$email->setSubject("NZLarps daily membership report");
+
+		$content = $email->customise(new ArrayData(array(
+			'NewMembers' => $newMembers,
+			'ExpiredMembers' => $expired,
+			'ExpiryingMembers' => $expiring
+		)))->renderWith('ReportEmail');
+
+		$email->setBody($content);
+		$email->send();
+
+		echo '<p>Report has been sent</p>';
+	}
+
 
 	public function handleExpiryingMembers() {
 		$expiringMembers = $this->getExpiringMembers();
@@ -21,6 +50,7 @@ class ProcessMembersTask extends BuildTask implements CronTask {
 		$count = 0;
 
 		if($expiringMembers->Count() > 0) {
+
 			foreach($expiringMembers as $member) {
 				$member->Notified = 1;
 
@@ -31,6 +61,8 @@ class ProcessMembersTask extends BuildTask implements CronTask {
 					$member->write();
 					$count++;
 
+					echo '<p>Email sent to:' . $member->Email . ' </p>';
+
 				} catch (Exception $e) {
 					echo '<p>Failed to send email, or update: ' . $member->FirstName . '</p>' ;
 				}
@@ -39,7 +71,7 @@ class ProcessMembersTask extends BuildTask implements CronTask {
 
 		echo '<p>' . $count . ' members notified of expirying membership</p>';
 
-
+		return $expiringMembers;
 	}
 
 	public function handleExpiredMembers() {
@@ -47,23 +79,29 @@ class ProcessMembersTask extends BuildTask implements CronTask {
 		$register = RegistrationPage::get_one('RegistrationPage');
 		$count = 0;
 
-		foreach($expiredMembers as $member) {
-			$member->MembershipStatus = 'Expired';
+		if($expiredMembers->Count() > 0) {
 
-			try {
-				$email = new MemberExpiredEmail($register, $member);
-				$email->send();
+			foreach($expiredMembers as $member) {
+				$member->MembershipStatus = 'Expired';
 
-				$member->write();
-				$count++;
+				try {
+					$email = new MemberExpiredEmail($register, $member);
+					$email->send();
 
-				echo '<p>Email sent to:' . $member->Email . ' </p>';
-			} catch(ValidationException $e) {
-				echo '<p>Failed to update record: ' . $member->FirstName . '</p>' ;
+					$member->write();
+					$count++;
+
+					echo '<p>Email sent to:' . $member->Email . ' </p>';
+
+				} catch(ValidationException $e) {
+					echo '<p>Failed to update record: ' . $member->FirstName . '</p>' ;
+				}
 			}
 		}
 
 		echo '<p>' . $count . ' members notified of expired membership</p>';
+
+		return $expiredMembers;
 	}
 
 	// Notify members due to expire in 29 days
@@ -87,6 +125,13 @@ class ProcessMembersTask extends BuildTask implements CronTask {
 			'ExpiryDate:LessThan' => $tomorrow->format('Y-m-d H:i:s')
 		));
 	}
+
+	public function getApplyingMembers() {
+		return Member::get()->filter(array(
+			'MembershipStatus' => 'Applied'
+		));
+	}
+
 
 	/**
 	*

@@ -7,10 +7,29 @@
 <head>
 	<% base_tag %>
 	<%-- $FilterDescription adds additional information from the news and events areas --%>
-	<title>$Title <% if FilterDescription %>- $FilterDescription<% end_if %> | $SiteConfig.Title</title>
+	<title>
+		<% if $Event %>
+			$Event.Title
+		<% else %>
+			$Title <% if FilterDescription %>- $FilterDescription<% end_if %> | $SiteConfig.Title
+		<% end_if %>
+	</title>
+
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="<% if $Event %>$Event.Title<% else %>$Title | $SiteConfig.Title<% end_if %>" />
 
 	$MetaTags(false)
 	<meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0" />
+
+	<% if $Event %>
+		<% include MetaImage Context=$Event %>
+	<% else %>
+		<% include MetaImage Context=$Top %>
+	<% end_if %>
+
+	<% if $Intro %>
+	<meta property="og:description" content="<% if $Event.Intro %>$Event.Intro.LimitCharacters(100)<% else %>$Intro.LimitCharacters(100)<% end_if %>" />
+	<% end_if %>
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements. It must be included _before_ the body element -->
 	<!--[if lt IE 9]>
@@ -26,14 +45,13 @@
 </head>
 
 <body data-spy="scroll" class="$ClassName <% if $Colour %>$Colour<% else %>$Level(1).Colour<% end_if %>">
-
+	<% include FBScript %>
 	$BetterNavigator
 	<% include SkipLinks %>
 	<% include Header %>
 	<div class="layout" id="layout">
 		$Layout
 	</div>
-
 
 	<script type="text/javascript" src="{$ThemeDir}/js/script.min.js"></script>
 
