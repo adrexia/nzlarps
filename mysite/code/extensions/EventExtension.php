@@ -74,8 +74,11 @@ class EventExtension extends DataExtension {
 				$this->owner->getPalette()
 		));
 
-		$fields->insertAfter(UploadField::create('SplashImage', 'Splash Image'),'Colour');
-		$fields->insertAfter(UploadField::create('SmallImage', 'Small Image'),'SplashImage');
+		$fields->insertAfter($splash = UploadField::create('SplashImage', 'Splash Image'),'Colour');
+		$fields->insertAfter($small = UploadField::create('SmallImage', 'Small Image'),'SplashImage');
+
+		$splash->setFolderName('Uploads/Splash-Images');
+		$small->setFolderName('Uploads/Small-Images');
 
 	}
 

@@ -58,6 +58,9 @@ class Region extends DataObject implements PermissionProvider {
 		$fields->removeByName('ParentID');
 		$fields->removeByName('Sort');
 
+		$image = $fields->dataFieldByName('Image');
+		$image->setFolderName('Uploads/Splash-Images');
+
 		$fields->insertAfter(
 			ColorPaletteField::create(
 				"Colour", "Colour",

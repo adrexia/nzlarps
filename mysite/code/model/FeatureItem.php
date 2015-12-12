@@ -81,6 +81,7 @@ class FeatureItem extends DataObject {
 		$link = $fields->dataFieldByName('LinkID');
 
 		$image = $fields->dataFieldByName('Image');
+		$image->setFolderName('Uploads/Small-Images');
 
 		$fields->removeByName('Image');
 

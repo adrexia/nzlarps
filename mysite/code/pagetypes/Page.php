@@ -38,8 +38,9 @@ class Page extends SiteTree {
 			), "Intro"
 		);
 
-		$fields->insertBefore(UploadField::create('SplashImage', 'Splash Image'),'Content');
+		$fields->insertBefore($image = UploadField::create('SplashImage', 'Splash Image'),'Content');
 
+		$image->setFolderName('Uploads/Splash-Images');
 
 		if($this->ClassName === "Page" || $this->ClassName === "HomePage") {
 
