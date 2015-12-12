@@ -50,7 +50,8 @@ class RegistrationPage extends MemberProfilePage {
 		));
 
 		$members = Member::get()->exclude(array(
-			'MembershipStatus'=>'Not applied',
+			'MembershipStatus'=>'Not applied'
+		))->exclude(array(
 			'MembershipStatus'=>'Expired'
 		))->sort(array('ExpiryDate'=> 'ASC'));
 
@@ -65,12 +66,17 @@ class RegistrationPage extends MemberProfilePage {
 		$columns = $config->getComponentByType('GridFieldDataColumns');
 
 		$columns->setFieldFormatting(array(
-			'MemberNumber' => function($value, $item) {
-				return $item->prepMemberNumber();
-			},
 			'LastEdited' => function($value, $item) {
 				return $item->LastEditedNice();
 			}
+		));
+
+		$columns->setDisplayFields(array(
+			'getName' => 'Name',
+			'Region.Title' => 'Region',
+			'MembershipStatus' => 'Status',
+			'ExpiryDate'=>'Expires',
+			'LastEdited'=>'Last Activity'
 		));
 
 
