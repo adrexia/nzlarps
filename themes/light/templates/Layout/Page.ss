@@ -25,12 +25,12 @@
 			$ExtraContent.RichLinks.Pagebreaks
 		</div>
 		<% end_if %>
-		<% if $ClassName ==='RegistrationPage' %>
+
+		<% if $ClassName=='RegistrationPage' %>
 			<footer class="content-footer columns twelve">
 			</footer>
 		<% else %>
 			<footer class="content-footer columns twelve">
-				<% include PrintShare %>
 				<% include LastEdited %>
 			</footer>
 		<% end_if %>
