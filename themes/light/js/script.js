@@ -22347,26 +22347,29 @@ if ('undefined' !== typeof window.ParsleyValidator)
 $(function() {
 	"use strict";
 
-
-	var sharebutton = new ShareButton({
-		networks: {
-			facebook: {
-				app_id: "448326078706391"
-			},
-			reddit: {
-				enabled: false
-			},
-			linkedin: {
-				enabled: false,
-			},
-			whatsapp: {
-				enabled: false
-			},
-			email: {
-				enabled: false
+	if ($('.share-wrapper').length > 0) {
+		var sharebutton = new ShareButton({
+			networks: {
+				facebook: {
+					app_id: "448326078706391"
+				},
+				reddit: {
+					enabled: false
+				},
+				linkedin: {
+					enabled: false,
+				},
+				whatsapp: {
+					enabled: false
+				},
+				email: {
+					enabled: false
+				}
 			}
-		}
-	});
+		});
+
+	}
+
 
 	if($('.tag-field.genre').length > 0){
 

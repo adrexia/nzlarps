@@ -1,16 +1,23 @@
+.share-wrapper {
+	clear: both;
+	position: relative;
+	width: 40px;
+	height: 40px;
+	margin: 0 auto 70px;
+}
 
 share-button {
 	position: relative;
 	font-size: 0;
 	color: #333;
-
+	display: inline;
 	cursor: pointer;
 	width: 40px;
 	height: 40px;
 	overflow:hidden;
 
 	@include respond(all-phones) {
-		display: none !important; // hide on mobile devices 
+		display: none !important; // hide on mobile devices
 	}
 
 }
@@ -25,6 +32,7 @@ share-button:before {
 	position: absolute;
 	line-height: 1em;
 	left: -20px;
+	top:0;
 	font-size: 40px;
 	width: 1em;
 	height: 1em;
@@ -55,7 +63,7 @@ share-button .sb-social.sb-center.sb-bottom {
 		  transform: translate(-50%, 100%);
 }
 share-button .sb-social.sb-center.active.sb-top {
-  top: -20px;
+  top: -5px;
 }
 share-button .sb-social.sb-center.active.sb-bottom {
   bottom: -1em;

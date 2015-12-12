@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="columns twelve">
 		<div class="main top-panel" role="main" id="main">
-			
+
 
 			<% include BackButton %>
 			<div class="EventDetail">
@@ -24,8 +24,11 @@
 							<% end_if %>
 						<% end_if %>
 					</p>
-					<share-button></share-button>
+
 					$Details
+					<div class="share-wrapper" title="share">
+						<share-button></share-button>
+					</div>
 
 					<% if $EventPage %>
 						<% with $EventPage %>
