@@ -38,7 +38,8 @@
 		"adrexia/silverstripe-calendar" : "dev-master",
 		"heyday/silverstripe-colorpalette": "dev-master",
 		"silverstripe/crontask": "*",
-		"silverstripe/redirectedurls": "dev-master"
+		"silverstripe/redirectedurls": "dev-master",
+		"unclecheese/silverstripe-kickassets": "^3.1"
 	},
 	"config": {
 		"process-timeout": 600

@@ -43,6 +43,9 @@ EventPage:
 SubmittedForm:
   extensions:
    - SubmittedFormExtension
+KickAssets:
+  menu_icon: "mysite/images/sitetree_images/photo.png"
+  menu_title: "Files"
 
 FormSpamProtectionExtension:
   default_spam_protector: '\StudioBonito\SilverStripe\SpamProtection\Honeypot\SpamProtector\HoneypotSpamProtector'
