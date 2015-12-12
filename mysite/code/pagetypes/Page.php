@@ -71,6 +71,16 @@ class Page extends SiteTree {
 				$config = GridFieldConfig_RecordEditor::create()
 			);
 			$gridField->setModelClass('Event');
+
+			$dataColumns = $config->getComponentByType('GridFieldDataColumns');
+
+			$dataColumns->setDisplayFields(array(
+				'Title' => 'Title',
+				'StartDateTime' => 'Date and Time',
+				'DatesAndTimeframe' => 'Presentation String'
+			));
+
+
 			$fields->addFieldToTab('Root.UpcomingEvents', $gridField);
 
 		}
