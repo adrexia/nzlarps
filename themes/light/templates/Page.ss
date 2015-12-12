@@ -39,7 +39,6 @@
 
 	<% require themedCSS('style') %>
 	<% include MetaIcons %>
-	<link rel="shortcut icon" href="$ThemeDir/images/favicon.ico" />
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100,300' rel='stylesheet' type='text/css'>
 </head>

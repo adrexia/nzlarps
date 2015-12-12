@@ -1,8 +1,9 @@
 <% if SiteConfig.FavIcon %>
 	<link rel="shortcut icon" href="$SiteConfig.FavIcon.AbsoluteURL" />
 <% else %>
-	<link rel="shortcut icon" href="{$BaseHref}{$ThemeDir}/ico/favicon.ico" />
+	<link rel="shortcut icon" href="{$BaseHref}{$ThemeDir}/images/favicon.ico" />
 <% end_if %>
+
 <% if SiteConfig.AppleTouchIcon144 %>
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="$SiteConfig.AppleTouchIcon144.AbsoluteURL">
 	<meta name="msapplication-TileImage" content="$SiteConfig.AppleTouchIcon144.AbsoluteURL" />
