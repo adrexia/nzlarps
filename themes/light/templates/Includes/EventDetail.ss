@@ -40,7 +40,6 @@
 
 		</div>
 		<footer class="content-footer columns twelve">
-			<% include PrintShare %>
 			<% include LastEdited %>
 		</footer>
 	</div>
