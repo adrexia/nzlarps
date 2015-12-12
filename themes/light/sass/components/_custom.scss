@@ -199,13 +199,18 @@
 	.text {
 		font-family: $header-font-family;
 		font-weight: normal;
-		vertical-align: text-bottom;
-		color: #444;
-		padding-left: 10px;
-		font-size: 18px;
-		line-height: 37px;
-		font-variant: small-caps;
+
 		text-rendering: optimizeLegibility;
+
+
+		font-size: 13px;
+		color: #333;
+
+		font-family: Times, serif;
+		font-style: italic;
+		clear: both;
+		display: block;
+		line-height: 5px;
 	}
 
 	&:hover,
