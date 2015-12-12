@@ -31,7 +31,7 @@ class EventExtension extends DataExtension {
 			'night'=> '#333333',
 			'air'=> '#009EE2',
 			'earth'=> ' #79c608',
-			'passion'=> '#F15051',
+			'passion'=> '#b02635',
 			'people'=> '#de347f',
 			'inspiration'=> '#783980'
 		);
