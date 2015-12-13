@@ -2,7 +2,7 @@
 
 <% if $NewMembers %>
 	<h4>Applying Members</h4>
-	<em>Memberships not yet verfied</em>
+	<em>Memberships not yet verified</em>
 	<p>The treasurer should confirm payment and change the membership status to 'Verified'. This will automatically generate both the membership number and the joined date if they do not yet exist.</p>
 
 	<ul>
