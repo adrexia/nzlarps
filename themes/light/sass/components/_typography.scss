@@ -8,7 +8,7 @@ h1,h2,h3,h4,h5,h6 {
   @include adjust-leading-to($rhythm-height);
   @include padding-trailer($rhythm-spacing);
   a {
-    color: $inspiration;
+	color: $inspiration;
   }
 
 }
@@ -23,20 +23,23 @@ h1 {
   @include font-size($xxxlarge);
   line-height: 1.2em;
   margin-top: 20px;
+  @include respond(tablets) {
+	  @include font-size($xlarge);
+  }
   &.xlarge {
-    @include font-size($reallybig);
+	@include font-size($reallybig);
   }
 
   &.small {
-    @include font-size($xxxlarge - 10);
+	@include font-size($xxxlarge - 10);
   }
 
   &.smallest {
-    @include font-size($xxlarge + 3);
+	@include font-size($xxlarge + 3);
   }
 
   &.page-header{
-    margin-bottom:30px;
+	margin-bottom:30px;
   }
 }
 h2 {
@@ -44,16 +47,18 @@ h2 {
   margin-top: 50px;
   margin-bottom: 10px;
   &.small{
-    @include font-size($norm);
-    text-transform: uppercase;
-    font-weight:bold;
-    line-height:1.5em;
+	@include font-size($norm);
+	text-transform: uppercase;
+	font-weight:bold;
+	line-height:1.5em;
   }
   @include respond(tablets) {
-     margin-top: 35px;
+	@include font-size($xlarge - 6);
+	margin-top: 35px;
+	padding: 0 40px;
   }
   @include respond(all-phones) {
-     margin-top: 0;
+	 margin-top: 0;
   }
 }
 h3 {
@@ -62,38 +67,38 @@ h3 {
   margin-top: 50px;
   margin-bottom: 10px;
   + p {
-      margin-top: 0;
+	  margin-top: 0;
   }
   &.small{
-    @include font-size($norm - 2);
-    text-transform: uppercase;
-    font-weight:bold;
-    line-height:1.5em;
+	@include font-size($norm - 2);
+	text-transform: uppercase;
+	font-weight:bold;
+	line-height:1.5em;
   }
 }
 h4 {
-    @include font-size($med);
-    font-weight: bold;
-     margin-bottom: 20px;
-     + p {
-         margin-top: 0;
-     }
+	@include font-size($med);
+	font-weight: bold;
+	 margin-bottom: 20px;
+	 + p {
+		 margin-top: 0;
+	 }
 }
 h5 {
-    @include font-size($med);
-    font-weight: bold;
-    text-transform: uppercase;
-     margin-bottom: 20px;
-     + p {
-         margin-top: 0;
-     }
+	@include font-size($med);
+	font-weight: bold;
+	text-transform: uppercase;
+	 margin-bottom: 20px;
+	 + p {
+		 margin-top: 0;
+	 }
 }
 h6 {
-    @include font-size($norm);
-    margin-bottom: 20px;
-    + p {
-         margin-top: 0;
-    }
+	@include font-size($norm);
+	margin-bottom: 20px;
+	+ p {
+		 margin-top: 0;
+	}
 }
 
 @include respond(all-phones) {
@@ -110,19 +115,19 @@ h6 {
 }
 
 .listing-heading {
-    padding-top: 38px;
+	padding-top: 38px;
 
-    border-top: 1px solid #fff;
-    -webkit-box-shadow: 0 -1px 0 #dedede;
-    -moz-box-shadow: 0 -1px 0 #dedede;
-    -o-box-shadow: 0 -1px 0 #dedede;
-    box-shadow: 0 -1px 0 #dedede;
+	border-top: 1px solid #fff;
+	-webkit-box-shadow: 0 -1px 0 #dedede;
+	-moz-box-shadow: 0 -1px 0 #dedede;
+	-o-box-shadow: 0 -1px 0 #dedede;
+	box-shadow: 0 -1px 0 #dedede;
 
-    &.first {
-        margin-top: 0;
-        box-shadow: none;
-        border-top: 0;
-    }
+	&.first {
+		margin-top: 0;
+		box-shadow: none;
+		border-top: 0;
+	}
 }
 
 /*=====================================================
@@ -139,12 +144,12 @@ p {
   margin-top: 40px;
   @include adjust-leading-to(1);
   &.lead {
-    @include font-size(ms(0) * 1.25);
-    margin-bottom: ms(1);
+	@include font-size(ms(0) * 1.25);
+	margin-bottom: ms(1);
   }
   @include respond(portrait-tablets) {
-    @include font-size($base-font-size * 1.1);
-    @include adjust-leading-to(1);
+	@include font-size($base-font-size * 1.1);
+	@include adjust-leading-to(1);
   }
 
 }
@@ -155,10 +160,10 @@ a {
   outline: 0;
   line-height: inherit;
   &:visited{
-    color: mix($body-link-color, $body-link-hover-color, 50%);
+	color: mix($body-link-color, $body-link-hover-color, 50%);
   }
   &:hover {
-    color: $body-link-hover-color;
+	color: $body-link-hover-color;
   }
 }
 
@@ -182,25 +187,25 @@ ol {
 }
 
 ul {
-    &.inline {
-      li {
-          display: inline-block;
-      }
-    }
+	&.inline {
+	  li {
+		  display: inline-block;
+	  }
+	}
   &.square, &.circle, &.disc {
-    margin-left: 25px;
+	margin-left: 25px;
   }
   &.square {
-    list-style: square outside;
+	list-style: square outside;
   }
   &.circle {
-    list-style: circle outside;
+	list-style: circle outside;
   }
   &.disc {
-    list-style: disc outside;
+	list-style: disc outside;
   }
   ul {
-    margin: 4px 0 5px 25px;
+	margin: 4px 0 5px 25px;
   }
 }
 
@@ -247,26 +252,26 @@ blockquote {
   line-height: 20px;
   color: #777;
   p {
-    line-height: 20px;
-    color: #777;
+	line-height: 20px;
+	color: #777;
   }
   margin: 0 0 18px;
   padding: 9px 20px 0 19px;
   border-left: 5px solid $horizontal-rule-color;
   cite {
-    display: block;
-    font-size: 12px;
-    font-size: 1.2rem;
-    color: $body-font-color;
-    &:before {
-      content: "\2014 \0020";
-    }
-    a {
-      color: $body-font-color;
-      &:visited {
-        color: $body-font-color;
-      }
-    }
+	display: block;
+	font-size: 12px;
+	font-size: 1.2rem;
+	color: $body-font-color;
+	&:before {
+	  content: "\2014 \0020";
+	}
+	a {
+	  color: $body-font-color;
+	  &:visited {
+		color: $body-font-color;
+	  }
+	}
   }
 }
 
@@ -299,64 +304,64 @@ abbr {
 
 @media print {
   * {
-    background: transparent !important;
-    color: black !important;
-    text-shadow: none !important;
-    filter: none !important;
-    -ms-filter: none !important;
+	background: transparent !important;
+	color: black !important;
+	text-shadow: none !important;
+	filter: none !important;
+	-ms-filter: none !important;
   }
   /* Black prints faster: sanbeiji.com/archives/953 */
   p a {
-    color: $body-font-color !important;
-    text-decoration: underline;
-    &:visited {
-      color: $body-font-color !important;
-      text-decoration: underline;
-    }
-    &[href]:after {
-      content: " (" attr(href) ")";
-    }
+	color: $body-font-color !important;
+	text-decoration: underline;
+	&:visited {
+	  color: $body-font-color !important;
+	  text-decoration: underline;
+	}
+	&[href]:after {
+	  content: " (" attr(href) ")";
+	}
   }
   abbr[title]:after {
-    content: " (" attr(title) ")";
+	content: " (" attr(title) ")";
   }
   .ir a:after {
-    content: "";
+	content: "";
   }
   a {
-    &[href^="javascript:"]:after, &[href^="#"]:after {
-      content: "";
-    }
+	&[href^="javascript:"]:after, &[href^="#"]:after {
+	  content: "";
+	}
   }
   /* Don't show links for images, or javascript/internal links */
   pre, blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
+	border: 1px solid #999;
+	page-break-inside: avoid;
   }
   thead {
-    display: table-header-group;
+	display: table-header-group;
   }
   /* css-discuss.incutio.com/wiki/Printing_Tables */
   tr, img {
-    page-break-inside: avoid;
+	page-break-inside: avoid;
   }
   @page {
-    margin: 0.5cm;
+	margin: 0.5cm;
   }
 
   p, h2, h3 {
-    orphans: 3;
-    widows: 3;
+	orphans: 3;
+	widows: 3;
   }
   h2, h3 {
-    page-break-after: avoid;
+	page-break-after: avoid;
   }
 }
 
 b {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 i {
-    font-style: italic;
+	font-style: italic;
 }

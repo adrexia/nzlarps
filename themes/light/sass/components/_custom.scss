@@ -183,7 +183,6 @@
 }
 
 .back-link {
-
 	line-height: 40px;
 	position:absolute;
 	left: 30px;
@@ -196,16 +195,17 @@
 		display: none;
 	}
 
+	@include respond(tablets) {
+		top: 5px; // hide on mobile devices
+		left: 20px;
+	}
+
 	.text {
 		font-family: $header-font-family;
 		font-weight: normal;
-
 		text-rendering: optimizeLegibility;
-
-
 		font-size: 13px;
 		color: #333;
-
 		font-family: Times, serif;
 		font-style: italic;
 		clear: both;

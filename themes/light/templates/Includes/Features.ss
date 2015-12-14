@@ -5,7 +5,7 @@
 			<% loop CurrentFeatureItems %>
 				<% if $Type =='News' && $NewsPage.NewsItems() %>
 
-					<div class="item">
+					<div class="item $EvenOdd">
 						<div class="feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
 							<h3>
 								<a href="$NewsPage.Link">$Title</a>
@@ -16,7 +16,7 @@
 
 				<% else_if $Type =='Events' && $Events() %>
 
-						<div class="item">
+						<div class="item $EvenOdd">
 							<div class="feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
 								<h3>
 									<a href="$CalendarPage.Link">$Title</a>
@@ -27,7 +27,7 @@
 
 				<% else_if $Type =='Project' && $Projects() %>
 
-					<div class="item">
+					<div class="item $EvenOdd">
 						<div class="feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
 							<h3>
 								<a href="$Link.Link">
@@ -39,7 +39,7 @@
 					</div>
 
 				<% else_if $Type == 'HTML' %>
-					<div class="item">
+					<div class="item $EvenOdd">
 						<div class="feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
 							<h3>
 								<% if $Title %>$Title<% end_if %>
@@ -59,7 +59,7 @@
 					</div>
 
 				<% else_if $Type == Content %>
-				<div class="item">
+				<div class="item $EvenOdd">
 
 					<% if $Link %><a href="$Link.Link" class="link<% else %><div class="<% end_if %> feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
 

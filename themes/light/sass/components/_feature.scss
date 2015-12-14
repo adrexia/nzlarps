@@ -3,7 +3,7 @@
 
 .main-features{
 	@include respond(tablets) {
-		margin: 0 30px;
+		margin: 0 -10px 0 0;
 	}
 	.features {
 		@include respond(all-phones) {
@@ -17,6 +17,10 @@
 		position:relative;
 		margin-left: -50px;
 		margin-right: -50px;
+		@include respond(tablets) {
+			margin-left: 0;
+			margin-right: 0;
+		}
 		@include respond(all-phones) {
 			margin: 0;
 			.item  .feature-block {
