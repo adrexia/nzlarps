@@ -24,7 +24,7 @@ h1 {
   line-height: 1.2em;
   margin-top: 20px;
   @include respond(tablets) {
-	  @include font-size($xlarge);
+	  @include font-size($xxlarge + 5);
   }
   &.xlarge {
 	@include font-size($reallybig);
