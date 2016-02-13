@@ -10,14 +10,16 @@ class ProcessMembersTask extends BuildTask implements CronTask {
 	 * Main task function
 	 */
 	public function run($request)  {
-		$expiring = $this->handleExpiryingMembers();
-		$expired = $this->handleExpiredMembers();
-
+		$expiring = $this->getExpiringMembers();
+		$expired = $this->getExpiredMembers();
 		$newMembers = $this->getApplyingMembers();
 
 		if ($expiring->Count() > 0 || $expired->Count() > 0 || $newMembers->Count() > 0) {
 			$this->emailReport($expired, $expiring, $newMembers);
 		}
+
+		$this->handleExpiryingMembers($expiring);
+		$this->handleExpiredMembers($expired);
 	}
 
 
@@ -43,8 +45,7 @@ class ProcessMembersTask extends BuildTask implements CronTask {
 	}
 
 
-	public function handleExpiryingMembers() {
-		$expiringMembers = $this->getExpiringMembers();
+	public function handleExpiryingMembers($expiringMember) {
 		$register = RegistrationPage::get_one('RegistrationPage');
 
 		$count = 0;
@@ -74,14 +75,14 @@ class ProcessMembersTask extends BuildTask implements CronTask {
 		return $expiringMembers;
 	}
 
-	public function handleExpiredMembers() {
-		$expiredMembers = $this->getExpiredMembers();
+	public function handleExpiredMembers($expiredMembers) {
 		$register = RegistrationPage::get_one('RegistrationPage');
 		$count = 0;
 
 		if($expiredMembers->Count() > 0) {
 
 			foreach($expiredMembers as $member) {
+
 				$member->MembershipStatus = 'Expired';
 
 				try {

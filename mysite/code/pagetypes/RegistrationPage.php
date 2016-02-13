@@ -340,7 +340,7 @@ class RegistrationPage_Controller extends MemberProfilePage_Controller {
 		$email->setSubject("New member application");
 
 		$content = $this->customise(new ArrayData(array(
-			'Member' => $Member
+			'Member' => $member
 		)))->renderWith('NewMemberEmail');
 
 		$email->setBody($content);
