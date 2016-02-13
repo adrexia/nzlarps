@@ -45,7 +45,7 @@ class ProcessMembersTask extends BuildTask implements CronTask {
 	}
 
 
-	public function handleExpiryingMembers($expiringMember) {
+	public function handleExpiryingMembers($expiringMembers) {
 		$register = RegistrationPage::get_one('RegistrationPage');
 
 		$count = 0;
