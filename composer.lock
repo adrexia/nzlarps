@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "71bd455426a6536f58a206d81fd99920",
-    "content-hash": "5f35f0fcd8f62dbf9b728cdb0042f822",
+    "hash": "7f72e379e23ee2f1813fc2873ad38bf9",
+    "content-hash": "1afb5e3a0ebd44b9e49ada68326306ad",
     "packages": [
         {
             "name": "adrexia/dashboardmods",
@@ -448,24 +448,24 @@
         },
         {
             "name": "sheadawson/silverstripe-linkable",
-            "version": "1.1.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sheadawson/silverstripe-linkable.git",
-                "reference": "4631f09ea86f651f4c5de7511f4045c289b783fd"
+                "reference": "971721c1eeb526b486ecd9a8aced0e8e562af2f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sheadawson/silverstripe-linkable/zipball/4631f09ea86f651f4c5de7511f4045c289b783fd",
-                "reference": "4631f09ea86f651f4c5de7511f4045c289b783fd",
+                "url": "https://api.github.com/repos/sheadawson/silverstripe-linkable/zipball/971721c1eeb526b486ecd9a8aced0e8e562af2f2",
+                "reference": "971721c1eeb526b486ecd9a8aced0e8e562af2f2",
                 "shasum": ""
             },
             "require": {
                 "embed/embed": "~2.2.2",
                 "php": ">=5.3.2",
-                "silverstripe/cms": "3.*",
-                "silverstripe/framework": "3.*",
-                "unclecheese/display-logic": "1.2.*"
+                "silverstripe/cms": "^3.2",
+                "silverstripe/framework": "^3.2",
+                "unclecheese/display-logic": "^1"
             },
             "type": "silverstripe-module",
             "extra": {
@@ -495,7 +495,7 @@
                 "link",
                 "silverstripe"
             ],
-            "time": "2015-11-04 01:52:56"
+            "time": "2016-02-18 04:14:03"
         },
         {
             "name": "silverstripe-australia/gridfieldextensions",
@@ -1463,20 +1463,20 @@
         },
         {
             "name": "unclecheese/display-logic",
-            "version": "1.2.1",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/unclecheese/silverstripe-display-logic.git",
-                "reference": "7f186c1405172958b2e8ed5e4322a04d8133ca69"
+                "reference": "43a2213c4748c3f56fc91842ab3a4a3b22caacf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-display-logic/zipball/7f186c1405172958b2e8ed5e4322a04d8133ca69",
-                "reference": "7f186c1405172958b2e8ed5e4322a04d8133ca69",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-display-logic/zipball/43a2213c4748c3f56fc91842ab3a4a3b22caacf0",
+                "reference": "43a2213c4748c3f56fc91842ab3a4a3b22caacf0",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/framework": "3.*"
+                "silverstripe/framework": "^3.2"
             },
             "replace": {
                 "silverstripe/display-logic": "*"
@@ -1503,7 +1503,7 @@
                 "logic",
                 "silverstripe"
             ],
-            "time": "2015-01-29 23:35:48"
+            "time": "2015-12-14 22:02:51"
         },
         {
             "name": "unclecheese/dropzone",
