@@ -86,10 +86,6 @@
 	.fullheight & {
 		@include background-image (linear-gradient(top, darken( $air, 20%) 10%,  $air));
 	}
-
-	.earth & {
-		opacity: 0.7;
-	}
 }
 
 
