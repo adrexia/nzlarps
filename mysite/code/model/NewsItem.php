@@ -44,7 +44,7 @@ class NewsItem extends DataObject {
 				array(
 					'night'=> '#333333',
 					'air'=> '#009EE2',
-					'earth'=> ' #79c608',
+					'earth'=> ' #2e8c6e',
 					'passion'=> '#b02635',
 					'people'=> '#de347f',
 					'inspiration'=> '#783980'

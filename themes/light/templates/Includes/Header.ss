@@ -1,4 +1,4 @@
-<div class="splash-overlay<% if $ClassName == 'HomePage' %> fullheight<% else %> cropped<% end_if %> <% if $Event && $Event.Colour %>$Event.Colour<% else %><% if $Colour %>$Colour<% else %>$Level(1).Colour<% end_if %><% end_if %>">
+<div class="splash-overlay<% if $ClassName == 'HomePage' %> fullheight<% else_if $FullPageSplashImage %> fullheight withnav<% else %> cropped<% end_if %> <% if $Event && $Event.Colour %>$Event.Colour<% else %><% if $Colour %>$Colour<% else %>$Level(1).Colour<% end_if %><% end_if %>">
 	<% include Navbar %>
 
 	<div class="splash" style="background-image: url('<% if $Event && $Event.SplashImage %>$Event.SplashImage.URL<% else %><% if $SplashImage %>$SplashImage.URL<% else %>$Level(1).SplashImage.URL<% end_if %><% end_if %>');"></div>

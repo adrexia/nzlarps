@@ -1,5 +1,5 @@
-.splash-overlay.cropped {
-	position: relative;
+.splash-overlay.cropped,
+.splash-overlay.withnav {
 	.splash,
 	.overlay {
 		min-height: 430px;
@@ -14,6 +14,10 @@
 			font-size: 4rem;
 		}
 	}
+}
+
+.splash-overlay.cropped {
+	position: relative;
 }
 
 @include respond(all-phones) {

@@ -6,7 +6,8 @@ class Page extends SiteTree {
 	private static $db = array(
 		'Intro' => 'Text',
 		'Colour' => 'Varchar(255)',
-		'ExtraContent' => 'HTMLText'
+		'ExtraContent' => 'HTMLText',
+		'FullPageSplashImage' => 'Boolean'
 	);
 
 
@@ -30,7 +31,7 @@ class Page extends SiteTree {
 				array(
 					'night'=> '#333333',
 					'air'=> '#009EE2',
-					'earth'=> ' #79c608',
+					'earth'=> ' #2e8c6e',
 					'passion'=> '#b02635',
 					'people'=> '#de347f',
 					'inspiration'=> '#783980'
@@ -41,6 +42,12 @@ class Page extends SiteTree {
 		$fields->insertBefore($image = UploadField::create('SplashImage', 'Splash Image'),'Content');
 
 		$image->setFolderName('Uploads/Splash-Images');
+
+
+		if($this->ClassName !== "HomePage") {
+			$fields->insertAfter(CheckboxField::create('FullPageSplashImage', 'Match splash image to viewport'),'SplashImage');
+		}
+
 
 		if($this->ClassName === "Page" || $this->ClassName === "HomePage") {
 
