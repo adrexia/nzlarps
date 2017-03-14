@@ -41,18 +41,6 @@
 	<% include MetaIcons %>
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100,300' rel='stylesheet' type='text/css'>
-</head>
-
-<body data-spy="scroll" class="$ClassName <% if $Colour %>$Colour<% else %>$Level(1).Colour<% end_if %>">
-	<% include FBScript %>
-	$BetterNavigator
-	<% include SkipLinks %>
-	<% include Header %>
-	<div class="layout" id="layout">
-		$Layout
-	</div>
-
-	<script type="text/javascript" src="{$ThemeDir}/js/script.min.js"></script>
 
 	<% if SiteConfig.GACode %>
 		<script>
@@ -65,11 +53,18 @@
 		  ga('send', 'pageview');
 		</script>
 	<% end_if %>
+</head>
 
-	<% if SiteConfig.AddThisProfileID %>
-		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=$SiteConfig.AddThisProfileID"></script>
-	<% end_if %>
+<body data-spy="scroll" class="$ClassName <% if $Colour %>$Colour<% else %>$Level(1).Colour<% end_if %>">
+	<% include FBScript %>
+	$BetterNavigator
+	<% include SkipLinks %>
+	<% include Header %>
+	<div class="layout" id="layout">
+		$Layout
+	</div>
 
+	<script type="text/javascript" src="{$ThemeDir}/js/script.min.js"></script>
 
 </body>
 </html>
