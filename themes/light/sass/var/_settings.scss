@@ -14,7 +14,7 @@ $people: #de347f;
 
 
 $brand-list: $night, $air, $earth, $passion, $people, $inspiration;
-$brand-list-contrast: rgba(#fff, 0.1), rgba(darken($air, 40%), 0.1), rgba(darken($earth, 40%), 0.1), rgba(#000, 0.1), rgba(#000, 0.1), rgba(#fff, 0.2);
+$brand-list-contrast: rgba(#fff, 0.1), rgba(darken($air, 40%), 0.1), rgba(lighten($earth, 20%), 0.2), rgba(#000, 0.1), rgba(#000, 0.1), rgba(#fff, 0.2);
 
 $secondary-brand-list:  $air, $earth, $passion, $people, $inspiration;
 $brand-title: 'night', 'air', 'earth', 'passion', 'people', 'inspiration';
