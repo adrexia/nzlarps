@@ -7,7 +7,7 @@
 
 		<% if $getFutureEvents.exclude('Recurring', 1) %>
 			<div class="Events ptl">
-				<% include EventListEvents Events=$FutureEvents %>
+				<% include EventListEvents Events=$FutureEvents.exclude('Recurring', 1) %>
 			</div>
 		<% else %>
 			<p class="text-center"><em class"noEventsMsg">No upcoming events</em></p>

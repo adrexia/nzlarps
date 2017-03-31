@@ -41,9 +41,6 @@ class EventExtension extends DataExtension {
 
 		$details = $fields->dataFieldByName('Details');
 		$event = $fields->dataFieldByName('EventPageID');
-		$recurring = $fields->dataFieldByName('Recurring');
-
-
 
 		$fields->addFieldToTab('Root.Details', TextareaField::create('Intro', 'Intro'), 'AllDay');
 
@@ -73,8 +70,8 @@ class EventExtension extends DataExtension {
 
 		$fields->insertBefore($details, 'Intro');
 
-		$fields->insertBefore(CheckboxField::create('Recurring'), 'EventPageID');
-
+		$fields->insertBefore($recurring = CheckboxField::create('Recurring'), 'EventPageID');
+		$recurring->setDescription("Note: this will not automatically create events, but allows for recurring events to stay in the calender and out of the listings");
 
 		$fields->addFieldToTab(
 			'Root.Brand',
