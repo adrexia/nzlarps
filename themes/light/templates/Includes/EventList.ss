@@ -5,7 +5,7 @@
 			$Content.RichLinks
 		</div>
 
-		<% if $getFutureEvents %>
+		<% if $getFutureEvents.exclude('Recurring', 1) %>
 			<div class="Events ptl">
 				<% include EventListEvents Events=$FutureEvents %>
 			</div>

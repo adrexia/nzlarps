@@ -14,14 +14,14 @@
 						</div>
 					</div>
 
-				<% else_if $Type =='Events' && $Events() %>
+				<% else_if $Type=='Events' && $Events().exclude('Recurring', 1) %>
 
 						<div class="item $EvenOdd">
 							<div class="feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
 								<h3>
 									<a href="$CalendarPage.Link">$Title</a>
 								</h3>
-								<% include FeatureListing Items=$Events, Type=Events %>
+								<% include FeatureListing Items=$Events.exclude('Recurring', 1), Type=Events %>
 							</div>
 						</div>
 

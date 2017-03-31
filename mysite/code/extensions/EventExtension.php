@@ -7,7 +7,8 @@ class EventExtension extends DataExtension {
 
 	private static $db = array(
 		'Intro' => 'Text',
-		'Colour' => 'Varchar(255)'
+		'Colour' => 'Varchar(255)',
+		'Recurring' => 'Boolean'
 	);
 
 	private static $has_one = array(
@@ -40,6 +41,12 @@ class EventExtension extends DataExtension {
 
 		$details = $fields->dataFieldByName('Details');
 		$event = $fields->dataFieldByName('EventPageID');
+		$recurring = $fields->dataFieldByName('Recurring');
+
+
+
+		$fields->addFieldToTab('Root.Details', TextareaField::create('Intro', 'Intro'), 'AllDay');
+
 
 
 		$cID = Calendar::get_one('Calendar')->ID;
@@ -64,7 +71,9 @@ class EventExtension extends DataExtension {
 
 		$fields->addFieldToTab('Root.Details', TextareaField::create('Intro', 'Intro'));
 
-		$fields->insertAfter($details, 'Intro');
+		$fields->insertBefore($details, 'Intro');
+
+		$fields->insertBefore(CheckboxField::create('Recurring'), 'EventPageID');
 
 
 		$fields->addFieldToTab(
