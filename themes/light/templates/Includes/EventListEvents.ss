@@ -5,7 +5,7 @@
 
 			<div class="item <% if $getIsPastEvent() %>past<% end_if %>">
 
-				<a href="$InternalLink" class="link feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
+				<a href="$InternalLink" class="link feature-block type-{$Type.LowerCase()} <% if $Colour %>$Colour.LowerCase()<% else %>night<% end_if %> $FirstLast">
 
 					<% if $Region %>
 						<span class="region label $Region.Colour">$Region.Title</span>
@@ -44,6 +44,18 @@
 
 					<% if $SmallImage %>
 						<div class="img-wrap">$SmallImage.SetWidth(430)</div>
+					<% else %>
+						<div class="img-wrap img-wrap--placeholder">
+							<time class="datetime">
+								<% if $StartAndEndDates %>
+									<span class="datetime-header">$StartAndEndDates</span>
+								<% else %>
+									<% if $StartDateTime %>
+										<span class="datetime-day">$StartDateTime.Format('d M Y')</span>
+									<% end_if %>
+								<% end_if %>
+							</time>
+						</div>
 					<% end_if %>
 				</a>
 			</div>

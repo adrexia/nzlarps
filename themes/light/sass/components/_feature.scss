@@ -107,6 +107,14 @@
 				&.link:focus {
 					background-color: nth($brand-list, $i);
 					text-shadow: rgba(darken(nth($brand-list, $i), 20%),0.8) 0px 0px 5px;
+
+					.img-wrap--placeholder {
+						background-color: $night;
+
+						@if nth($brand-title, $i) == "night" {
+							background-color: lighten($night, 5%);
+						}
+					}
 				}
 
 				h3 a {
@@ -116,7 +124,13 @@
 						@if nth($brand-title, $i) == "night" {
 							color: $body-link-color;
 						}
+
+
 					}
+				}
+
+				.img-wrap--placeholder {
+					background-color: nth($brand-list, $i);
 				}
 
 
@@ -149,17 +163,17 @@
 				float:left;
 				width:100%;
 			}
-			.img-wrap, .img-placeholder{
+			.img-wrap, .img-placeholder {
 				margin:25px 0;
 				width:35%;
 				float:left;
 				height:100%;
 				overflow:hidden;
 			}
-			.first .img-wrap{
+			.first .img-wrap {
 				margin-top:5px;
 			}
-			.text-block{
+			.text-block {
 				@include clearfix;
 				width:65%;
 				float:left;
@@ -210,6 +224,23 @@
 	// We want a dark background so hover will darken the image
 	.img-wrap {
 		background: #000;
+
+		&--placeholder {
+			color: #fff;
+			height: 150px;
+			transition: all 0.3s linear;
+		}
+
+		.datetime {
+			font-family: $header-font-family;
+		}
+
+		.datetime-day {
+			font-size: 50px;
+			line-height: 1.5em;
+			display: block;
+			padding-top: 36px;
+		}
 	}
 
 	img {

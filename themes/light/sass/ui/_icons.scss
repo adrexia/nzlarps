@@ -10,7 +10,6 @@ i[class*=" icon-"] {
   position:absolute;
   text-decoration:none;
   zoom: 1;
-  font-style: normal;
 }
 
 i[class^="icon-"],
@@ -20,4 +19,17 @@ i[class*=" icon-"] {
   min-width: 20px;
   margin: 0 5px;
   text-align: center;
+}
+
+@each $icon in $entypo-icons {
+  .#{nth($icon, 1)} {
+	&.icon-left a:before, &.icon-right a:after {
+	  content: "#{nth($icon, 2)}";
+	  height: inherit;
+	}
+  }
+  i.#{nth($icon, 1)}:before {
+	content: "#{nth($icon, 2)}";
+	height: inherit;
+  }
 }
