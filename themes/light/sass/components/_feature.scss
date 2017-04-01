@@ -240,6 +240,10 @@
 			line-height: 1.5em;
 			display: block;
 			padding-top: 36px;
+
+			@include respond(all-phones) {
+				font-size: 30px;
+			}
 		}
 	}
 
