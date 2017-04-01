@@ -47,12 +47,8 @@
 					<% else %>
 						<div class="img-wrap img-wrap--placeholder">
 							<time class="datetime">
-								<% if $StartAndEndDates %>
-									<span class="datetime-header">$StartAndEndDates</span>
-								<% else %>
-									<% if $StartDateTime %>
-										<span class="datetime-day">$StartDateTime.Format('d M Y')</span>
-									<% end_if %>
+								<% if $StartDateTime %>
+									<span class="datetime-day">$StartDateTime.Format('d M Y')</span>
 								<% end_if %>
 							</time>
 						</div>
