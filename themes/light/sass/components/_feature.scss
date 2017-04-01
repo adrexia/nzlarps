@@ -229,6 +229,10 @@
 			color: #fff;
 			height: 150px;
 			transition: all 0.3s linear;
+
+			@include respond(all-phones) {
+				height: 120px;
+			}
 		}
 
 		.datetime {
