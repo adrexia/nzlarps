@@ -122,14 +122,12 @@ form {
 		}
 	}
 	legend, label{
-		@include clearfix;
 		font-family: $header-font-family;
 		font-weight: 400;
-		float: left;
 		width: 100%;
 		text-align: left;
 	}
-	.extra{
+	.extra {
 		@include clearfix;
 		clear:both;
 		font-style: italic;

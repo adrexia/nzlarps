@@ -7,10 +7,12 @@
 // </div>
 
 .alert {
-  &.active {
-    display: none;
-  }
-  .close {
-    float: right;
-  }
+	padding: 15px 20px;
+
+	&.active {
+		display: none;
+	}
+	.close {
+		float: right;
+	}
 }

@@ -4,6 +4,48 @@
 $(function() {
 	"use strict";
 
+
+	setTimeout(function(){
+		$('.colorpalette input').off();
+
+	}, 1000);
+
+	if($('.editable').length > 0) {
+
+		var editor = new MediumEditor('.editable', {
+			toolbar: {
+				anchorInputPlaceholder: 'Type a link',
+				buttons: ['bold', 'italic', 'quote', 'anchor', 'link', 'h3', 'h4', 'removeFormat'],
+				cleanPastedHTML: true,
+				diffLeft: 20,
+				diffTop: 10,
+			},
+			placeholder: {
+				text: '',
+				hideOnClick: true
+			},
+			paste: {
+				forcePlainText: false,
+				cleanPastedHTML: true,
+				cleanAttrs: ['class', 'style', 'dir'],
+				cleanTags: ['meta', 'ul', 'div', 'script', 'section', 'aside', 'article']
+			}
+		});
+
+
+		var editable = $('.editable'),
+			value = editable.parent().find('textarea').val();
+
+		editable.html(value);
+
+		$( "form" ).submit(function( event ) {
+				var editable = $('.editable'),
+					value = editable.html();
+				editable.parent().find('textarea').val(value);
+		});
+	}
+
+
 	if ($('.share-wrapper').length > 0) {
 		var sharebutton = new ShareButton({
 			networks: {
@@ -26,7 +68,6 @@ $(function() {
 		});
 
 	}
-
 
 	if($('.tag-field.genre').length > 0){
 
@@ -112,17 +153,17 @@ $(function() {
 
 			// Set up validation.
 			siteForm.validate({
-					errorPlacement: function(error, element) {
-							var errorId = element.attr('id') + '_message';
-							//prevent duplicate labels
-							element.closest('div.field').find('label .error').remove();
-							error.appendTo(element.closest('div.field'));
-							//Make valid html and adjust attributes
-							error.removeAttr('for').addClass('message').attr('id', errorId);
-							//Link error to input
-							element.attr('aria-describedby', errorId);
-					},
-					errorElement: 'span'
+				errorPlacement: function(error, element) {
+						var errorId = element.attr('id') + '_message';
+						//prevent duplicate labels
+						element.closest('div.field').find('label .error').remove();
+						error.appendTo(element.closest('div.field'));
+						//Make valid html and adjust attributes
+						error.removeAttr('for').addClass('message').attr('id', errorId);
+						//Link error to input
+						element.attr('aria-describedby', errorId);
+				},
+				errorElement: 'span'
 			});
 
 			if(siteForm.find('.requiredField').length > 0){
@@ -131,3 +172,13 @@ $(function() {
 	}
 
 });
+
+
+if ($('#AddEventForm_Form_TimeFrameHeader').length > 0) {
+
+	var form = $('form');
+	var eventForm = new EventFields(form);
+	eventForm.init();
+
+	$('#AddEventForm_Form_TimeFrameHeader').removeClass('form-control');
+}

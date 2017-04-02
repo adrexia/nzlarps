@@ -192,4 +192,27 @@ class Page_Controller extends ContentController {
 	public function CurrentFeatureItems() {
 		return $this->FeatureItems()->filter('Archived', false)->sort('Sort');
 	}
+
+	/**
+	 * Get the Add Event Page
+	 *
+	 * @return ArrayList
+	 */
+	public function getAddEventPage() {
+		$result = AddEventPage::get_one('AddEventPage');
+
+		// Remove all entries the can not be viewed by the current user
+		if(isset($result)) {
+			if($result->canView()) {
+				return $result;
+			}
+		}
+
+		return false;
+	}
+
+	public function getCalendarPage() {
+		return CalendarPage::get_one('CalendarPage');
+	}
+
 }

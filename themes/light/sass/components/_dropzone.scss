@@ -1,0 +1,68 @@
+.dropzone {
+
+	&-holder {
+		width: auto;
+		max-width: 500px;
+		min-height: 0;
+		padding: 10px 5px;
+
+		&:after {
+			display: none;
+		}
+
+		&.uploadable {
+			border: 1px dashed #ccc;
+			background: #F0F2F4;
+			color: #66727D;
+			margin-bottom: -25px;
+		}
+
+		.description {
+			display: block;
+			margin-top: 20px;
+			margin-left: 0;
+			font-style: italic;
+			font-size: 0.8em;
+		}
+
+		p {
+			clear: both;
+			line-height: 1.5em;
+			margin-bottom: 13px;
+			margin-left: 9px;
+			margin-top: 13px;
+		}
+
+		strong {
+			display: block;
+		}
+	}
+
+	&-select,
+	&-select-existing {
+		font-weight: bold;
+	}
+
+
+}
+
+.field.embeddedobject .middleColumn.middleColumn {
+	background: none;
+	border: 0;
+	border-radius: 0;
+	padding: 6px 0 0;
+}
+
+.fileattachment ul.file-attachment-field-previews li {
+	background: #fff;
+}
+
+
+.file-attachment-field-previews:after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden;
+}

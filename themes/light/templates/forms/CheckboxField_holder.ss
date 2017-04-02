@@ -3,5 +3,6 @@
 		$Field
 		$Title
 	</label>
+	<% if $Description %><p class="field-notes field-notes--checkbox">$Description</p><% end_if %>
 	<% if Message %><span class="message $MessageType">$messageBlock</span><% end_if %>
 </div>

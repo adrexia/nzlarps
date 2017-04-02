@@ -39,11 +39,12 @@ class EventExtension extends DataExtension {
 	}
 	public function updateCMSFields(FieldList $fields) {
 
-		$details = $fields->dataFieldByName('Details');
+		$fields->removeByName('Details');
+		$fields->removeByName('GameDetails');
+
 		$event = $fields->dataFieldByName('EventPageID');
 
 		$fields->addFieldToTab('Root.Details', TextareaField::create('Intro', 'Intro'), 'AllDay');
-
 
 
 		$cID = Calendar::get_one('Calendar')->ID;
@@ -68,7 +69,7 @@ class EventExtension extends DataExtension {
 
 		$fields->addFieldToTab('Root.Details', TextareaField::create('Intro', 'Intro'));
 
-		$fields->insertBefore($details, 'Intro');
+		$fields->insertBefore(HTMLEditorField::create('Details', ''), 'Intro');
 
 		$fields->insertBefore($recurring = CheckboxField::create('Recurring'), 'EventPageID');
 		$recurring->setDescription("Note: this will not automatically create events, but allows for recurring events to stay in the calender and out of the listings");
@@ -108,5 +109,6 @@ class EventExtension extends DataExtension {
 	public function Level($num) {
 		return CalendarPage::get_one('CalendarPage');
 	}
+
 
 }
