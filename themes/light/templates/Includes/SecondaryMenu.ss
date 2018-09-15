@@ -19,7 +19,9 @@
 				<% if $getAddEventPage %>
 					<li class="addevent">
 						<a href="{$getAddEventPage.Link}" class="<% if $ClassName == 'AddEventPage' && $Top.CurrentMenu != 'myevents' %>active<% end_if %> btn medium oval"><span>$getAddEventPage.Title</span></a>
-						<a href="{$getAddEventPage.Link}/myevents" class="<% if $ClassName == 'AddEventPage' && $Top.CurrentMenu == 'myevents' %>active<% end_if %> btn medium oval"><span>My events</span></a>
+						<% if $getMembersEvents() %>
+							<a href="{$getAddEventPage.Link}myevents" class="<% if $ClassName == 'AddEventPage' && $Top.CurrentMenu == 'myevents' %>active<% end_if %> btn medium oval"><span>My events</span></a>
+						<% end_if %>
 					</li>
 				<% end_if %>
 			<% else %>
