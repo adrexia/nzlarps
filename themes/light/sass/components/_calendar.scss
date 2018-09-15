@@ -256,116 +256,91 @@ table thead tr .fc-day-header {
 //This is some custom styling to show how an add event form could
 //look like in the frontend
 //////////////////////////////
-.AddEventPage {
-	.PublicEventForm {
-		.form-control[disabled],
-		.form-control[readonly] {
-			cursor: pointer;
-		}
-
-		input {
-			@include input-placeholder {
-			}
-		}
-
-		.middleColumn {
-			//margin-left:100px;
-		}
-		label.left {
-			width:85px;
-		}
-
-		#Title {
-			float:left;
-			width:200px;
-		}
 
 
-		#AllDay,
-		#NoEnd {
-			float:left;
-			padding-left:10px;
-			padding-top:5px;
-			padding-bottom:0px;
-			input {
-				min-height:10px;
-			}
-		}
 
-		#AllDay {
-			padding-top:20px;
-		}
+.Form p.field-notes {
+	text-align: left;
+	clear: both;
+	font-style: italic;
+	opacity: 0.7;
+	font-size: 0.8em;
+	display: block;
+	position: relative;
+	top: -7px;
+	margin: 0;
+	margin-bottom: 10px;
 
 
-		#StartDateTime {
-			float:left;
-			clear:both;
-			&> label {
-				display: block;
-				@include clearfix;
-			}
-			.field {
-				float:left;
-			}
-		}
+	&--checkbox {
+		padding-left: 30px;
+	}
+}
 
+.PublicEventForm {
+	text-align: left;
 
-		#StartDateTime,
-		#EndDateTime {
-			.middleColumn {
-				width:auto;
-				margin-right:10px;
-			}
-			input {
-				width:110px;
+	.field.datetime {
+		clear: both;
+		width: 100%;
 
-				//styling the readonly field
-				cursor:pointer;
-			}
-		}
+		.field {
+			clear: none;
+			width: 200px;
+			float: left;
 
-		h5#AddEventForm_Form_TimeFrameHeader {
-			margin-bottom:12px;
-			clear:both;
-		}
-
-		ul.selectiongroup {
-			@include clearfix;
-			margin:0px;
-
-			li {
-				margin-bottom:10px;
-				div.field {
-					margin:0px;
-				}
-				>label {
-					width:auto;
-					float:left;
-				}
+			@include respond(all-phones) {
+				width: 110px;
 			}
 
-			#Duration {
-				@include clearfix;
-				margin-left:100px;
-				label.right {
-					margin:0px;
-					margin-top:1px;
-				}
-				input {
-					width:100px;
-				}
+			&.time {
+				margin-left: 20px;
 			}
-
 		}
+	}
+	.selectiongroup {
+		text-align: left;
+		margin: 0px;
 
-		.clear {
-			clear:both;
-		}
-
-		#CalendarID {
-			margin-top:15px;
-			width:350px;
+		li {
+			margin-bottom:10px;
+			div.field {
+				margin:0px;
+			}
+			>label {
+				width: auto;
+				float: none;
+				display: inline-block;
+				margin: 0;
+				line-height: 13px;
+			}
 		}
 	}
 
+	h5 {
+		text-align: left;
+	}
+
+	#Duration {
+		@include clearfix;
+		margin-left: 30px;
+
+		.extra {
+			display: block;
+			clear: both;
+			float: none;
+		}
+
+		label.right {
+			margin: 0px;
+			margin-top: 1px;
+		}
+		input {
+			width: 200px;
+		}
+	}
+
+	.clear {
+		clear:both;
+	}
 }

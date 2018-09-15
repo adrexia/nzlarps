@@ -1,0 +1,107 @@
+.dropzone-holder.backend {
+	width: auto;
+	max-width: 500px;
+	min-height: 0;
+	padding: 10px 5px;
+	top: -30px;
+}
+
+.dropzone-holder.backend.uploadable {
+	border: 1px dashed #ccc;
+	background: #F0F2F4;
+	color: #66727D;
+	margin-bottom: -25px;
+}
+
+.field.embeddedobject .middleColumn.middleColumn {
+	background: none;
+	border: 0;
+	border-radius: 0;
+	padding: 6px 0 0;
+}
+
+
+.dropzone-select,
+.dropzone-select-existing {
+	font-weight: bold;
+}
+
+.dropzone-holder p {
+	clear: both;
+	line-height: 1.5em;
+	margin-bottom: 0;
+	margin-left: 9px;
+}
+
+.fileattachment ul.file-attachment-field-previews li {
+	background: #fff;
+}
+
+.dropzone-holder:after {
+	display: none;
+}
+
+.dropzone-holder .description {
+	display: block;
+	margin-top: 20px;
+	margin-left: 0;
+}
+
+.file-attachment-field-previews:after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+
+/* Linkable */
+.linkfield-dialog {
+	min-height: 450px !important;
+}
+.linkfield-dialog .ui-tabs-nav {
+	display: none;
+}
+
+/* Gridfield */
+.cms table.ss-gridfield-table tr td.col-Thumbnail {
+	padding: 0;
+	width: 80px;
+	text-align: center;
+}
+.cms table.ss-gridfield-table tr td.col-Thumbnail img {
+	max-width: 100%;
+}
+
+.cms table.ss-gridfield-table tr td img {
+	vertical-align: text-bottom;
+}
+
+.gridfield-pagetype {
+	color: #999;
+	float: right;
+}
+
+.btn-icon-magnifier + .ui-button-text{
+	margin-left: 8px;
+}
+
+/*///Tinymce*/
+.plain.htmleditor .mce_styleselect,
+.plain.htmleditor .mce_formatselect,
+.plain.htmleditor .mce_justifyfull,
+.plain.htmleditor .mce_image,
+.plain.htmleditor .mce_template,
+.plain.htmleditor .mce_justifyright,
+.plain.htmleditor .mce_justifycenter,
+.plain.htmleditor .mce_justifyleft,
+.plain.htmleditor .mceToolbarRow3,
+.plain.htmleditor .mce_shortcode {
+	display: none !important;
+}
+
+.htmleditor .defaultSkin span.mce_shortcode {
+	background: url(../images/icons/help.png) no-repeat center center;
+}

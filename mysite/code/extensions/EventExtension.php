@@ -14,7 +14,8 @@ class EventExtension extends DataExtension {
 	private static $has_one = array(
 		'SplashImage' => 'Image',
 		'SmallImage' => 'Image',
-		'Region' => 'Region'
+		'Region' => 'Region',
+		'Owner' => 'Member'
 	);
 
 	/**
@@ -26,7 +27,6 @@ class EventExtension extends DataExtension {
 		'Region.Title',
 	);
 
-
 	public function getPalette() {
 		return array(
 			'night'=> '#333333',
@@ -37,23 +37,32 @@ class EventExtension extends DataExtension {
 			'inspiration'=> '#783980'
 		);
 	}
+
+    public function populateDefaults()
+    {
+        $this->owner->Details = $this->owner->renderWith('EventDefaultContent');
+    }
+
 	public function updateCMSFields(FieldList $fields) {
 
-		$details = $fields->dataFieldByName('Details');
-		$event = $fields->dataFieldByName('EventPageID');
+		$fields->removeByName('Details');
+		$fields->removeByName('GameDetails');
 
+		$event = $fields->dataFieldByName('EventPageID');
 		$fields->addFieldToTab('Root.Details', TextareaField::create('Intro', 'Intro'), 'AllDay');
 
-
-
 		$cID = Calendar::get_one('Calendar')->ID;
-
 		$fields->push($calendar = HiddenField::create('CalendarID', 'Calendar'));
-
 		$calendar->setValue($cID);
 
-
 		$fields->insertAfter($event, 'TimeFrameType');
+		$fields->insertAfter($owner = DropdownField::create('OwnerID',
+			'Owner',
+			Member::get()->sort(['FirstName'=>'ASC', 'Surname'=>'ASC'])->map('ID','Name' )),
+			'EventPageID');
+
+		$owner->setEmptyString(' ');
+
 		$fields->insertAfter(
 			$region = DropdownField::create(
 				'RegionID',
@@ -61,14 +70,11 @@ class EventExtension extends DataExtension {
 				Region::get()->map('ID', 'Title')),
 			'EventPageID');
 
-
-		$region->setEmptyString(' ');
-
+        $region->setEmptyString(' ');
 		$fields->removeByName('RelatedPage');
-
 		$fields->addFieldToTab('Root.Details', TextareaField::create('Intro', 'Intro'));
 
-		$fields->insertBefore($details, 'Intro');
+		$fields->insertBefore(HTMLEditorField::create('Details', ''), 'Intro');
 
 		$fields->insertBefore($recurring = CheckboxField::create('Recurring'), 'EventPageID');
 		$recurring->setDescription("Note: this will not automatically create events, but allows for recurring events to stay in the calender and out of the listings");
@@ -88,25 +94,34 @@ class EventExtension extends DataExtension {
 
 	}
 
-
 	public function getColourValue() {
 		$colours = $this->owner->getPalette();
 
 		if ($this->owner->Colour) {
-
 			return $colours[$this->owner->Colour];
-
 		} else if($this->owner->Region()) {
-
 			return $colours[$this->owner->Region()->getColourName()];
 		}
 
 		return $colours['air'];
-
 	}
 
 	public function Level($num) {
 		return CalendarPage::get_one('CalendarPage');
 	}
 
+	public function showEditLink() {
+		$member = Member::currentUser();
+
+		if(!$member){
+			return false;
+		}
+
+		return $this->owner->OwnerID === $member->ID;
+	}
+
+	public function getEditLink() {
+		$add = AddEventPage::get()->First();
+		return $add->AbsoluteLink() . 'edit/' . $this->owner->ID;
+	}
 }

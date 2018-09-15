@@ -84,6 +84,8 @@ class RegistrationPage extends MemberProfilePage {
 
 		$config->getComponentByType('GridFieldPaginator')->setItemsPerPage(200);
 
+		$config->addComponent(new GridFieldExportButton('buttons-before-left'));
+
 
 		return $fields;
 	}

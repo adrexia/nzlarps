@@ -1,4 +1,4 @@
-<ul class="SelectionGroup<% if extraClass %> $extraClass<% end_if %>">
+<ul class="SelectionGroup<% if extraClass %> $extraClass<% end_if %>" <% if Description %> title="$Description"<% end_if %>>
 	<% if IsReadonly %>
 		<% loop FieldSet %>
 			<% if Selected %>
@@ -9,8 +9,14 @@
 			<% end_if %>
 		<% end_loop %>
 	<% else %>
-		<% loop FieldSet %>
-			<li$Selected>{$RadioButton}{$RadioLabel}{$FieldHolder}</li>
+
+		<% loop $FieldSet %>
+			<li$Selected>
+				{$RadioButton}
+				<span></span>
+				{$RadioLabel}
+				{$FieldHolder}
+			</li>
 		<% end_loop %>
 	<% end_if %>
 </ul>

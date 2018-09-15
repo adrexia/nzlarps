@@ -10,7 +10,7 @@
 		Gumby.debug('Initializing Radio Button', $el);
 
 		this.$el = $el;
-		this.$input = this.$el.find('input[type=radio]');
+		this.$input = this.$el.find('.radio input[type=radio]');
 
 		var scope = this;
 
@@ -20,9 +20,9 @@
 			e.preventDefault();
 
 			// do nothing if radio is disabled
-            if (scope.$input.is('[disabled]')) {
-                return;
-            }
+			if (scope.$input.is('[disabled]')) {
+				return;
+			}
 
 			// check radio button
 			scope.update();

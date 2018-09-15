@@ -25,8 +25,8 @@ SecurityAdmin:
   extensions:
    - SecurityAdminExtension
 Event:
-     extensions:
-      - EventExtension
+  extensions:
+    - EventExtension
 
 ErrorPage:
   icon: "mysite/images/sitetree_images/error.png"
@@ -38,6 +38,9 @@ CalendarAdmin:
   menu_icon: "mysite/images/sitetree_images/event.png"
 CalendarPage:
   icon: "mysite/images/sitetree_images/event.png"
+AddEventPage:
+  icon: "mysite/images/sitetree_images/calendar-plus.png"
+
 EventPage:
   icon: "mysite/images/sitetree_images/date-recurring.png"
 SubmittedForm:
@@ -49,3 +52,8 @@ KickAssets:
 
 FormSpamProtectionExtension:
   default_spam_protector: '\StudioBonito\SilverStripe\SpamProtection\Honeypot\SpamProtector\HoneypotSpamProtector'
+
+
+LeftAndMain:
+  extra_requirements_css:
+   - 'app/css/leftandmain.css'

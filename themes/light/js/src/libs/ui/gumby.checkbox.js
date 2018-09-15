@@ -20,9 +20,9 @@
 			e.preventDefault();
 
 			// do nothing if checkbox is disabled
-            if(scope.$input.is('[disabled]')) {
-                return;
-            }
+			if(scope.$input.is('[disabled]')) {
+				return;
+			}
 
 			// check/uncheck
 			if(scope.$el.hasClass('checked')) {
@@ -63,7 +63,7 @@
 
 		// uncheck checkbox - uncheck input, remove checked class, remove <i>
 		} else {
-			
+
 			Gumby.debug('Unchecking Checkbox', this.$el);
 
 			this.$input.prop('checked', false);

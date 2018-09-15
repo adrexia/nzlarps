@@ -69,6 +69,11 @@
 	width: 100%;
 	z-index: -1;
 	top: 0;
+
+	&.error-overlay {
+		min-height: 0;
+		z-index: 1;
+	}
 }
 
 .splash {
