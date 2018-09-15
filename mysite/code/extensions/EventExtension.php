@@ -113,7 +113,7 @@ class EventExtension extends DataExtension {
 	public function showEditLink() {
 		$member = Member::currentUser();
 
-		if(!$member){
+		if(!$member || AddEventPage::get()->Count() < 1){
 			return false;
 		}
 
@@ -122,6 +122,11 @@ class EventExtension extends DataExtension {
 
 	public function getEditLink() {
 		$add = AddEventPage::get()->First();
+
+		if (!$add) {
+		    return false;
+        }
+
 		return $add->AbsoluteLink() . 'edit/' . $this->owner->ID;
 	}
 }

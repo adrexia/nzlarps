@@ -196,13 +196,13 @@ class Page_Controller extends ContentController {
 	/**
 	 * Get the Add Event Page
 	 *
-	 * @return ArrayList
+	 * @return DataObject | boolean
 	 */
 	public function getAddEventPage() {
 		$result = AddEventPage::get_one('AddEventPage');
 
-		// Remove all entries the can not be viewed by the current user
-		if(isset($result)) {
+		// Remove all entries that can not be viewed by the current user
+		if($result && isset($result)) {
 			if($result->canView()) {
 				return $result;
 			}
