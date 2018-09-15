@@ -7,10 +7,10 @@
 
 				<% with $getCalendarPage %>
 					<li class="eventlist">
-						<a href="{$Link}" class="<% if $Top.CurrentMenu != 'calendarview' && $Top.ClassName != 'AddEventPage' %>active<% end_if %> btn medium oval oval--left">
+						<a href="{$Link}" class="<% if $Top.CurrentMenu == 'eventlist' %>active<% end_if %> btn medium oval oval--left">
 							<span class="entypo icon-list"> &nbsp; $MenuTitle</span>
 						</a>
-						<a href="{$Link}calendarview" class="<% if $Top.CurrentMenu == 'calendarview' %>active<% end_if %> btn medium oval oval--right">
+						<a href="{$Link}calendarview" class="<% if $Top.CurrentMenu != 'eventlist' && $Top.ClassName == 'CalendarPage' %>active<% end_if %> btn medium oval oval--right">
 							<span class="entypo icon-calendar"> &nbsp; Calendar</span>
 
 						</a>
