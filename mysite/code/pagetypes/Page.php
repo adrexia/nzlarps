@@ -45,7 +45,7 @@ class Page extends SiteTree {
 
 
 		if($this->ClassName !== "HomePage") {
-			$fields->insertAfter(CheckboxField::create('FullPageSplashImage', 'Match splash image to viewport'),'SplashImage');
+			$fields->insertAfter(CheckboxField::create('FullPageSplashImage', 'Match splash image to viewport (fullscreen image)'),'SplashImage');
 		}
 
 

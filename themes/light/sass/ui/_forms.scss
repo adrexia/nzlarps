@@ -24,14 +24,11 @@ form {
   textarea {
 	height: 150px;
   }
-  ul, ul li {
-	margin-left: 0;
-	list-style-type: none;
-  }
   fieldset {
 	margin: 18px 0;
 	border-color: darken($default-color, 10%);
 	margin: 18px 0;
+
 	legend {
 	  padding: 5px 10px;
 	}

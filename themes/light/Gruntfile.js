@@ -20,7 +20,11 @@ grunt.initConfig({
 				'js/src/libs/jquery.js',
 				'js/src/libs/jquery-ui.js',
 
-				'../../calendar/thirdparty/timeentry/jquery.plugin.js',
+                'js/src/libs/ui/toggles_switches.js',
+
+                'js/src/libs/ui/jquery.validation.js',
+
+                '../../calendar/thirdparty/timeentry/jquery.plugin.js',
 
 				'../../framework/javascript/DateField.js',
 

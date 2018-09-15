@@ -27,13 +27,13 @@
 // Global Gumby Functions
 
 
-
 @import "functions/breakpoints";
 @import "functions/strip-units";
 @import "functions/grid-calc";
 @import "functions/height-calc";
 @import "functions/em";
 @import "functions/even";
+@import "functions/tooltips";
 
 // Global Gumby Mixins
 
@@ -59,6 +59,8 @@
 @import "ui/images";
 @import "ui/tables";
 @import "ui/icons";
+@import "ui/tooltips";
+@import "ui/toggles";
 
 //Gumby plugins for cwp features
 @import "ui/alert-with-close";

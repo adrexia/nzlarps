@@ -28,8 +28,5 @@
 		</div>
 		<% end_if %>
 
-		<footer class="content-footer columns twelve">
-		</footer>
-
 	</div>
 </div>

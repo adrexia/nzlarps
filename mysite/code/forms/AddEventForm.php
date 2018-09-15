@@ -25,7 +25,7 @@ class AddEventForm extends Form {
 		);
 
 		//Validator
-		$validator = RequiredFields::create(array('Title'));
+		$validator = RequiredFields::create(array('Title', 'StartDateTime', 'EndDateTime'));
 		$this->addExtraClass('PublicEventForm');
 		$this->addExtraClass($name);
 		$this->setAttribute('data-parsley-validate', true);
@@ -44,18 +44,21 @@ class AddEventForm extends Form {
 		);
 	}
 
-
-
 	public function getDetailFields() {
+
+		$details =  $this->renderWith('EventDefaultContent');
+
 		// Overview fields
 		$fields = CompositeField::create(
 			LiteralField::create('DetailsHeading', '<h3>Event Details</h3>'),
 			TextField::create('Title')->setAttribute('placeholder','Enter a title'),
 			TextareaField::create('Intro')->setRows(1),
 			$detailsEditor = CompositeField::create(
-				new LabelField('GameDetails', 'Game Details'),
-				$html = new HTMLEditorField('Details'),
-				new LiteralField('editorDiv', '<div class="editable"></div>')
+				$gameDetails = LabelField::create('GameDetails', 'Game Details'),
+				$gameDetails = LiteralField::create('GameDetailNotes', '<p class="field-notes field-notes--textarea"><em>Note: you can select text to apply formatting and insert links</em></p>'),
+
+				$html = HTMLEditorField::create('Details', '', $details),
+				LiteralField::create('editorDiv', '<div class="editable"></div>')
 			),
 			$region = DropdownField::create(
 				'RegionID',
@@ -68,7 +71,6 @@ class AddEventForm extends Form {
 				EventPage::get()->map('ID', 'Title')
 			)
 		);
-
 		$html->addExtraClass('hide');
 		$detailsEditor->addExtraClass('field');
 		$event->setEmptyString('select (optional)')->setDescription('Existing Project, Affliate or Event Series page (optional)');
@@ -111,34 +113,56 @@ class AddEventForm extends Form {
 		return $fields;
 	}
 
-
-
 	public function getBrandFields() {
+
+		$spashImageNotes = $this->renderWith('SplashImageNotes');
+		$smallImageNotes = $this->renderWith('SmallImageNotes');
+
 		// Overview fields
 		$fields = CompositeField::create(
 			LiteralField::create('BrandHeading', '<h3>Branding</h3>'),
 			ColorPaletteField::create(
 				"Colour", "Colour",
 				$this->getPalette()),
-			$splashGroup = CompositeField::create(
-				LabelField::create('SplashImageLabel', "Splash Image (optional)"),
-				LiteralField::create('SplashImageNotes', "<p class='field-notes'>This image should contain no text. This is a set-dressing image, so use something that corresponds to the feel or the theme of the game (not your promo banner). Photos of people can work, but composition is important: the text on top of the image needs to be easily readable</p>"),
-				$splash = FileAttachmentField::create('SplashImage', '')
-			),
+
 			$promoGroup = CompositeField::create(
-				LabelField::create('SmallImageLabel', "Promo Image"),
-				LiteralField::create('SmallImageNotes', "<p class='field-notes'>This should be landscape (if its a logo, and naturally square, add padding to both sides to make it landscape). This is where you can use your promotional banners - it will be used on your event promo tile across the website</p>"),
+				$smLabel = LabelField::create('SmallImageLabel', "Promo Image"),
+				LiteralField::create('SmallImageNotes', $smallImageNotes),
 				$small = FileAttachmentField::create('SmallImage', '')
+			),
+			$splashGroup = CompositeField::create(
+				$spLabel = LabelField::create('SplashImageLabel', "Splash Image (optional)"),
+				LiteralField::create('SplashImageNotes', $spashImageNotes),
+				$splash = FileAttachmentField::create('SplashImage', '')
 			)
 		);
 
-		$splash->setAcceptedFiles(array('.jpg, .jpeg'));
-		$splash->setDescription("Format: JPG <br> File size limit: 250kb <br>Approx dimensions: 1200px * 600px");
-		$splash->setFolderName('Uploads/Splash-Images');
+		$smLabel->addExtraClass('sr-only');
+		$spLabel->addExtraClass('sr-only');
 
-		$small->setAcceptedFiles(array('.jpg, .jpeg, .png'));
-		$small->setDescription("Format: JPG or PNG <br> File size limit: 100kb. <br>Approx dimensions: 400px * 225px");
-		$small->setFolderName('Uploads/Small-Images');
+		$splash->setAcceptedFiles(['.jpg, .jpeg'])
+			->setDescription("Format: JPG <br> File size limit: 250kb <br>Approx dimensions: 1200px * 600px")
+			->setFolderName('Uploads/Splash-Images')
+			->setMaxFilesize(0.25)
+			->setMaxResolution(50000000)
+			->setMaxFiles(1)
+			->setMultiple(false)
+			->setTrackFiles(true);
+
+		$small->setAcceptedFiles(['.jpg, .jpeg, .png'])
+			->setDescription("Format: JPG or PNG <br> File size limit: 100kb. <br>Approx dimensions: 400px * 225px")
+			->setFolderName('Uploads/Small-Images')
+			->setMaxFilesize(0.1)
+			->setMaxResolution(10000000)
+			->setMaxFiles(1)
+			->setMultiple(false)
+			->setTrackFiles(true);
+
+		try {
+			$splash->setView('grid');
+			$small->setView('grid');
+		} catch(Exception $e) {}
+
 
 		return $fields;
 	}
@@ -148,8 +172,12 @@ class AddEventForm extends Form {
 		$fields = FieldList::create();
 
 		$cID = Calendar::get_one('Calendar')->ID;
-		$fields->push($calendar = HiddenField::create('CalendarID', 'Calendar'));
-		$calendar->setValue($cID);
+		$fields->push($calendar = HiddenField::create('CalendarID', 'CalendarID', $cID));
+
+		$member = Member::currentUserID();
+		$fields->push($member = HiddenField::create('OwnerID', 'OwnerID', $member));
+
+		$fields->push($member = HiddenField::create('ID', 'ID'));
 
 		$fields->push($details = $this->getDetailFields());
 		$fields->push($time = $this->getDateFields());
@@ -162,19 +190,37 @@ class AddEventForm extends Form {
 		return $fields;
 	}
 
-
-
 	/**
-	 * Add action
+	 * Add new event
 	 * @param type $data
 	 * @param type $form
 	 */
 	public function doAdd($data, $form) {
-		$e = new PublicEvent();
-		$form->saveInto($e);
-		$e->write();
+		$memberID = Member::currentUserID();
+		$cID = Calendar::get_one('Calendar')->ID;
+		$control = $this->Controller();
+		$event = false;
 
-		$c = $this->Controller();
-		$c->redirect($c->Link() . "success");
+		// check that the hidden fields are what they should be
+		if ((int)$data['OwnerID'] !== $memberID || (int)$data['CalendarID'] !== $cID) {
+			$control->redirect($control->Link());
+			return;
+		}
+
+		if($data['ID']) {
+			$event = PublicEvent::get()->byID($data['ID']);
+		}
+
+		if (!$event) {
+			$event = new PublicEvent();
+		}
+
+		$form->saveInto($event);
+
+		try {
+			$event->write();
+		} catch(Exception $e){}
+
+		$control->redirect($control->Link() . "success");
 	}
 }

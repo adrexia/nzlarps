@@ -4,16 +4,16 @@
 [class*=" icon-"] a:before,
 [class^="icon-"] a:after,
 [class*=" icon-"] a:after,
-i[class^="icon-"],
-i[class*=" icon-"] {
+span[class^="icon-"],
+span[class*=" icon-"] {
   font-family: "#{$icons}";
   position:absolute;
   text-decoration:none;
   zoom: 1;
 }
 
-i[class^="icon-"],
-i[class*=" icon-"] {
+span[class^="icon-"],
+span[class*=" icon-"] {
   display: inline-block;
   position: static;
   min-width: 20px;
@@ -28,7 +28,7 @@ i[class*=" icon-"] {
 	  height: inherit;
 	}
   }
-  i.#{nth($icon, 1)}:before {
+	span.#{nth($icon, 1)}:before {
 	content: "#{nth($icon, 2)}";
 	height: inherit;
   }

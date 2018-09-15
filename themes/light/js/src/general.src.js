@@ -15,7 +15,7 @@ $(function() {
 		var editor = new MediumEditor('.editable', {
 			toolbar: {
 				anchorInputPlaceholder: 'Type a link',
-				buttons: ['bold', 'italic', 'quote', 'anchor', 'link', 'h3', 'h4', 'removeFormat'],
+				buttons: ['bold', 'italic', 'quote', 'anchor', 'link', 'orderedlist', 'unorderedlist', 'h3', 'h4', 'removeFormat'],
 				cleanPastedHTML: true,
 				diffLeft: 20,
 				diffTop: 10,
@@ -89,8 +89,8 @@ $(function() {
 		});
 	}
 
-	if($('.pagination').length > 0){
 
+	if ($('.pagination').length > 0) {
 			// Pagination - endless
 			$('.pagination.endless').ssendless({
 					contentSelector: '.pagination-content',

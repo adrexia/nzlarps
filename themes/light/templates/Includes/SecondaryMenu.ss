@@ -7,16 +7,20 @@
 
 				<% with $getCalendarPage %>
 					<li class="eventlist">
-						<a href="{$Link}" class="<% if $Top.CurrentMenu != 'calendarview' && $Top.ClassName != 'AddEventPage' %>active<% end_if %> btn medium oval"><span>$MenuTitle</span></a>
-					</li>
-					<li class="calendarview">
-						<a href="{$Link}calendarview" class="<% if $Top.CurrentMenu == 'calendarview' %>active<% end_if %> btn medium oval"><span>Calendar View</span></a>
+						<a href="{$Link}" class="<% if $Top.CurrentMenu != 'calendarview' && $Top.ClassName != 'AddEventPage' %>active<% end_if %> btn medium oval oval--left">
+							<span class="entypo icon-list"> &nbsp; $MenuTitle</span>
+						</a>
+						<a href="{$Link}calendarview" class="<% if $Top.CurrentMenu == 'calendarview' %>active<% end_if %> btn medium oval oval--right">
+							<span class="entypo icon-calendar"> &nbsp; Calendar</span>
+
+						</a>
 					</li>
 				<% end_with %>
 				<% if $getAddEventPage %>
-				<li class="addevent">
-					<a href="{$getAddEventPage.Link}" class="<% if $ClassName == 'AddEventPage' %>active<% end_if %> btn medium oval"><span>$getAddEventPage.Title</span></a>
-				</li>
+					<li class="addevent">
+						<a href="{$getAddEventPage.Link}" class="<% if $ClassName == 'AddEventPage' && $Top.CurrentMenu != 'myevents' %>active<% end_if %> btn medium oval"><span>$getAddEventPage.Title</span></a>
+						<a href="{$getAddEventPage.Link}/myevents" class="<% if $ClassName == 'AddEventPage' && $Top.CurrentMenu == 'myevents' %>active<% end_if %> btn medium oval"><span>My events</span></a>
+					</li>
 				<% end_if %>
 			<% else %>
 

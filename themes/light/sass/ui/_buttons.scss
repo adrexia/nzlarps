@@ -94,6 +94,19 @@
 
   &.oval {
     @include shape(oval);
+
+      &--left {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          &.oval.btn {
+              margin-right: 0;
+          }
+      }
+      &--right {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          margin-left: -5px;
+      }
   }
 
   &.pill-left {
@@ -117,6 +130,26 @@
         }
         > a, input, button, a:visited, span {
             color: #333;
+        }
+    }
+
+    &.transparent {
+        background: transparent;
+        color: #333;
+        padding: 0;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+           color: $body-link-color;
+
+            > a, input, button, a:visited, span {
+                color: $body-link-color;
+            }
+        }
+        > a, input, button, a:visited, span {
+            color: #333;
+            padding: 0;
         }
     }
 }

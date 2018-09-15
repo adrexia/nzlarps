@@ -1,21 +1,35 @@
 /* Toggles */
 
 .drawer {
-  position: relative;
-  width: 100%;
-  max-height: 0;
-  background: $drawer-background-color;
-  @include box-shadow(
-    inset $drawer-inner-shadow-x-offset  #{-$drawer-inner-shadow-y-offset} $drawer-inner-shadow-blur $drawer-inner-shadow-color,
-    inset $drawer-inner-shadow-x-offset $drawer-inner-shadow-y-offset $drawer-inner-shadow-blur $drawer-inner-shadow-color);
-  ;
-  overflow: hidden;
-  @include transition-duration(.3s);
-  &.active {
-    height: auto;
-    max-height: 800px;
-    @include transition-duration(.5s);
-  }
+	position: relative;
+	width: 100%;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s;
+
+	&.active {
+		height: auto;
+		max-height: 800px;
+		transition: max-height 0.5s;
+	}
+
+	&-inner {
+		background: rgba($air, 0.05);
+		padding: 20px;
+		border: 1px solid rgba($air, 0.1);
+	}
+	p {
+		margin-top: 10px;
+		margin-bottom: 10px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		.main & {
+			font-size: 16px;
+		}
+	}
 }
 
 .modal {

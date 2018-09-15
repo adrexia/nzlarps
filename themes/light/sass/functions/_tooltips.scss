@@ -2,6 +2,7 @@
 
 @mixin tooltip($tt-min-width, $tt-bgcolor, $tt-position, $tt-align) {
   position: relative;
+  z-index: 999;
 
   &:after {
     display: block;
