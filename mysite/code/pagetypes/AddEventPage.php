@@ -29,7 +29,7 @@ class AddEventPage extends Page {
 
         $member = Member::currentUser();
 
-        if ($member->MembershipStatus==='Verified') {
+        if ($member->MembershipStatus==='Verified'|| Permission::check('ADMIN') || Permission::check('CMS_ACCESS')) {
             // if member is verified, return true
             return true;
         }
