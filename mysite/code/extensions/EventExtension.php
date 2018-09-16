@@ -138,6 +138,22 @@ class EventExtension extends DataExtension {
 	}
 
 	/**
+	 * Getter for internal event link
+	 * NOTE: The current implementation only works properly as long as there's only one
+	 * {@see CalendarPage} in the site
+	 */
+	public function Link() {
+		$calendarPage = CalendarPage::get()->First();
+
+		if (!$calendarPage) {
+			return false;
+		}
+
+		return Controller::join_links($calendarPage->Link(), 'detail', $this->owner->ID);
+	}
+
+
+	/**
 	 * We only want verified members and those with CMS access to create events
 	 * @param Member|int $member
 	 * @return bool True if the current user can edit this object

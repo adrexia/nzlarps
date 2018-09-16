@@ -244,6 +244,8 @@ class Page_Controller extends ContentController {
 		return Controller::join_links($addEvent->Link(), 'myevents');
 	}
 
+
+
 	public function getMembersEvents() {
 		$events = PublicEvent::get();
 		if (!$events) {

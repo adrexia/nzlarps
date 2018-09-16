@@ -5,7 +5,7 @@
 
 			<div class="item <% if $getIsPastEvent() %>past<% end_if %>">
 
-				<a href="$InternalLink" class="link feature-block type-{$Type.LowerCase()} <% if $Colour %>$Colour.LowerCase()<% else %>night<% end_if %> $FirstLast">
+				<a href="$Link" class="link feature-block type-{$Type.LowerCase()} <% if $Colour %>$Colour.LowerCase()<% else %>night<% end_if %> $FirstLast">
 
 					<% if $Region %>
 						<span class="region label $Region.Colour">$Region.Title</span>

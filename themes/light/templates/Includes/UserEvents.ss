@@ -15,7 +15,7 @@
 		<tbody>
             <% loop $getMembersEvents() %>
 			<tr>
-				<td><a href="$InternalLink">$Title</a></td>
+				<td><a href="$Link">$Title</a></td>
 				<td>$StartDateTime.format(d M Y) - $EndDateTime.format(d M Y)</td>
 				<td>$Created.format(d M Y)</td>
 				<td class="text--center"><a href="$getEditLink()">
