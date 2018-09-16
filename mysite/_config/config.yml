@@ -56,4 +56,5 @@ FormSpamProtectionExtension:
 
 LeftAndMain:
   extra_requirements_css:
-   - 'app/css/leftandmain.css'
+   - 'mysite/css/leftandmain.css'
+   - 'mysite/css/custom.css'

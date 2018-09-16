@@ -1,16 +1,42 @@
-.dropzone-holder.backend {
+
+.dropzone-holder:after {
+	 display: none;
+ }
+
+.dropzone-holder.uploadable {
 	width: auto;
 	max-width: 500px;
 	min-height: 0;
 	padding: 10px 5px;
-	top: -30px;
-}
-
-.dropzone-holder.backend.uploadable {
 	border: 1px dashed #ccc;
 	background: #F0F2F4;
 	color: #66727D;
-	margin-bottom: -25px;
+	top: -13px;
+	margin-bottom: 0;
+ }
+
+
+.dropzone-holder .description {
+	display: block;
+	margin-top: 20px;
+	margin-left: 0;
+	font-style: italic;
+	font-size: 0.8em;
+}
+
+.dropzone-holder p {
+	clear: both;
+	line-height: 1.5em;
+	margin-left: 9px;
+}
+
+.dropzone-holder strong {
+	display: block;
+}
+
+.dropzone-holder-select,
+.dropzone-holder-select-existing {
+ font-weight: bold;
 }
 
 .field.embeddedobject .middleColumn.middleColumn {
@@ -20,31 +46,8 @@
 	padding: 6px 0 0;
 }
 
-
-.dropzone-select,
-.dropzone-select-existing {
-	font-weight: bold;
-}
-
-.dropzone-holder p {
-	clear: both;
-	line-height: 1.5em;
-	margin-bottom: 0;
-	margin-left: 9px;
-}
-
 .fileattachment ul.file-attachment-field-previews li {
 	background: #fff;
-}
-
-.dropzone-holder:after {
-	display: none;
-}
-
-.dropzone-holder .description {
-	display: block;
-	margin-top: 20px;
-	margin-left: 0;
 }
 
 .file-attachment-field-previews:after {
@@ -55,6 +58,7 @@
 	overflow: hidden;
 	visibility: hidden;
 }
+
 
 
 /* Linkable */

@@ -68,24 +68,46 @@ class FeatureItem extends DataObject {
 		$fields->removeByName('Type');
 		$fields->removeByName('LinkLabel');
 
-		$content = $fields->dataFieldByName('Content');
-		$numberToDisplay = $fields->dataFieldByName('NumberToDisplay');
-		$projectPage = $fields->dataFieldByName('ProjectPageID');
-		$html = $fields->dataFieldByName('HTML');
-		$subtitle = $fields->dataFieldByName('SubTitle');
 
-		$html->setRows(20);
+        $fields->removeByName('Image');
 
-		$html->addExtraClass('no-pagebreak');
+        $image = FileAttachmentField::create('Image', 'Image');
+        $image->setAcceptedFiles(['.jpg, .jpeg, .png'])
+            ->setDescription("Format: JPG or PNG <br>Approx dimensions: 400px * 225px")
+            ->setFolderName('Uploads/Small-Images')
+            ->setMaxFiles(1)
+            ->setMultiple(false)
+            ->setTrackFiles(true);
 
-		$link = $fields->dataFieldByName('LinkID');
+        try {
+            $image->setView('grid');
+        } catch(Exception $e) {}
 
-		$image = $fields->dataFieldByName('Image');
-		$image->setFolderName('Uploads/Small-Images');
 
-		$fields->removeByName('Image');
+        $content = $fields->dataFieldByName('Content');
+        $numberToDisplay = $fields->dataFieldByName('NumberToDisplay');
+        $projectPage = $fields->dataFieldByName('ProjectPageID');
+        $html = $fields->dataFieldByName('HTML');
+        $subtitle = $fields->dataFieldByName('SubTitle');
+        $link = $fields->dataFieldByName('LinkID');
+        $html->setRows(20);
+        $html->addExtraClass('no-pagebreak');
 
-		$fields->insertBefore($projectPage,'Content');
+        $fields->removeByName('Content');
+        $fields->removeByName('NumberToDisplay');
+        $fields->removeByName('ProjectPageID');
+        $fields->removeByName('HTML');
+        $fields->removeByName('SubTitle');
+        $fields->removeByName('LinkID');
+
+        $fields->addFieldsToTab('Root.Main', [
+            $subtitleWrapper = DisplayLogicWrapper::create($subtitle),
+            $contentWrapper = DisplayLogicWrapper::create($content),
+            $numberToDisplayWrapper = DisplayLogicWrapper::create($numberToDisplay),
+            $projectPageWrapper = DisplayLogicWrapper::create($projectPage),
+            $htmlWrapper = DisplayLogicWrapper::create($html),
+            $linkWrapper = DisplayLogicWrapper::create($link),
+        ]);
 
 		$fields->insertAfter(
 			$type = OptionSetField::create(
@@ -112,19 +134,18 @@ class FeatureItem extends DataObject {
 
 		$fields->insertAfter($linkLabel = new TextField("LinkLabel","Link Label"), "LinkID");
 		$fields->insertAfter($imageLogin = DisplayLogicWrapper::create($image), 'LinkLabel');
-		$imageLogin->hideUnless("Type")->isEqualTo("Content");
+		$imageLogin->displayIf("Type")->isEqualTo("Content");
 
-		$html->hideUnless("Type")->isEqualTo("HTML");
-		$subtitle->hideUnless("Type")->isEqualTo("HTML");
+		$htmlWrapper->displayIf("Type")->isEqualTo("HTML");
+		$subtitleWrapper->displayIf("Type")->isEqualTo("HTML");
 
-		$link->hideUnless("Type")->isEqualTo("Content")->orIf("Type")->isEqualTo("Project");
-		$linkLabel->hideUnless("LinkID")->isGreaterThan(0)->andIf("Type")->isEqualTo("Content");
+		$linkWrapper->displayIf("Type")->isEqualTo("Content")->orIf("Type")->isEqualTo("Project");
+		$linkLabel->displayIf("LinkID")->isGreaterThan(0)->andIf("Type")->isEqualTo("Content");
 
+		$numberToDisplayWrapper->hideIf("Type")->isEqualTo("Content")->orIf("Type")->isEqualTo("HTML");
+		$projectPageWrapper->displayIf("Type")->isEqualTo("Project");
 
-		$numberToDisplay->hideIf("Type")->isEqualTo("Content")->orIf("Type")->isEqualTo("HTML");
-		$projectPage->hideUnless("Type")->isEqualTo("Project");
-
-		$content->hideUnless("Type")->isEqualTo("Content");
+		$contentWrapper->displayIf("Type")->isEqualTo("Content");
 
 
 		// Archived
