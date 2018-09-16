@@ -128,8 +128,8 @@ class Page_Controller extends ContentController {
 		parent::init();
 		Requirements::set_force_js_to_bottom(true);
 
-        Requirements::block(THIRDPARTY_DIR . '/jquery/jquery.js');
-        Requirements::block(THIRDPARTY_DIR . '/jquery-ui/jquery-ui.js');
+		Requirements::block(THIRDPARTY_DIR . '/jquery/jquery.js');
+		Requirements::block(THIRDPARTY_DIR . '/jquery-ui/jquery-ui.js');
 	}
 
 
@@ -214,8 +214,41 @@ class Page_Controller extends ContentController {
 		return false;
 	}
 
+	/**
+	 * @return DataObject - CalendarPage
+	 */
 	public function getCalendarPage() {
 		return CalendarPage::get_one('CalendarPage');
 	}
 
+	/**
+	 * @return bool|String
+	 */
+	public function getCalLink() {
+		$calPage = $this->getCalendarPage();
+
+		if (!$calPage) {
+			return false;
+		}
+
+		return Controller::join_links($calPage->Link(), 'calendarview');
+	}
+
+	public function getMyEventsLink() {
+		$addEvent = $this->getAddEventPage();
+
+		if (!$addEvent) {
+			return false;
+		}
+
+		return Controller::join_links($addEvent->Link(), 'myevents');
+	}
+
+	public function getMembersEvents() {
+		$events = PublicEvent::get();
+		if (!$events) {
+			return false;
+		}
+		return $events->filter('OwnerID', Member::currentUserID())->sort('Created', 'DESC');
+	}
 }

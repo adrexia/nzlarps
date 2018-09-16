@@ -59,10 +59,6 @@ class AddEventPage_Controller extends Page_Controller {
 		return $this->Content;
 	}
 
-	public function getMembersEvents() {
-		return PublicEvent::get()->filter('OwnerID', Member::currentUserID())->sort('Created', 'DESC');
-	}
-
 	public function myevents() {
 		return $this->customise([
 			'CurrentMenu' => 'myevents',

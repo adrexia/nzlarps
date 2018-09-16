@@ -10,17 +10,16 @@
 						<a href="{$Link}" class="<% if $Top.CurrentMenu == 'eventlist' %>active<% end_if %> btn medium oval oval--left">
 							<span class="entypo icon-list"> &nbsp; $MenuTitle</span>
 						</a>
-						<a href="{$Link}calendarview" class="<% if $Top.CurrentMenu != 'eventlist' && $Top.ClassName == 'CalendarPage' %>active<% end_if %> btn medium oval oval--right">
+						<a href="$Top.getCalLink()" class="<% if $Top.CurrentMenu != 'eventlist' && $Top.ClassName == 'CalendarPage' %>active<% end_if %> btn medium oval oval--right">
 							<span class="entypo icon-calendar"> &nbsp; Calendar</span>
-
 						</a>
 					</li>
 				<% end_with %>
-				<% if $getAddEventPage %>
+				<% if $getAddEventPage() %>
 					<li class="addevent">
 						<a href="{$getAddEventPage.Link}" class="<% if $ClassName == 'AddEventPage' && $Top.CurrentMenu != 'myevents' %>active<% end_if %> btn medium oval"><span>$getAddEventPage.Title</span></a>
-						<% if $getMembersEvents() %>
-							<a href="{$getAddEventPage.Link}myevents" class="<% if $ClassName == 'AddEventPage' && $Top.CurrentMenu == 'myevents' %>active<% end_if %> btn medium oval"><span>My events</span></a>
+						<% if $Top.getMembersEvents() %>
+							<a href="$Top.getMyEventsLink()" class="<% if $ClassName == 'AddEventPage' && $Top.CurrentMenu == 'myevents' %>active<% end_if %> btn medium oval"><span>My events</span></a>
 						<% end_if %>
 					</li>
 				<% end_if %>
@@ -28,15 +27,15 @@
 
 				<% with $Level(1) %>
 					<li class="first">
-						<a href="$Link" class="<% if $LinkingMode = current %>active<% end_if %> btn medium oval">
+						<a href="$Link" class="<% if $LinkingMode = 'current' %>active<% end_if %> btn medium oval">
 							<span>$MenuTitle</span>
 						</a>
 					</li>
 				<% end_with %>
 
-				<% loop Menu(2) %>
+				<% loop $Menu(2) %>
 					<li class="<% if $Last %> last<% end_if %>">
-						<a href="$Link" class="<% if $LinkingMode = current || $LinkingMode = section %>active<% end_if %> btn medium oval">
+						<a href="$Link" class="<% if $LinkingMode = 'current' || $LinkingMode = 'section' %>active<% end_if %> btn medium oval">
 							<span>$MenuTitle</span>
 						</a>
 					</li>
