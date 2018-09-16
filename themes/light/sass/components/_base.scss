@@ -33,3 +33,12 @@ html, body {
 .hide.active, .show {
   display: block;
 }
+
+.layout {
+  position: relative;
+}
+
+.hasalert {
+  position: relative;
+  margin-top: 50px;
+}

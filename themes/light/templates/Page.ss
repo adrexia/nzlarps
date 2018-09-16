@@ -61,6 +61,19 @@
 	<% include SkipLinks %>
 	<% include Header %>
 	<div class="layout" id="layout">
+		<% if $GoodMessage || $BadMessage %>
+			<div class="row">
+				<div class="columns twelve hasalert">
+					<% if $GoodMessage %>
+						<p class="alert success alert--top"><span class="entypo icon-check"></span>$GoodMessage</p>
+					<% end_if %>
+					<% if $BadMessage %>
+						<p class="alert danger alert--top"><span class="entypo icon-attention"></span>$BadMessage</p>
+					<% end_if %>
+				</div>
+			</div>
+		<% end_if %>
+
 		$Layout
 	</div>
 

@@ -38,10 +38,10 @@ class EventExtension extends DataExtension {
 		);
 	}
 
-    public function populateDefaults()
-    {
-        $this->owner->Details = $this->owner->renderWith('EventDefaultContent');
-    }
+	public function populateDefaults()
+	{
+		$this->owner->Details = $this->owner->renderWith('EventDefaultContent');
+	}
 
 	public function updateCMSFields(FieldList $fields) {
 
@@ -70,7 +70,7 @@ class EventExtension extends DataExtension {
 				Region::get()->map('ID', 'Title')),
 			'EventPageID');
 
-        $region->setEmptyString(' ');
+		$region->setEmptyString(' ');
 		$fields->removeByName('RelatedPage');
 		$fields->addFieldToTab('Root.Details', TextareaField::create('Intro', 'Intro'));
 
@@ -106,10 +106,6 @@ class EventExtension extends DataExtension {
 		return $colours['air'];
 	}
 
-	public function Level($num) {
-		return CalendarPage::get_one('CalendarPage');
-	}
-
 	public function showEditLink() {
 		$member = Member::currentUser();
 
@@ -124,9 +120,85 @@ class EventExtension extends DataExtension {
 		$add = AddEventPage::get()->First();
 
 		if (!$add) {
-		    return false;
-        }
+			return false;
+		}
 
-		return $add->AbsoluteLink() . 'edit/' . $this->owner->ID;
+		return Controller::join_links($add->AbsoluteLink(), 'edit', $this->owner->ID);
 	}
+
+
+	public function getDeleteLink() {
+		$add = AddEventPage::get()->First();
+
+		if (!$add) {
+			return false;
+		}
+
+		return Controller::join_links($add->AbsoluteLink(), 'delete', $this->owner->ID);
+	}
+
+	/**
+	 * We only want verified members and those with CMS access to create events
+	 * @param Member|int $member
+	 * @return bool True if the current user can edit this object
+	 */
+	public function canCreate($member = null) {
+		$member = $member ? $member :  Member::currentUser();
+
+		if (!$member) {
+			return false;
+		}
+
+		$result = parent::canCreate($member);
+
+		if ($member->MembershipStatus==='Verified' || Permission::check('EVENT_CREATE')) {
+			return true;
+		}
+
+		return $result;
+	}
+
+	/**
+	 * We only want owners and those with CMS access to edit
+	 * @param Member|int $member
+	 * @return bool True if the current user can edit this object
+	 */
+	public function canEdit($member = null) {
+		$member = $member ? $member :  Member::currentUser();
+
+		if (!$member) {
+			return false;
+		}
+
+		$result = parent::canEdit($member);
+
+		if ($member->ID === $this->owner->OwnerID || Permission::check('EVENT_EDIT')) {
+			return true;
+		}
+
+		return $result;
+	}
+
+	/**
+	 * We only want owners and those with CMS access to be able to delete events
+	 * @param Member|int $member
+	 * @return bool True if the current user can edit this object
+	 */
+	public function canDelete($member = null) {
+
+		$member = $member ? $member :  Member::currentUser();
+
+		if (!$member) {
+			return false;
+		}
+
+		$result = parent::canDelete($member);
+
+		if ($member->ID === $this->owner->OwnerID || Permission::check('EVENT_DELETE')) {
+			return true;
+		}
+
+		return $result;
+	}
+
 }

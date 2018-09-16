@@ -214,8 +214,9 @@ class AddEventForm extends Form {
 		try {
 			$event->write();
 		} catch(Exception $e){
-			$form->sessionMessage('Technical error: writing event failed. Please try again later', 'bad');
+			$form->sessionMessage('Technical error: writing event failed. Please try again later, or contact an admin for assistance', 'bad');
 			$control->redirectBack();
+			return;
 		}
 
 		$control->redirect($control->Link() . "success");

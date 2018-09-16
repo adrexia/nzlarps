@@ -22,14 +22,16 @@ span[class*=" icon-"] {
 }
 
 @each $icon in $entypo-icons {
-  .#{nth($icon, 1)} {
-	&.icon-left a:before, &.icon-right a:after {
-	  content: "#{nth($icon, 2)}";
-	  height: inherit;
+	.#{nth($icon, 1)} {
+		&.icon-left a:before, &.icon-right a:after {
+			content: "#{nth($icon, 2)}";
+			height: inherit;
+		}
 	}
-  }
 	span.#{nth($icon, 1)}:before {
-	content: "#{nth($icon, 2)}";
-	height: inherit;
-  }
+		content: "#{nth($icon, 2)}";
+		height: inherit;
+		line-height: 1em;
+		font-size: 1.2em;
+	}
 }
