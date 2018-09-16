@@ -8,7 +8,7 @@
 </h4>
 <div class='drawer splashimagenotes' id='splashimagenotes'>
 	<div class="drawer-inner">
-        <p><em>Displayed at the top of the event's page, with the event title and overlayed on top.</em></p>
+        <p><em>Displayed at the top of the event's page, with the event title and intro overlayed on top.</em></p>
         <p>For best results, this image: </p>
         <ul class="disc">
             <li>should contain no text</li>
