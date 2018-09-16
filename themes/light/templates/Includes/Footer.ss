@@ -1,29 +1,37 @@
-<footer class="footer typography" role="contentinfo">
-	<h2 class="nonvisual-indicator">Footer</h2>
+<footer class="footer" role="contentinfo">
 	<div class="row">
-	<% if SiteConfig.FooterLinks%>
-		<ul class="nav nav-pills <% if SiteConfig.FacebookURL || SiteConfig.TwitterUsername %>six<% else %>twelve<% end_if %>  columns">
-			<% loop SiteConfig.FooterLinks %>
-				<li><a href="$Link">$Name</a></li>
-			<% end_loop %>
-		</ul>
-		<% end_if %>
+		<div class="columns twelve">
 
-	<% if SiteConfig.FacebookURL || SiteConfig.TwitterUsername %>
-		<div class="social-links six<% if not Footer %> push_six<% end_if %> columns" role="complementary">
-			<p>
-				<% if SiteConfig.TwitterUsername %>
-					<a class="meta-data" href="http://www.twitter.com/$SiteConfig.TwitterUsername"><i class="icon-twitter icon-dark" aria-hidden="true"></i>Follow us on Twitter</a>
-				<% end_if %>
-				<% if SiteConfig.FacebookURL %>
-					<a class="meta-data" href="http://www.facebook.com/$SiteConfig.FacebookURL"><i class="icon-facebook icon-dark" aria-hidden="true"></i>Join us on Facebook</a>
-				<% end_if %>
-			</p>
+
+				<ul>
+					<% if $SiteConfig.FooterLinks %>
+						<% loop $SiteConfig.FooterLinks %>
+							<li><a href="$Link">$Title</a></li>
+						<% end_loop %>
+					<% end_if %>
+					<li class="footer-copyright">
+						&copy; NZLarps 2018
+					</li>
+					<li class="footer-social">
+						<% if $SiteConfig.FacebookURL || $SiteConfig.TwitterUsername %>
+
+							<% if $SiteConfig.TwitterUsername %>
+								<a class="meta-data pull-right" href="http://www.twitter.com/$SiteConfig.TwitterUsername">
+									<span class="icon-twitter entypo" aria-hidden="true"></span>
+									<span class="sr-only">Follow us on Twitter</span></a>
+							<% end_if %>
+							<% if $SiteConfig.FacebookURL %>
+								<a class="meta-data pull-right" href="http://www.facebook.com/$SiteConfig.FacebookURL">
+									<span class="icon-facebook entypo" aria-hidden="true"></span>
+									<span class="sr-only">Join us on Facebook</span></a>
+							<% end_if %>
+
+						<% end_if %>
+					</li>
+
+				</ul>
+
 		</div>
-	<% end_if %>
-	</div>
-	
-	<div class="footer-copyright">
-		<p><small>$SiteConfig.Title &copy; $CurrentDatetime.Format(Y)</small></p>
 	</div>
 </footer>
+

@@ -2,19 +2,56 @@
  * Styles for the main page footer
  */
 
-.footer{
-	border-top:1px solid $default-color;
-	padding-top:20px;
-	margin-top:30px;
-}
 
-.footer-logo{
-	margin-top:20px;
-	img{
-		margin-bottom:0;
+
+.footer {
+	background: #333;
+	text-align: left;
+	padding: 20px  0;
+
+	&-logo {
+		margin-top:20px;
+		img{
+			margin-bottom:0;
+		}
 	}
-}
 
-.footer-copyright{
-	padding-left:10px;
+
+	* {
+		color: #fff;
+	}
+
+	ul {
+		width: 100%;
+		margin-left: -15px;
+		font-size: 14px;
+		font-family: $font-family;
+		font-weight: 500;
+
+		a {
+
+			&:hover,
+			&:focus {
+				&,
+				span {
+					color: #00d0ff;
+				}
+			}
+		}
+
+		li {
+			float: none;
+			display: inline-block;
+			padding-right: 20px;
+
+			&.footer-social {
+				padding-left: 10px;
+				float: right;
+			}
+
+			&.footer-copyright {
+				color: rgba(#fff, 0.5);
+			}
+		}
+	}
 }
