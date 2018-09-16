@@ -85,20 +85,20 @@ class AddEventForm extends Form {
 
 		$startDateTime->getDateField()
 			->setConfig('showcalendar', 1)
-            ->setConfig('min', date('Y-m-d'))
+			->setConfig('min', date('Y-m-d'))
 			->setAttribute('placeholder','Date')
-            ->setAttribute('required','required')
-            ->setAttribute('readonly', 'true'); //we only want input through the datepicker
+			->setAttribute('required','required')
+			->setAttribute('readonly', 'true'); //we only want input through the datepicker
 
 		$startDateTime->getTimeField()
 			->setAttribute('placeholder','Time e.g 13:00, or 1pm');
 
 		$endDateTime->getDateField()
 			->setConfig('showcalendar', 1)
-            ->setConfig('min', date('Y-m-d'))
-            ->setAttribute('placeholder','Date')
-            ->setAttribute('required','required')
-            ->setAttribute('readonly', 'true'); //we only want input through the datepicker
+			->setConfig('min', date('Y-m-d'))
+			->setAttribute('placeholder','Date')
+			->setAttribute('required','required')
+			->setAttribute('readonly', 'true'); //we only want input through the datepicker
 
 		$endDateTime->getTimeField()
 			->setAttribute('placeholder','Time e.g 13:00, or 1pm');
@@ -166,6 +166,7 @@ class AddEventForm extends Form {
 
 		$cID = Calendar::get_one('Calendar')->ID;
 		$fields->push($calendar = HiddenField::create('CalendarID', 'CalendarID', $cID));
+		$calendar->setValue($cID);
 
 		$member = Member::currentUserID();
 		$fields->push($member = HiddenField::create('OwnerID', 'OwnerID', $member));
@@ -185,9 +186,9 @@ class AddEventForm extends Form {
 
 	/**
 	 * Add new event
-     * @param $data
-     * @param $form
-     */
+	 * @param $data
+	 * @param $form
+	 */
 	public function doAdd($data, $form) {
 		$memberID = Member::currentUserID();
 		$cID = Calendar::get_one('Calendar')->ID;
@@ -196,7 +197,7 @@ class AddEventForm extends Form {
 
 		// check that the hidden fields are what they should be
 		if ((int)$data['OwnerID'] !== $memberID || (int)$data['CalendarID'] !== $cID) {
-            $form->sessionMessage('User or calendar has changed, please try again.', 'bad');
+			$form->sessionMessage('User or calendar has changed, please try again.', 'bad');
 			$control->redirectBack();
 			return;
 		}
@@ -214,9 +215,9 @@ class AddEventForm extends Form {
 		try {
 			$event->write();
 		} catch(Exception $e){
-            $form->sessionMessage('Technical error: writing event failed. Please try again later', 'bad');
-            $control->redirectBack();
-        }
+			$form->sessionMessage('Technical error: writing event failed. Please try again later', 'bad');
+			$control->redirectBack();
+		}
 
 		$control->redirect($control->Link() . "success");
 	}
