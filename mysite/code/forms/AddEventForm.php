@@ -191,13 +191,12 @@ class AddEventForm extends Form {
 	 */
 	public function doAdd($data, $form) {
 		$memberID = Member::currentUserID();
-		$cID = Calendar::get_one('Calendar')->ID;
 		$control = $this->getController();
 		$event = false;
 
 		// check that the hidden fields are what they should be
-		if ((int)$data['OwnerID'] !== $memberID || (int)$data['CalendarID'] !== $cID) {
-			$form->sessionMessage('User or calendar has changed, please try again.', 'bad');
+		if ((int)$data['OwnerID'] !== $memberID) {
+			$form->sessionMessage('User has changed, please try again.', 'bad');
 			$control->redirectBack();
 			return;
 		}
