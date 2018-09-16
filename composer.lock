@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d39b657fc1245791dbbba3141ffa2319",
+    "content-hash": "e8ab2e0b1baedd7dfa5462caa4890a6c",
     "packages": [
         {
             "name": "adrexia/dashboardmods",
@@ -2019,20 +2019,20 @@
         },
         {
             "name": "unclecheese/display-logic",
-            "version": "1.6.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/unclecheese/silverstripe-display-logic.git",
-                "reference": "ca910ac39076c48477091985317e1ba50b6872c6"
+                "reference": "3c6107b54ebbca4313d8fc7e9a75f915fd4315ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-display-logic/zipball/ca910ac39076c48477091985317e1ba50b6872c6",
-                "reference": "ca910ac39076c48477091985317e1ba50b6872c6",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-display-logic/zipball/3c6107b54ebbca4313d8fc7e9a75f915fd4315ab",
+                "reference": "3c6107b54ebbca4313d8fc7e9a75f915fd4315ab",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/framework": "~3.7"
+                "silverstripe/framework": "^3.2"
             },
             "replace": {
                 "silverstripe/display-logic": "*"
@@ -2059,7 +2059,7 @@
                 "logic",
                 "silverstripe"
             ],
-            "time": "2018-09-05T09:14:52+00:00"
+            "time": "2016-07-22T20:57:22+00:00"
         },
         {
             "name": "unclecheese/dropzone",
