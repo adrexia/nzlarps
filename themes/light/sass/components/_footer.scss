@@ -49,8 +49,17 @@
 			padding-right: 20px;
 
 			&.footer-social {
-				padding-left: 10px;
 				float: right;
+
+				.entypo {
+					font-size: 25px;
+					padding-left: 20px;
+
+					@include respond(all-phones) {
+						font-size: 15px;
+						padding-left: 10px;
+					}
+				}
 			}
 
 			&.footer-copyright {
