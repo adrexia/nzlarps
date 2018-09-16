@@ -30,6 +30,10 @@
 
 		a {
 
+			&:visited {
+				color: #fff;
+			}
+
 			&:hover,
 			&:focus {
 				&,
