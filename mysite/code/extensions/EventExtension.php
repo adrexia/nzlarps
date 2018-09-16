@@ -86,11 +86,27 @@ class EventExtension extends DataExtension {
 				$this->owner->getPalette()
 		));
 
-		$fields->insertAfter($splash = UploadField::create('SplashImage', 'Splash Image'),'Colour');
-		$fields->insertAfter($small = UploadField::create('SmallImage', 'Small Image'),'SplashImage');
+		$fields->insertAfter($splash = FileAttachmentField::create('SplashImage', 'Splash Image'),'Colour');
+		$fields->insertAfter($small = FileAttachmentField::create('SmallImage', 'Small Image'),'SplashImage');
 
-		$splash->setFolderName('Uploads/Splash-Images');
-		$small->setFolderName('Uploads/Small-Images');
+        $splash->setDescription("Format: JPG <br> Files should be under 250kb <br>Approx dimensions: 1200px * 600px")
+            ->setFolderName('Uploads/Splash-Images')
+            ->setMaxResolution(50000000)
+            ->setMaxFiles(1)
+            ->setMultiple(false)
+            ->setTrackFiles(true);
+
+        $small->setDescription("Format: JPG or PNG <br> Files should be under 100kb. <br>Approx dimensions: 400px * 225px")
+            ->setFolderName('Uploads/Small-Images')
+            ->setMaxResolution(10000000)
+            ->setMaxFiles(1)
+            ->setMultiple(false)
+            ->setTrackFiles(true);
+
+        try {
+            $splash->setView('grid');
+            $small->setView('grid');
+        } catch(Exception $e) {}
 
 	}
 
