@@ -219,6 +219,6 @@ class AddEventForm extends Form {
 			return;
 		}
 
-		$control->redirect($control->Link() . "success");
+		$control->redirect(Controller::join_links($control->Link(), 'success'));
 	}
 }
