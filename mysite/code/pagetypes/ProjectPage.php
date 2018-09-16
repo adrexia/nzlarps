@@ -40,12 +40,14 @@ class ProjectPage extends EventPage {
 		$fields->insertBefore(TextField::create('Contact'), 'Intro');
 		$fields->insertBefore(LinkField::create('WebsiteID', 'Website'), 'Intro');
 
-		$fields->insertBefore($image = UploadField::create(
-			'SmallImage',
-			'Small Image'
-		), 'SplashImage');
+        $fields->insertAfter($small = FileAttachmentField::create('SmallImage', 'Small Image'),'SplashImage');
 
-		$image->setFolderName('Uploads/Small-Images');
+        $small->setDescription("Format: JPG or PNG <br> Files should be under 100kb. <br>Approx dimensions: 400px * 225px")
+            ->setFolderName('Uploads/Small-Images')
+            ->setMaxResolution(10000000)
+            ->setMaxFiles(1)
+            ->setMultiple(false)
+            ->setTrackFiles(true);
 
 		return $fields;
 	}

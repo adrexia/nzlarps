@@ -39,10 +39,14 @@ class Page extends SiteTree {
 			), "Intro"
 		);
 
-		$fields->insertBefore($image = UploadField::create('SplashImage', 'Splash Image'),'Content');
+		$fields->insertAfter($splash = FileAttachmentField::create('SplashImage', 'Splash Image'), 'Colour');
 
-		$image->setFolderName('Uploads/Splash-Images');
-
+		$splash->setDescription("Format: JPG <br> Files should be under 250kb <br>Approx dimensions: 1200px * 600px")
+			->setFolderName('Uploads/Splash-Images')
+			->setMaxResolution(50000000)
+			->setMaxFiles(1)
+			->setMultiple(false)
+			->setTrackFiles(true);
 
 		if($this->ClassName !== "HomePage") {
 			$fields->insertAfter(CheckboxField::create('FullPageSplashImage', 'Match splash image to viewport (fullscreen image)'),'SplashImage');
