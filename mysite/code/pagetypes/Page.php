@@ -127,6 +127,9 @@ class Page_Controller extends ContentController {
 	public function init() {
 		parent::init();
 		Requirements::set_force_js_to_bottom(true);
+
+        Requirements::block(THIRDPARTY_DIR . '/jquery/jquery.js');
+        Requirements::block(THIRDPARTY_DIR . '/jquery-ui/jquery-ui.js');
 	}
 
 

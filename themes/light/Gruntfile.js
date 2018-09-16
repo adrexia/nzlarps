@@ -48,7 +48,6 @@ grunt.initConfig({
 				'js/src/isotope.src.js',
 				'../../calendar/javascript/pagetypes/CalendarPage.js',
 
-
 				'../../calendar/javascript/fullcalendar/PublicFullcalendarView.js',
 
 				'../../calendar/javascript/events/EventFields.js',

@@ -30,7 +30,6 @@ class AddEventPage extends Page {
         $member = Member::currentUser();
 
         if ($member->MembershipStatus==='Verified'|| Permission::check('ADMIN') || Permission::check('CMS_ACCESS')) {
-            // if member is verified, return true
             return true;
         }
 
@@ -53,7 +52,7 @@ class AddEventPage_Controller extends Page_Controller {
 	}
 
 	public function Form() {
-		return new AddEventForm($this, 'Form');
+		return AddEventForm::create($this, 'Form');
 	}
 
 	public function Content() {
@@ -71,7 +70,6 @@ class AddEventPage_Controller extends Page_Controller {
 		])->render();
 	}
 
-
 	/**
 	 * Allow the owners of games to edit events
 	 * If page is reached by non owners, redirect back to the add form
@@ -84,7 +82,7 @@ class AddEventPage_Controller extends Page_Controller {
 		$event = PublicEvent::get()->byID($params['ID']);
 
 		if(!$event || !$member || $event->OwnerID !== $member->ID) {
-			$this->redirect($params['URLSegment'].'/');
+			$this->redirect($event->AbsoluteLink());
 		}
 
 		$form = $this->Form();

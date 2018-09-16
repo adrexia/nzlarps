@@ -12,11 +12,6 @@ class AddEventForm extends Form {
 	 * @param type $name
 	 */
 	function __construct($controller, $name) {
-		//Event form specific js/css
-		//Timepicker
-		Requirements::css('calendar/thirdparty/timepicker/jquery.timepicker.css');
-
-		//Fields
 		$fields = $this->getFields();
 
 		//Actions
@@ -24,11 +19,9 @@ class AddEventForm extends Form {
 			FormAction::create("doAdd")->setTitle("Submit Event")->addExtraClass("pull-right btn-primary btn-small")
 		);
 
-		//Validator
 		$validator = RequiredFields::create(array('Title', 'StartDateTime', 'EndDateTime'));
 		$this->addExtraClass('PublicEventForm');
 		$this->addExtraClass($name);
-		$this->setAttribute('data-parsley-validate', true);
 
 		parent::__construct($controller, $name, $fields, $actions, $validator);
 	}
@@ -55,7 +48,7 @@ class AddEventForm extends Form {
 			TextareaField::create('Intro')->setRows(1),
 			$detailsEditor = CompositeField::create(
 				$gameDetails = LabelField::create('GameDetails', 'Game Details'),
-				$gameDetails = LiteralField::create('GameDetailNotes', '<p class="field-notes field-notes--textarea"><em>Note: you can select text to apply formatting and insert links</em></p>'),
+				$gameDetails = LiteralField::create('GameDetailNotes', '<p class="field-notes field-notes--textarea">Note: you can select text to apply formatting and insert links</p>'),
 
 				$html = HTMLEditorField::create('Details', '', $details),
 				LiteralField::create('editorDiv', '<div class="editable"></div>')
@@ -92,23 +85,23 @@ class AddEventForm extends Form {
 
 		$startDateTime->getDateField()
 			->setConfig('showcalendar', 1)
+            ->setConfig('min', date('Y-m-d'))
 			->setAttribute('placeholder','Date')
-			->setAttribute('readonly', 'true'); //we only want input through the datepicker
+            ->setAttribute('required','required')
+            ->setAttribute('readonly', 'true'); //we only want input through the datepicker
 
 		$startDateTime->getTimeField()
-			->setConfig('datavalueformat', 'yyyy-MM-dd HH:mm') //24h format
-
 			->setAttribute('placeholder','Time e.g 13:00, or 1pm');
 
 		$endDateTime->getDateField()
 			->setConfig('showcalendar', 1)
-			->setAttribute('placeholder','Date')
-			->setAttribute('readonly', 'true'); //we only want input through the datepicker
+            ->setConfig('min', date('Y-m-d'))
+            ->setAttribute('placeholder','Date')
+            ->setAttribute('required','required')
+            ->setAttribute('readonly', 'true'); //we only want input through the datepicker
 
 		$endDateTime->getTimeField()
-			// ->setConfig('timeformat', 'HH:mm') //24h fromat
 			->setAttribute('placeholder','Time e.g 13:00, or 1pm');
-
 
 		return $fields;
 	}
@@ -192,18 +185,19 @@ class AddEventForm extends Form {
 
 	/**
 	 * Add new event
-	 * @param type $data
-	 * @param type $form
-	 */
+     * @param $data
+     * @param $form
+     */
 	public function doAdd($data, $form) {
 		$memberID = Member::currentUserID();
 		$cID = Calendar::get_one('Calendar')->ID;
-		$control = $this->Controller();
+		$control = $this->getController();
 		$event = false;
 
 		// check that the hidden fields are what they should be
 		if ((int)$data['OwnerID'] !== $memberID || (int)$data['CalendarID'] !== $cID) {
-			$control->redirect($control->Link());
+            $form->sessionMessage('User or calendar has changed, please try again.', 'bad');
+			$control->redirectBack();
 			return;
 		}
 
@@ -219,7 +213,10 @@ class AddEventForm extends Form {
 
 		try {
 			$event->write();
-		} catch(Exception $e){}
+		} catch(Exception $e){
+            $form->sessionMessage('Technical error: writing event failed. Please try again later', 'bad');
+            $control->redirectBack();
+        }
 
 		$control->redirect($control->Link() . "success");
 	}
