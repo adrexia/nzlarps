@@ -7,8 +7,8 @@
 			<th>Title</th>
 			<th>Dates</th>
 			<th>Created</th>
-			<th><span class="entypo icon-pencil"></span>Edit</th>
-			<th><span class="entypo icon-trash"></span>Delete</th>
+			<th class="text--center">Edit</th>
+			<th class="text--center">Delete</th>
 
 		</tr>
 		</thead>
@@ -18,10 +18,10 @@
 				<td><a href="$InternalLink">$Title</a></td>
 				<td>$StartDateTime.format(d M Y) - $EndDateTime.format(d M Y)</td>
 				<td>$Created.format(d M Y)</td>
-				<td><a href="$getEditLink()">
+				<td class="text--center"><a href="$getEditLink()">
 					<span class="entypo icon-pencil"></span>
 				</a></td>
-				<td><a href="$getDeleteLink()">
+				<td class="text--center"><a href="$getDeleteLink()">
 					<span class="entypo icon-trash"></span>
 				</a></td>
 			</tr>

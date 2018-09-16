@@ -3,7 +3,6 @@
 table {
 	display: table;
 	background-color: $table-bgcolor;
-	border-collapse: collapse;
 	border-spacing: 0;
 	margin-bottom: 20px;
 	width: 100%;
@@ -35,7 +34,7 @@ table {
 	}
 
 	tr td, tbody tr td {
-		font-size: $norm;
+		font-size: 14px;
 	}
 
 	tr td:first-child {
@@ -64,7 +63,7 @@ table {
 	}
 
 	tr th {
-		font-size: $norm;
+		font-size: 14px;
 		font-weight: bold;
 	}
 
