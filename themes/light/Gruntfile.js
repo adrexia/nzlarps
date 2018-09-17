@@ -43,8 +43,9 @@ grunt.initConfig({
 				'js/src/libs/ui/jquery.validation.js',
 				"js/src/libs/tags-input/jquery.tagsinput.js",
 				"js/src/libs/sharebutton/share-button.js",
+                'js/src/libs/materialmodal.js',
 
-				'js/src/libs/medium-editor/dist/js/medium-editor.js',
+                'js/src/libs/medium-editor/dist/js/medium-editor.js',
 				'js/src/isotope.src.js',
 				'../../calendar/javascript/pagetypes/CalendarPage.js',
 

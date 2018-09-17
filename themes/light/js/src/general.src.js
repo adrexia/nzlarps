@@ -73,6 +73,19 @@ $(function() {
 				.find('a')
 				.html('<span class="text">Show More</span> <span class="loading-icon"><i class="icon-blank">&nbsp;</i></span>');
 		});
+
+		$('[data-delete-event]').on('click', function(e) {
+			e.preventDefault();
+			var name = $(this).data('delete-event'),
+				deleteLink = $(this).attr('href');
+
+            materialConfirm('Delete: ' + name,'Are you sure you want to delete this event?' ,function(result) {
+            	if (result) {
+            		window.location = deleteLink;
+				}
+			});
+		});
+
 	}
 
 	function  applyEditor() {

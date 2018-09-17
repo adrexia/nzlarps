@@ -21,7 +21,7 @@
 				<td class="text--center"><a href="$getEditLink()">
 					<span class="entypo icon-pencil"></span>
 				</a></td>
-				<td class="text--center"><a href="$getDeleteLink()">
+				<td class="text--center"><a data-delete-event="$Title" href="$getDeleteLink()">
 					<span class="entypo icon-trash"></span>
 				</a></td>
 			</tr>

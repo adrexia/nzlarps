@@ -59,25 +59,28 @@
 	<% include FBScript %>
 	$BetterNavigator
 	<% include SkipLinks %>
-	<% include Header %>
-	<div class="layout" id="layout">
-		<% if $GoodMessage || $BadMessage %>
-			<div class="row">
-				<div class="columns twelve hasalert">
-					<% if $GoodMessage %>
-						<p class="alert success alert--top"><span class="entypo icon-check"></span>$GoodMessage</p>
-					<% end_if %>
-					<% if $BadMessage %>
-						<p class="alert danger alert--top"><span class="entypo icon-attention"></span>$BadMessage</p>
-					<% end_if %>
+
+	<div class="contentwrapper" id="contentwrapper">
+		<% include Header %>
+		<div class="layout" id="layout">
+			<% if $GoodMessage || $BadMessage %>
+				<div class="row">
+					<div class="columns twelve hasalert">
+						<% if $GoodMessage %>
+							<p class="alert success alert--top"><span class="entypo icon-check"></span>$GoodMessage</p>
+						<% end_if %>
+						<% if $BadMessage %>
+							<p class="alert danger alert--top"><span class="entypo icon-attention"></span>$BadMessage</p>
+						<% end_if %>
+					</div>
 				</div>
-			</div>
-		<% end_if %>
+			<% end_if %>
 
-		$Layout
+			$Layout
+		</div>
+		<% include Footer %>
 	</div>
-
-	<% include Footer %>
+	<% include MaterialModal %>
 
 	<script type="text/javascript" src="{$ThemeDir}/js/script.min.js"></script>
 
