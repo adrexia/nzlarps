@@ -298,7 +298,9 @@ blockquote {
 	}
 
   cite {
-	display: block;
+	  display: block;
+	  padding-top: 15px;
+	  font-size: 0.8em;
 	&:before {
 	  content: "\2014 \0020";
 	}
