@@ -12,12 +12,16 @@
 						<% end_if %>
 						$StartDateTime.DayOfMonth
 						$StartDateTime.Format('F, Y')
+						<% if $showEditLink() %>
+							<br />
+							<small class="text-center">
+								<a class="btn" href="$getEditLink()">
+									Edit
+								</a>
+							</small>
+						<% end_if %>
 					</h2>
-					<% if $showEditLink() %>
-						<a class="btn" href="$getEditLink()">
-							Edit
-						</a>
-					<% end_if %>
+
 					<p class="subhead">
 						<% if $StartAndEndDates %>
 							<span>$StartAndEndDates</span>

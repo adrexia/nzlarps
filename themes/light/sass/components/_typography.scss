@@ -7,10 +7,15 @@ h1,h2,h3,h4,h5,h6 {
   @include padding-leader($rhythm-spacing);
   @include adjust-leading-to($rhythm-height);
   @include padding-trailer($rhythm-spacing);
+
   a {
 	color: $inspiration;
   }
 
+}
+
+h1,h2,h3 {
+	text-align: center;
 }
 
 @include respond(all-phones) {
@@ -109,9 +114,11 @@ h6 {
 }
 
 .subhead {
-  color: #777;
-  font-weight: normal;
-  margin-bottom: 20px;
+	color: #777;
+	font-weight: normal;
+	margin-bottom: 35px;
+	margin-top: 20px;
+	text-align: center;
 }
 
 .listing-heading {
@@ -136,10 +143,13 @@ h6 {
 
   ======================================================*/
 
+body,
 p {
-  font-family: $font-family;
-  font-weight: $body-font-weight;
-  @include font-size(ms(0) * 1.25);
+	font-family: $font-family;
+	font-weight: $body-font-weight;
+	font-size: 17px;
+}
+p {
   margin-bottom: 40px;
   margin-top: 40px;
   @include adjust-leading-to(1);
@@ -174,8 +184,9 @@ a {
  ======================================================*/
 
 ul, ol {
-    @include margin-trailer($rhythm-spacing);
-	@include font-size(ms(0) * 1.25);
+    margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 16px;
 }
 
 ul {
@@ -209,9 +220,13 @@ ul {
   .main &,
   &.disc {
 	list-style: disc inside;
+
+	  &.colorpalette {
+		  list-style: none;
+	  }
   }
   ul {
-	margin: 4px 0 5px 25px;
+	margin: 10px 0 5px 25px;
   }
 }
 
@@ -255,14 +270,17 @@ h1 small, h2 small, h3 small, h4 small, h5 small {
 /*  Blockquotes  */
 
 blockquote {
-  line-height: 20px;
-  color: #777;
-  p {
 	line-height: 20px;
 	color: #777;
-  }
-  margin: 0 0 18px;
-  padding: 9px 20px 0 19px;
+	margin: 0 0 18px;
+	padding: 20px 20px 20px 19px;
+	border-left: 5px solid $inspiration;
+
+	p {
+		line-height: 25px;
+		color: #777;
+	}
+
   cite {
 	display: block;
 	font-size: 12px;

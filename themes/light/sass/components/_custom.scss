@@ -121,7 +121,6 @@
 	background: #fff;
 	min-height: 250px;
 	padding: 30px 150px 50px;
-	text-align: center;
 
 	+ .main:not(.mtm) {
 		padding-top: 0;
@@ -158,15 +157,6 @@
 		padding: 30px;
 	}
 
-	p {
-		font-size: 1.2rem;
-		@include respond(tablets) {
-			font-size: 1.1rem;
-		}
-		@include respond(all-phones) {
-			font-size: 1rem;
-		}
-	}
 	@include respond(all-phones) {
 		> p:first-child {
 			margin-top: 10px;
