@@ -27,7 +27,7 @@
 				<% end_if %>
 
 				<% if $MembershipStatus != 'Not applied' %>
-					<ul class="pbl">
+					<ul class="pbl unstyled text-center">
 						<li><strong>Branch:</strong> $Region.Title</li>
 						<li><strong>Membership Number:</strong> $MemberNumber</li>
 						<li><strong>Expiry Date:</strong> $ExpiryDate</li>
