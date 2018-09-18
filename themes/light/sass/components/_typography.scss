@@ -187,6 +187,10 @@ ul, ol {
     margin-top: 20px;
 	margin-bottom: 20px;
 	font-size: 16px;
+
+	&.unstyled {
+		list-style: none !important; //remove rather than overriding
+	}
 }
 
 ul {
@@ -207,6 +211,7 @@ ul {
 		  display: inline-block;
 	  }
 	}
+
   .editable &, &.square, &.circle, &.disc {
 	margin-left: 25px;
   }

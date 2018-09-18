@@ -9,7 +9,7 @@
 					Details
 				</h2>
 				<% if $Tagline %><p class="subhead">$Tagline</p><% end_if %>
-				<ul>
+				<ul class="unstyled text-center">
 					<% if $Contact %><li><strong>Contact:</strong> $Contact</li><% end_if %>
 					<% if $Parent.Type %><li><strong>Type:</strong> $Parent.Type</li><% end_if %>
 					<% if $State %><li><strong>State:</strong> $State</li><% end_if %>
