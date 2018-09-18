@@ -41,7 +41,9 @@
 
 					<% if $EventPage %>
 						<% with $EventPage %>
-							<a href="$Link" class="btn medium oval default"><span>More $Title</span></a>
+							<p class="text-center">
+								<a href="$Link" class="btn medium oval default"><span>More $Title</span></a>
+							</p>
 						<% end_with %>
 					<% end_if %>
 				<% end_with %>
