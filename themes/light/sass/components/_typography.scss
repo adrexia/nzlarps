@@ -174,7 +174,8 @@ a {
  ======================================================*/
 
 ul, ol {
-  @include margin-trailer($rhythm-spacing);
+    @include margin-trailer($rhythm-spacing);
+	@include font-size(ms(0) * 1.25);
 }
 
 ul {
@@ -199,14 +200,15 @@ ul {
 	margin-left: 25px;
   }
   &.square {
-	list-style: square outside;
+	list-style: square inside;
   }
   &.circle {
-	list-style: circle outside;
+	list-style: circle inside;
   }
   .editable &,
+  .main &,
   &.disc {
-	list-style: disc outside;
+	list-style: disc inside;
   }
   ul {
 	margin: 4px 0 5px 25px;
