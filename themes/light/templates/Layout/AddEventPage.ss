@@ -1,18 +1,17 @@
 <div class="row">
 	<div class="columns twelve">
-		<div class="top-panel <% if URLSegment == Security %>collapse<% end_if %>" role="main">
-			<div class="main">
-				<% if $Content %>
-				<% include BackButton %>
-				$Content.RichLinks.Pagebreaks
-				<% end_if %>
+		<div class="top-panel main" role="main">
+			$Content.RichLinks
+		</div>
+		<div class="main mtm">
 
-				<% if $Form && $CurrentMember && $CurrentMember.MembershipStatus %>
 
-						$Form
+			<% if $Form && $CurrentMember && $CurrentMember.MembershipStatus %>
+				<h2>Event Details</h2>
 
-				<% end_if %>
-			</div>
+				$Form
+
+			<% end_if %>
 		</div>
 
 

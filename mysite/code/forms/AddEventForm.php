@@ -43,7 +43,6 @@ class AddEventForm extends Form {
 
 		// Overview fields
 		$fields = CompositeField::create(
-			LiteralField::create('DetailsHeading', '<h3>Event Details</h3>'),
 			TextField::create('Title')->setAttribute('placeholder','Enter a title'),
 			TextareaField::create('Intro')->setRows(1),
 			$detailsEditor = CompositeField::create(
