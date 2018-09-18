@@ -275,22 +275,30 @@ h1 small, h2 small, h3 small, h4 small, h5 small {
 /*  Blockquotes  */
 
 blockquote {
-	line-height: 20px;
 	color: #777;
 	margin: 0 0 18px;
-	padding: 20px 20px 20px 19px;
-	border-left: 5px solid $inspiration;
+	padding: 25px 20px 25px 50px;
+	border-left: 7px solid $inspiration;
 
+	&,
+	p {
+		font-size: 20px;
+		font-weight: 300;
+		line-height: 29px;
+	}
 	p {
 		line-height: 25px;
 		color: #777;
+		&:first-child {
+			 margin-top: 0;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
   cite {
 	display: block;
-	font-size: 12px;
-	font-size: 1.2rem;
-	color: $body-font-color;
 	&:before {
 	  content: "\2014 \0020";
 	}
