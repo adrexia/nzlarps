@@ -55,7 +55,7 @@ class ProjectPage extends EventPage {
 
 		$fields->insertBefore(
 			'Intro',
-			ListboxField::create('Owners', singleton('Member')->i18n_plural_name())
+			ListboxField::create('Owners', 'Project Owners')
 				->setMultiple(true)
 				->setSource(Member::get()->map('ID', 'Title')->toArray()));
 
