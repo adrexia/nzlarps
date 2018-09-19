@@ -3,7 +3,7 @@
  * Add Event Form
  *
  */
-class AddEventForm extends Form {
+class EventForm extends Form {
 
 
 	/**

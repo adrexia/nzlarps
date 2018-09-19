@@ -40,8 +40,10 @@ class MemberExtension extends DataExtension {
 		'LastEdited'
 	);
 
+    private static $belongs_many_many = [
+        'Projects' => 'ProjectPage'
+    ];
 
-	/**
 	 * Sets the Date field to the current date.
 	 */
 	public function populateDefaults() {

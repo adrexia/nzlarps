@@ -14,7 +14,8 @@ class ProjectListingPage extends Page {
 	private static $description = 'A page to list projects and affliates.';
 
 	private static $db = array (
-		'Type' => 'Enum("Project, Affiliate", "Project")'
+		'Type' => 'Enum("Project, Affiliate", "Project")',
+		'EditContent' => 'HTMLText',
 	);
 
 	public function getCMSFields() {
@@ -28,6 +29,11 @@ class ProjectListingPage extends Page {
 			'Type',
 			$this->dbObject('Type')->enumValues()
 		), 'Intro');
+
+		$fields->addFieldToTab('Root.OtherContent', $edit = HTMLEditorField::create('EditContent', 'Project Edit Content'));
+
+		$edit->setDescription('Displayed on child project pages when project owner is editing');
+		$edit->setRows(20);
 
 		return $fields;
 	}

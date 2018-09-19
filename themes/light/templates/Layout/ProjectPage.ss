@@ -1,14 +1,21 @@
 <div class="row">
 	<div class="columns twelve">
 		<div class="top-panel collapse" role="main" id="main">
-			<div class="main" role="main" id="main">
+			<div class="main">
 				<% include BackButton %>
 
 				<% if $Contact || $Parent.Type || $State || $Tagline || $Website %>
 				<h2>
 					Details
+					<% if $showEditLink() %>
+						<br />
+						<small class="text-center">
+							<a class="btn" href="$getEditLink()">
+								Edit
+							</a>
+						</small>
+					<% end_if %>
 				</h2>
-				<% if $Tagline %><p class="subhead">$Tagline</p><% end_if %>
 				<ul class="unstyled text-center">
 					<% if $Contact %><li><strong>Contact:</strong> $Contact</li><% end_if %>
 					<% if $Parent.Type %><li><strong>Type:</strong> $Parent.Type</li><% end_if %>

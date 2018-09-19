@@ -50,7 +50,7 @@ class AddEventPage_Controller extends Page_Controller {
 	}
 
 	public function Form() {
-		return AddEventForm::create($this, 'Form');
+		return EventForm::create($this, 'Form');
 	}
 
 	public function Content() {
