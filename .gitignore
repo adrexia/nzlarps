@@ -74,3 +74,5 @@ contentreview/
 
 versionedfiles/
 framework/
+php_errors.log
+select2/

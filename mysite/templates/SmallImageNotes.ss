@@ -1,14 +1,9 @@
 <h4>
 	<span>Promo Image</span>
-	<button type="button" class='medium transparent btn' data-toggle='#smallimagenotes'>
-		<span class='entypo icon-help-circled'>
-				<span class="sr-only">Image help</span>
-		</span>
-	</button>
 </h4>
-<div class='drawer smallimagenotes' id='smallimagenotes'>
-	<div class="drawer-inner">
-		<p><em>Displayed in promo tiles around the site.</em></p>
+<p class="extra extra--fullwidth">Displayed in promo tiles around the site.</p>
+<div class='image-notes image-notes--small' id='smallimagenotes'>
+	<div class="">
 		<p> For best results, this image: </p>
 		<ul class="disc">
 			<li>should be landscape (if its square, add padding to both sides to make it landscape)</li>

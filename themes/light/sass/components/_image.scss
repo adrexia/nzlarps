@@ -1,0 +1,68 @@
+.image {
+
+	&-group {
+
+		&.composite {
+			padding-top: 25px;
+			padding-bottom: 25px;
+		}
+	}
+
+	&-title {
+		display: block;
+		font-size: 12px;
+		line-height: 1.2em;
+		padding-top: 5px;
+	}
+
+	&-img {
+		display: block;
+	}
+
+	&-wrap {
+		height: 100px;
+		display: block;
+		overflow: hidden;
+		background: #efefef;
+
+		&--splash {
+			height: 60px;
+		}
+	}
+
+	&-dropdownitem {
+		width: 100px;
+		height: 135px;
+		overflow: hidden;
+		display: block;
+
+		&--splash {
+			height: 95px;
+		}
+	}
+
+	&-notes {
+		width: 50%;
+		float: right;
+
+		+ .fileattachment {
+			float: left;
+			clear: none;
+			width: 45%;
+
+			.uploadable {
+				margin-bottom: 0;
+				min-height: 300px;
+			}
+		}
+
+		p {
+			margin-top: 15px;
+		}
+	}
+}
+
+.select2-results li {
+	float: left;
+	width: auto;
+}

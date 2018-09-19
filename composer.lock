@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8ab2e0b1baedd7dfa5462caa4890a6c",
+    "content-hash": "d2698c8eae35f634dac3015fc823537b",
     "packages": [
         {
             "name": "adrexia/dashboardmods",
@@ -752,6 +752,46 @@
                 "silverstripe"
             ],
             "time": "2017-05-30T04:40:45+00:00"
+        },
+        {
+            "name": "sheadawson/silverstripe-select2",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adrexia/silverstripe-select2.git",
+                "reference": "8320324127ca517fe6a6739e228663c856d966b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adrexia/silverstripe-select2/zipball/8320324127ca517fe6a6739e228663c856d966b7",
+                "reference": "8320324127ca517fe6a6739e228663c856d966b7",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "silverstripe/framework": "3.*"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "select2"
+            },
+            "authors": [
+                {
+                    "name": "Shea Dawson",
+                    "email": "shea@livesource.co.nz"
+                }
+            ],
+            "description": "A set of silverstripe form fields based on http://ivaynberg.github.com/select2/s",
+            "homepage": "http://github.com/sheadawson/silverstripe-select2",
+            "keywords": [
+                "ajax",
+                "forms",
+                "silverstripe"
+            ],
+            "support": {
+                "source": "https://github.com/adrexia/silverstripe-select2/tree/1.0.2"
+            },
+            "time": "2018-09-13T02:03:12+00:00"
         },
         {
             "name": "silverstripe-australia/memberprofiles",

@@ -44,14 +44,14 @@ class AddEventForm extends Form {
 		// Overview fields
 		$fields = CompositeField::create(
 			TextField::create('Title')->setAttribute('placeholder','Enter a title'),
-			TextareaField::create('Intro')->setRows(1),
 			$detailsEditor = CompositeField::create(
 				$gameDetails = LabelField::create('GameDetails', 'Game Details'),
-				$gameDetails = LiteralField::create('GameDetailNotes', '<p class="field-notes field-notes--textarea">Note: you can select text to apply formatting and insert links</p>'),
+				LiteralField::create('GameDetailNotes', '<p class="field-notes field-notes--textarea">Note: you can select text to apply formatting and insert links</p>'),
 
 				$html = HTMLEditorField::create('Details', '', $details),
 				LiteralField::create('editorDiv', '<div class="editable"></div>')
 			),
+			TextField::create('Intro')->setRightTitle('Short tagline to show in the page header and in listings'),
 			$region = DropdownField::create(
 				'RegionID',
 				'Region',
@@ -120,14 +120,27 @@ class AddEventForm extends Form {
 			$promoGroup = CompositeField::create(
 				$smLabel = LabelField::create('SmallImageLabel', "Promo Image"),
 				LiteralField::create('SmallImageNotes', $smallImageNotes),
-				$small = FileAttachmentField::create('SmallImage', '')
+				$small = FileAttachmentField::create('SmallImage', ''),
+				$smallEvent = AjaxSelect2Field::create('SmallImageEventID', '<strong>OR</strong> use the promo image from an existing event')
 			),
 			$splashGroup = CompositeField::create(
 				$spLabel = LabelField::create('SplashImageLabel', "Splash Image (optional)"),
 				LiteralField::create('SplashImageNotes', $spashImageNotes),
-				$splash = FileAttachmentField::create('SplashImage', '')
+				$splash = FileAttachmentField::create('SplashImage', ''),
+				$splashEvent = AjaxSelect2Field::create('SplashImageEventID', '<strong>OR</strong> use the splash image from an existing event')
 			)
 		);
+
+		$promoGroup->addExtraClass('image-group');
+		$splashGroup->addExtraClass('image-group');
+
+		$smallEvent->setConfig('classToSearch', 'PublicEvent');
+		$smallEvent->setConfig('resultsFormat', '<span class="image-dropdownitem"><span class="image-wrap"><img src="$SmallImage.Link()" width="100" alt="" class="image-img" /></span><span class="image-title">$Title</span></span>');
+		$smallEvent->addExtraClass('image-dropdown');
+
+		$splashEvent->setConfig('classToSearch', 'PublicEvent');
+		$splashEvent->setConfig('resultsFormat', '<span class="image-dropdownitem image-dropdownitem--splash"><span class="image-wrap image-wrap--splash"><img src="$SplashImage.setWidth(250).Link()" width="100" alt="" class="image-img" /></span><span class="image-title">$Title</span></span>');
+		$smallEvent->addExtraClass('image-dropdown');
 
 		$smLabel->addExtraClass('sr-only');
 		$spLabel->addExtraClass('sr-only');
@@ -183,6 +196,22 @@ class AddEventForm extends Form {
 		return $fields;
 	}
 
+	public function getImageFromEvent($id, $large = false) {
+		$event = PublicEvent::get()->byID($id);
+
+		if(!$event) {
+			return false;
+		}
+
+		$image = $large ? $event->SplashImage() : $event->SmallImage();
+
+		if ($image->exists()){
+			return $image->ID;
+		}
+
+		return false;
+	}
+
 	/**
 	 * Add new event
 	 * @param $data
@@ -209,6 +238,22 @@ class AddEventForm extends Form {
 		}
 
 		$form->saveInto($event);
+
+		if($smid = $data['SmallImageEventID']) {
+			$smImageID = $this->getImageFromEvent($smid);
+
+			if ($smImageID) {
+				$event->SmallImageID = $smImageID;
+			}
+		}
+
+		if($spid = $data['SplashImageEventID']) {
+			$spImageID = $this->getImageFromEvent($spid, true);
+
+			if ($spImageID) {
+				$event->SplashImageID = $spImageID;
+			}
+		}
 
 		try {
 			$event->write();

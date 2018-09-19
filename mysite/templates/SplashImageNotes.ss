@@ -1,14 +1,9 @@
 <h4>
 	<span>Splash Image (optional)</span>
-	<button type="button" class='medium transparent btn' data-toggle='#splashimagenotes'>
-		<span class='entypo icon-help-circled'>
-            <span class="sr-only">Image help</span>
-        </span>
-	</button>
 </h4>
-<div class='drawer splashimagenotes' id='splashimagenotes'>
-	<div class="drawer-inner">
-        <p><em>Displayed at the top of the event's page, with the event title and intro overlayed on top.</em></p>
+<p class="extra extra--fullwidth">Displayed at the top of the event's page, with the event title and intro overlayed on top.</p>
+<div class='image-notes image-notes--splash' id='splashimagenotes'>
+	<div class="">
         <p>For best results, this image: </p>
         <ul class="disc">
             <li>should contain no text</li>

@@ -346,10 +346,12 @@ label {
 		@include box-shadow(none);
 	}
 }
+fieldset.composite {
+	padding-bottom: 40px;
+}
 
 .composite {
 	border-bottom: 1px solid #efefef;
-	padding-bottom: 40px;
 	margin-top: 0;
 	padding-top: 0;
 

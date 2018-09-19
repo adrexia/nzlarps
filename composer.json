@@ -13,6 +13,10 @@
 		{
 			"type": "vcs",
 			"url": "https://github.com/adrexia/silverstripe-spamprotection-honeypot.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git@github.com:adrexia/silverstripe-select2.git"
 		}
 	],
 	"require": {
@@ -43,6 +47,7 @@
 		"silverstripe/crontask": "1.1.2",
 		"silverstripe/redirectedurls": "1.0.2",
 		"unclecheese/silverstripe-kickassets": "^3.3.3",
+		"sheadawson/silverstripe-select2": "1.0.2",
 
 		"unclecheese/dropzone": "dev-master#0eeab6ef8f66c6cb4088a90354127b3ee000b845 as 1.4.13",
 

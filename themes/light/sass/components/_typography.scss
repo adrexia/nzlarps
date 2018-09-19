@@ -200,11 +200,11 @@ ul {
 ol {
 	list-style: decimal;
 	margin-left: 30px;
-	list-style-position: inside;
+	list-style-position: outside;
 }
 
 ul {
-	list-style-position: inside;
+	list-style-position: outside;
 
 	&.inline {
 	  li {
@@ -216,15 +216,15 @@ ul {
 	margin-left: 25px;
   }
   &.square {
-	list-style: square inside;
+	list-style: square outside;
   }
   &.circle {
-	list-style: circle inside;
+	list-style: circle outside;
   }
   .editable &,
   .main &,
   &.disc {
-	list-style: disc inside;
+	list-style: disc outside;
 
 	  &.colorpalette {
 		  list-style: none;
