@@ -1,7 +1,6 @@
 .image {
 
 	&-group {
-
 		&.composite {
 			padding-top: 25px;
 			padding-bottom: 25px;
@@ -42,17 +41,24 @@
 	}
 
 	&-notes {
-		width: 50%;
-		float: right;
+
+		@include respond(desktop) {
+			width: 50%;
+			float: right;
+		}
 
 		+ .fileattachment {
-			float: left;
-			clear: none;
-			width: 45%;
+			@include respond(desktop) {
+				float: left;
+				clear: none;
+				width: 45%;
+			}
 
 			.uploadable {
 				margin-bottom: 0;
-				min-height: 300px;
+				@include respond(desktop) {
+					min-height: 300px;
+				}
 			}
 		}
 

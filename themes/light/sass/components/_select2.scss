@@ -52,6 +52,15 @@
 	box-shadow: none;
 }
 
+
+.select2-container {
+	max-width: 100%;
+
+	@include respond(all-phones) {
+		max-width: 240px;
+	}
+}
+
 /**
  * Adjust Select2 input heights to match the Bootstrap default.
  */
