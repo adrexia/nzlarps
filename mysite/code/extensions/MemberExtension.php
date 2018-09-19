@@ -44,6 +44,9 @@ class MemberExtension extends DataExtension {
         'Projects' => 'ProjectPage'
     ];
 
+
+
+    /**
 	 * Sets the Date field to the current date.
 	 */
 	public function populateDefaults() {
