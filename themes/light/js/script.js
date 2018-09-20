@@ -39380,7 +39380,7 @@ $(function() {
 			return $this.controllerUrl + action + '/';
 		}
 		this.buildCalendarUrl = function(action) {
-			return $this.calendarUrl + action + '/';
+			return $this.calendarUrl.split('?')[0] + action + '/';
 		}
 
 		/**
@@ -39470,20 +39470,14 @@ $(function() {
 			//this could cause some heave calculation on the frontend, and there might
 			//be a more elegant way of doing this
 			$($this.shadedEvents).each(function() {
-				//console.log(this);
 				var start = new XDate(new XDate(this.start).toString('yyyy-MM-dd')).getTime();
 				var end = new XDate(new XDate(this.end).toString('yyyy-MM-dd')).getTime();
-				//console.log(start);
-				//console.log(end);
-
 				if((time >= start) && (time <= end)) {
 					shading = this.backgroundColor;
-					//console.log(new XDate(this.start).toString('yyyy-MM-dd'));
 				}
 			});
 
 			//today
-			//console.log(time - new XDate().getTime());
 			if (xDate.toDateString() == new XDate().toDateString()) {
 				shading = '#FFFFCC';
 			}
