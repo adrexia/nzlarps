@@ -217,7 +217,11 @@ ul {
 	  }
 	}
 
-  .editable &, &.square, &.circle, &.disc {
+	.main &,
+    .editable &,
+	&.square,
+	&.circle,
+	&.disc {
 	margin-left: 25px;
   }
   &.square {

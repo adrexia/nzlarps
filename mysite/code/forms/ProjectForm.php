@@ -42,7 +42,7 @@ class ProjectForm extends Form {
 		// Overview fields
 		$fields = CompositeField::create(
 			TextField::create('Title')->setAttribute('placeholder','Enter a title'),
-            TextField::create('Contact'),
+			TextField::create('Contact'),
 			$detailsEditor = CompositeField::create(
 				LabelField::create('ContentLabel', 'Details'),
 				LiteralField::create('ContentNotes', '<p class="field-notes field-notes--textarea">Note: you can select text to apply formatting and insert links</p>'),
@@ -52,7 +52,7 @@ class ProjectForm extends Form {
 			),
 			TextField::create('Intro')->setRightTitle('Short intro to show in the page header, and larger listings'),
 			TextField::create('Tagline')->setRightTitle('Short tagline, or subheading to show in smaller listings')
-    );
+	);
 		$html->addExtraClass('hide');
 		$detailsEditor->addExtraClass('field');
 
@@ -89,12 +89,12 @@ class ProjectForm extends Form {
 		$splashGroup->addExtraClass('image-group');
 
 		$smallEvent->setConfig('classToSearch', 'PublicEvent');
-        $smallEvent->setConfig('filter', ['SmallImageID:not' => 0]);
+		$smallEvent->setConfig('filter', ['SmallImageID:not' => 0]);
 		$smallEvent->setConfig('resultsFormat', '<span class="image-dropdownitem"><span class="image-wrap"><img src="$SmallImage.Link()" width="100" alt="" class="image-img" /></span><span class="image-title">$Title</span></span>');
 		$smallEvent->addExtraClass('image-dropdown');
 
 		$splashEvent->setConfig('classToSearch', 'PublicEvent');
-        $splashEvent->setConfig('filter', ['SplashImageID:not' => 0]);
+		$splashEvent->setConfig('filter', ['SplashImageID:not' => 0]);
 		$splashEvent->setConfig('resultsFormat', '<span class="image-dropdownitem image-dropdownitem--splash"><span class="image-wrap image-wrap--splash"><img src="$SplashImage.setWidth(250).Link()" width="100" alt="" class="image-img" /></span><span class="image-title">$Title</span></span>');
 		$smallEvent->addExtraClass('image-dropdown');
 

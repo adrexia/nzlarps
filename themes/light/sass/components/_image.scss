@@ -19,25 +19,17 @@
 	}
 
 	&-wrap {
-		height: 100px;
+		height: 60px;
 		display: block;
 		overflow: hidden;
 		background: #efefef;
-
-		&--splash {
-			height: 60px;
-		}
 	}
 
 	&-dropdownitem {
 		width: 100px;
-		height: 135px;
+		height: 95px;
 		overflow: hidden;
 		display: block;
-
-		&--splash {
-			height: 95px;
-		}
 	}
 
 	&-notes {
