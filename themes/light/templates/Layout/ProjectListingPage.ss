@@ -42,10 +42,35 @@
 								</a>
 							</div>
 							<% end_loop %>
+
+							<% loop $ProjectListings %>
+
+								<div class="item">
+
+									<a href="$Link" class="link feature-block type-{$Type.LowerCase()} $Colour.LowerCase() $FirstLast">
+										<h3>
+											<% if $Title %>$Title<% end_if %>
+										</h3>
+
+										<article class="text">
+											<% if $Intro %>
+												<p>$Intro</p>
+											<% end_if %>
+											<br/>
+											<span class="btn oval default medium">
+											<span>Read More</span>
+										</span>
+										</article>
+
+										<% if $SplashImage %>
+											<div class="img-wrap">$SplashImage.SetWidth(430)</div>
+										<% end_if %>
+									</a>
+								</div>
+							<% end_loop %>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		<% end_if %>
 

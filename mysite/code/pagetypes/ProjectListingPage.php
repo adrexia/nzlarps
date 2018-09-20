@@ -51,4 +51,13 @@ class ProjectListingPage_Controller extends Page_Controller {
 		return $projectpages->filter(array('ParentID' => $this->ID))->sort(array('State' => 'Asc','Title' => 'Asc'));
 	}
 
+    public function getProjectListings() {
+        $projectlisting = ProjectListingPage::get();
+        if(!$projectlisting) {
+            return false;
+        }
+
+        return $projectlisting->filter(array('ParentID' => $this->ID))->sort(array('Title' => 'Asc'));
+    }
+
 }
