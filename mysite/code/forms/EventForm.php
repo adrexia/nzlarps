@@ -136,13 +136,13 @@ class EventForm extends Form {
 
 		$smallEvent->setConfig('classToSearch', 'PublicEvent');
 		$smallEvent->setConfig('filter', ['SmallImageID:not' => 0]);
-		$smallEvent->setConfig('resultsFormat', '<span class="image-dropdownitem"><span class="image-wrap"><img src="$SmallImage.Link()" width="100" alt="" class="image-img" /></span><span class="image-title">$Title</span></span>');
+		$smallEvent->setConfig('resultsFormat', $this->renderWith('Select2SmallImageResult'));
 		$smallEvent->addExtraClass('image-dropdown');
 
 		$splashEvent->setConfig('classToSearch', 'PublicEvent');
 		$splashEvent->setConfig('filter', ['SplashImageID:not' => 0]);
-		$splashEvent->setConfig('resultsFormat', '<span class="image-dropdownitem image-dropdownitem--splash"><span class="image-wrap image-wrap--splash"><img src="$SplashImage.setWidth(250).Link()" width="100" alt="" class="image-img" /></span><span class="image-title">$Title</span></span>');
-		$smallEvent->addExtraClass('image-dropdown');
+		$splashEvent->setConfig('resultsFormat', $this->renderWith('Select2SplashImageResult'));
+        $splashEvent->addExtraClass('image-dropdown');
 
 		$smLabel->addExtraClass('sr-only');
 		$spLabel->addExtraClass('sr-only');
@@ -173,7 +173,6 @@ class EventForm extends Form {
 
 		return $fields;
 	}
-
 
 	public function getFields() {
 		$fields = FieldList::create();

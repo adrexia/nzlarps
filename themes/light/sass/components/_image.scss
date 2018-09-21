@@ -16,6 +16,11 @@
 
 	&-img {
 		display: block;
+		min-height: 100%;
+		min-width: 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: top center;
 	}
 
 	&-wrap {
@@ -43,7 +48,7 @@
 			@include respond(desktop) {
 				float: left;
 				clear: none;
-				width: 45%;
+				width: 46.5%;
 			}
 
 			.uploadable {
@@ -56,6 +61,35 @@
 
 		p {
 			margin-top: 15px;
+		}
+	}
+
+	&-dropdown {
+		width: 100%;
+
+		.select2-container .select2-choice {
+			height: 53px;
+			line-height: 2.4;
+
+			div {
+				width: 30px;
+				b {
+					background: none !important; //override select2 importants
+					&:after {
+						content: '\25be';
+						font-family: "#{$icons}";
+						text-decoration:none;
+						zoom: 1;
+						font-size: 25px;
+						line-height: 2;
+					}
+				}
+			}
+
+
+			.icon-down-dir {
+
+			}
 		}
 	}
 }
