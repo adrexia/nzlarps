@@ -96,6 +96,10 @@ class ProjectPage extends EventPage {
 
 		return $result;
 	}
+
+    public function canPublish($member = null) {
+        return $this->canEdit();
+    }
 }
 
 class ProjectPage_Controller extends EventPage_Controller {

@@ -191,7 +191,9 @@ class ProjectForm extends Form {
 
 		try {
 			$project->write();
-		} catch(Exception $e){
+            $project->writeToStage('Stage');
+            $project->writeToStage('Live');
+        } catch(Exception $e){
 			$form->sessionMessage('Technical error: writing project failed. Please try again later, or contact an admin for assistance', 'bad');
 			$control->redirectBack();
 			return;
