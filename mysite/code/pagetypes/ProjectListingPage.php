@@ -14,7 +14,7 @@ class ProjectListingPage extends Page {
 	private static $description = 'A page to list projects and affliates.';
 
 	private static $db = array (
-		'Type' => 'Enum("Project, Affiliate", "Project")',
+		'Type' => 'Enum("Project, Affiliate, none", "Project")',
 		'EditContent' => 'HTMLText',
 	);
 

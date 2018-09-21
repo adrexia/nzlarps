@@ -18,7 +18,7 @@
 				</h2>
 				<ul class="unstyled text-center">
 					<% if $Contact %><li><strong>Contact:</strong> $Contact</li><% end_if %>
-					<% if $Parent.Type %><li><strong>Type:</strong> $Parent.Type</li><% end_if %>
+					<% if $Parent.Type && $Parent.Type!='none' %><li><strong>Type:</strong> $Parent.Type</li><% end_if %>
 					<% if $State %><li><strong>State:</strong> $State</li><% end_if %>
 					<% if $Website %><li><strong>Website:</strong> $Website</li><% end_if %>
 				</ul>
