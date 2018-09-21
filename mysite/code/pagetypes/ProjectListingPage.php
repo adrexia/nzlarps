@@ -7,8 +7,8 @@
  */
 class ProjectListingPage extends Page {
 
-	private static $icon = "mysite/images/sitetree_images/folder-heart.png";
-	public $pageIcon = "mysite/images/sitetree_images/folder-heart.png";
+	private static $icon = "mysite/images/sitetree_images/folder-heart.svg";
+	public $pageIcon = "mysite/images/sitetree_images/folder-heart.svg";
 
 	private static $singular_name = 'Project Listing Page';
 	private static $description = 'A page to list projects and affliates.';

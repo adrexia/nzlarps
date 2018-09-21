@@ -29,26 +29,35 @@ Event:
     - EventExtension
 
 ErrorPage:
-  icon: "mysite/images/sitetree_images/error.png"
+  icon: "mysite/images/sitetree_images/error.svg"
 UserDefinedForm:
-  icon: "mysite/images/sitetree_images/form.png"
+  icon: "mysite/images/sitetree_images/form.svg"
   extensions:
    - UserDefinedFormExtension
 CalendarAdmin:
-  menu_icon: "mysite/images/sitetree_images/event.png"
+  menu_icon: "mysite/images/sitetree_images/event.svg"
+  menu_priority: 6
 CalendarPage:
-  icon: "mysite/images/sitetree_images/event.png"
+  icon: "mysite/images/sitetree_images/event.svg"
 AddEventPage:
-  icon: "mysite/images/sitetree_images/calendar-plus.png"
-
+  icon: "mysite/images/sitetree_images/calendar-plus.svg"
+QueuedJobsAdmin:
+  menu_icon: "mysite/images/sitetree_images/jobs.svg"
+RedirectedURLAdmin:
+  menu_icon: "mysite/images/sitetree_images/redirect.svg"
+Dashboard:
+  menu_icon: "mysite/images/sitetree_images/dashboard.svg"
 EventPage:
-  icon: "mysite/images/sitetree_images/date-recurring.png"
+  icon: "mysite/images/sitetree_images/date-recurring.svg"
+RegistrationPage:
+  icon: "mysite/images/sitetree_images/members.svg"
 SubmittedForm:
   extensions:
    - SubmittedFormExtension
 KickAssets:
-  menu_icon: "mysite/images/sitetree_images/photo.png"
+  menu_icon: "mysite/images/sitetree_images/photo.svg"
   menu_title: "Files"
+  menu_priority: 8
 
 FormSpamProtectionExtension:
   default_spam_protector: '\StudioBonito\SilverStripe\SpamProtection\Honeypot\SpamProtector\HoneypotSpamProtector'

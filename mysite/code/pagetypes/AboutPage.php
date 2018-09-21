@@ -2,8 +2,8 @@
 
 class AboutPage extends Page {
 
-	private static $icon = "mysite/images/sitetree_images/about.png";
-	public $pageIcon = "mysite/images/sitetree_images/about.png";
+	private static $icon = "mysite/images/sitetree_images/about.svg";
+	public $pageIcon = "mysite/images/sitetree_images/about.svg";
 
 	private static $singular_name = 'About Page';
 	private static $description = 'A page to show regions.';

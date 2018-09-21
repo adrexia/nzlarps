@@ -105,7 +105,3 @@
 .plain.htmleditor .mce_shortcode {
 	display: none !important;
 }
-
-.htmleditor .defaultSkin span.mce_shortcode {
-	background: url(../images/icons/help.png) no-repeat center center;
-}

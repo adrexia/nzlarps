@@ -1,8 +1,8 @@
 <?php
 class NewsPage extends Page {
 
-	private static $icon = "mysite/images/sitetree_images/news.png";
-	public $pageIcon = "mysite/images/sitetree_images/news.png";
+	private static $icon = "mysite/images/sitetree_images/news.svg";
+	public $pageIcon = "mysite/images/sitetree_images/news.svg";
 
 	private static $singular_name = 'News Page';
 	private static $description = 'A page that lists news and annoucements';
@@ -32,7 +32,7 @@ class NewsPage extends Page {
 
 		return $fields;
 	}
-	
+
 	public function RecentNews(){
 		return $this->NewsItems()->exclude('Archived', 1)->sort(array('Created'=>'DESC'));
 	}

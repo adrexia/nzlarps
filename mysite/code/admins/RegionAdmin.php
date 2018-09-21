@@ -10,7 +10,7 @@ class RegionAdmin extends ModelAdmin {
 	private static $url_segment = 'regions';
 	private static $menu_title = 'Regions';
 
-	private static $menu_icon = "mysite/images/sitetree_images/regions.png";
+	private static $menu_icon = "mysite/images/sitetree_images/regions.svg";
 
 	public function getEditForm($id = null, $fields = null){
 		$form = parent::getEditForm($id, $fields);

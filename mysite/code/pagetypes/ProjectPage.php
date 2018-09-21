@@ -10,8 +10,8 @@ class ProjectPage extends EventPage {
 	private static $singular_name = 'Project Page';
 	private static $description = 'A page for projects and affliates.';
 
-	private static $icon = "mysite/images/sitetree_images/stack-hearts.png";
-	public $pageIcon = "mysite/images/sitetree_images/stack-hearts.png";
+	private static $icon = "mysite/images/sitetree_images/stack-hearts.svg";
+	public $pageIcon = "mysite/images/sitetree_images/stack-hearts.svg";
 
 	private static $db = array (
 		'State' => 'Enum("Current, Past","Current")',

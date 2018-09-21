@@ -1,8 +1,8 @@
 <?php
 class HomePage extends Page {
 
-	private static $icon = "mysite/images/sitetree_images/home.png";
-	public $pageIcon = "mysite/images/sitetree_images/home.png";
+	private static $icon = "mysite/images/sitetree_images/home.svg";
+	public $pageIcon = "mysite/images/sitetree_images/home.svg";
 
 	private static $singular_name = 'Home Page';
 	private static $description = 'Intended as a primary landing page for the site.';
