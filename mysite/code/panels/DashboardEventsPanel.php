@@ -21,7 +21,7 @@ class DashboardEventsPanel extends DashboardPanel {
 	);
 
 
-	private static $icon = "dashboard/images/recent-edits.png";
+	private static $icon = "mysite/images/sitetree_images/event.svg";
 
 
 	private static $priority = 10;
