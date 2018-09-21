@@ -47,3 +47,9 @@
 li > a .jstree-pageicon.jstree-pageicon.jstree-pageicon {
 	background-size: cover;
 }
+
+.panel-date {
+	color: #999;
+	margin-left: 30px;
+	float: right;
+}
