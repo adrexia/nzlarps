@@ -57,7 +57,7 @@ class DashboardEventsPanel extends DashboardPanel {
 		$set = ArrayList::create([]);
 		foreach($records as $r) {
 			$set->push(ArrayData::create([
-				'EditLink' => Injector::inst()->get("EventArchive")->Link("EditForm/field/File/item/{$r->ID}/edit"),
+				'EditLink' => Injector::inst()->get("EventArchive")->Link("PublicEvent/EditForm/field/PublicEvent/item/{$r->ID}/edit"),
 				'Title' => $r->Title,
                 'LastEdited' => $r->obj('LastEdited')
 			]));
