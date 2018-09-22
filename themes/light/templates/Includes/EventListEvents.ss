@@ -3,7 +3,7 @@
 		<div class="feature-content slides masonry-items js-isotope" id="feature-group">
 			<% loop $Events %>
 
-			<div class="item <% if $getIsPastEvent() %>past<% end_if %>">
+			<div class="item <% if $getEventIsOver() %>past<% end_if %>">
 
 				<a href="$Link" class="link feature-block type-{$Type.LowerCase()} <% if $Colour %>$Colour.LowerCase()<% else %>night<% end_if %> $FirstLast">
 

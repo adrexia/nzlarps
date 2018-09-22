@@ -30,7 +30,7 @@
 			$PageComments
 		</div>
 
-		<% if $getFutureEvents %>
+		<% if $AllEvents %>
 			<div class="Events ptl">
 				<% include EventListEvents Events=$AllEvents %>
 			</div>

@@ -89,24 +89,24 @@ class EventExtension extends DataExtension {
 		$fields->insertAfter($splash = FileAttachmentField::create('SplashImage', 'Splash Image'),'Colour');
 		$fields->insertAfter($small = FileAttachmentField::create('SmallImage', 'Small Image'),'SplashImage');
 
-        $splash->setDescription("Format: JPG <br> Files should be under 250kb <br>Approx dimensions: 1200px * 600px")
-            ->setFolderName('Uploads/Splash-Images')
-            ->setMaxResolution(50000000)
-            ->setMaxFiles(1)
-            ->setMultiple(false)
-            ->setTrackFiles(true);
+		$splash->setDescription("Format: JPG <br> Files should be under 250kb <br>Approx dimensions: 1200px * 600px")
+			->setFolderName('Uploads/Splash-Images')
+			->setMaxResolution(50000000)
+			->setMaxFiles(1)
+			->setMultiple(false)
+			->setTrackFiles(true);
 
-        $small->setDescription("Format: JPG or PNG <br> Files should be under 100kb. <br>Approx dimensions: 400px * 225px")
-            ->setFolderName('Uploads/Small-Images')
-            ->setMaxResolution(10000000)
-            ->setMaxFiles(1)
-            ->setMultiple(false)
-            ->setTrackFiles(true);
+		$small->setDescription("Format: JPG or PNG <br> Files should be under 100kb. <br>Approx dimensions: 400px * 225px")
+			->setFolderName('Uploads/Small-Images')
+			->setMaxResolution(10000000)
+			->setMaxFiles(1)
+			->setMultiple(false)
+			->setTrackFiles(true);
 
-        try {
-            $splash->setView('grid');
-            $small->setView('grid');
-        } catch(Exception $e) {}
+		try {
+			$splash->setView('grid');
+			$small->setView('grid');
+		} catch(Exception $e) {}
 
 	}
 
@@ -168,6 +168,17 @@ class EventExtension extends DataExtension {
 		return Controller::join_links($calendarPage->Link(), 'detail', $this->owner->ID);
 	}
 
+	public function getEventIsOver() {
+		if(strtotime($this->owner->EndDateTime) < $this->owner->getToday()){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function getToday() {
+		return mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+	}
 
 	/**
 	 * We only want verified members and those with CMS access to create events

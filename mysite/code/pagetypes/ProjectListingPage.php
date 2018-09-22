@@ -48,7 +48,9 @@ class ProjectListingPage_Controller extends Page_Controller {
 			return false;
 		}
 
-		return $projectpages->filter(array('ParentID' => $this->ID))->sort(array('State' => 'Asc','Title' => 'Asc'));
+		return $projectpages
+            ->filter(['ParentID' => $this->failover->ID])
+            ->sort(['State' => 'Asc','Title' => 'Asc']);
 	}
 
     public function getProjectListings() {

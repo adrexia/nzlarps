@@ -97,9 +97,9 @@ class ProjectPage extends EventPage {
 		return $result;
 	}
 
-    public function canPublish($member = null) {
-        return $this->canEdit();
-    }
+	public function canPublish($member = null) {
+		return $this->canEdit();
+	}
 }
 
 class ProjectPage_Controller extends EventPage_Controller {
@@ -113,6 +113,10 @@ class ProjectPage_Controller extends EventPage_Controller {
 	public function AllEvents() {
 		$future = $this->ComingEvents();
 		$past = $this->PastEvents();
+
+		$past = $past->exclude([
+			'EndDateTime:GreaterThan' => date('Y-m-d',time())
+		]);
 
 		$array = array_merge($future->toArray(), $past->toArray());
 
@@ -148,9 +152,9 @@ class ProjectPage_Controller extends EventPage_Controller {
 		$form->loadDataFrom($this->failover);
 
 		if ($this->ParentID && $this->Parent()->exists()) {
-		    $parent = $this->Parent();
-            $content = $parent->obj('EditContent') ? $parent->obj('EditContent') : false;
-        }
+			$parent = $this->Parent();
+			$content = $parent->obj('EditContent') ? $parent->obj('EditContent') : false;
+		}
 
 		$data = [
 			'Title' => 'Edit: ' . $this->Title,
