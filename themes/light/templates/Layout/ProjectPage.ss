@@ -23,6 +23,9 @@
 					<% if $Website %><li><strong>Website:</strong> $Website</li><% end_if %>
 				</ul>
 				<% end_if %>
+				<% if $MemberContent %>
+					$MemberContent
+				<% end_if %>
 			</div>
 			$Content.RichLinks.Pagebreaks
 			$Form

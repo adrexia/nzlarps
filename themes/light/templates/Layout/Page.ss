@@ -1,17 +1,24 @@
 <div class="row">
 	<div class="columns twelve">
 		<div class="top-panel <% if URLSegment == Security %>collapse<% end_if %>" role="main" id="main">
+
 			<% if $Content %>
-			<% include BackButton %>
-			$Content.RichLinks.Pagebreaks
+				<% include BackButton %>
+				$Content.RichLinks.Pagebreaks
 			<% end_if %>
+
+			<div class="main">
+			<% if $MemberContent %>
+				$MemberContent
+			<% end_if %>
+			</div>
 
 			<% if $Form %>
 			<div class="main">
 				$Form
 			</div>
-			<% end_if %>
-		</div>
+				<% end_if %>
+			</div>
 
 
 		<% if $CurrentFeatureItems %>
@@ -25,6 +32,8 @@
 			$ExtraContent.RichLinks.Pagebreaks
 		</div>
 		<% end_if %>
+
+
 
 		<% if $ClassName=='RegistrationPage' %>
 			<footer class="content-footer columns twelve">

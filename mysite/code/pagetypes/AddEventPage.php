@@ -1,41 +1,23 @@
 <?php
-class AddEventPage extends Page {
-	private static $db = array(
+class AddEventPage extends MemberOnlyPage {
+
+    private static $description = 'A page where verified members can add events';
+
+    private static $db = array(
 		'EditContent' => 'HTMLText',
 	);
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-		$fields->insertAfter(HTMLEditorField::create('EditContent', 'Editing Content'), 'Content');
+        $fields->insertAfter(HTMLEditorField::create('EditContent', 'Editing Content'), 'Content');
 
 		return $fields;
 	}
 
-	/**
-	 * We only want verified members to be able to submit events at this stage
-	 * @param Member|int $member
-	 * @return bool True if the current user can view this page
-	 */
-	public function canView($member = null) {
-		$member = $member ? $member :  Member::currentUser();
-
-		if (!$member) {
-			return false;
-		}
-
-		$result = parent::canView($member);
-
-		if ($result && ($member->MembershipStatus==='Verified'|| Permission::check('CMS_ACCESS'))) {
-			return true;
-		}
-
-		return false;
-	}
-
 }
 
-class AddEventPage_Controller extends Page_Controller {
+class AddEventPage_Controller extends MemberOnlyPage_Controller {
 
 	private static $allowed_actions = array (
 		'Form' => true,

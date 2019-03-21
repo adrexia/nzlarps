@@ -3,6 +3,11 @@
 		<div class="top-panel">
 			<% include BackButton %>
 			$Content.RichLinks.Pagebreaks
+
+			<% if $MemberContent %>
+				$MemberContent
+			<% end_if %>
+
 			$Form
 			<% include RelatedPages %>
 			$PageComments

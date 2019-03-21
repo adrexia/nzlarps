@@ -26,6 +26,10 @@
 					<p class="subhead pbl">$NotesForMember</p>
 				<% end_if %>
 
+				<% if $MemberContent %>
+					$MemberContent
+				<% end_if %>
+
 				<% if $MembershipStatus != 'Not applied' %>
 					<ul class="pbl unstyled text-center">
 						<li><strong>Branch:</strong> $Region.Title</li>

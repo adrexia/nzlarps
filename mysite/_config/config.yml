@@ -50,6 +50,8 @@ Dashboard:
 EventPage:
   icon: "mysite/images/sitetree_images/date-recurring.svg"
 RegistrationPage:
+  icon: "mysite/images/sitetree_images/add-user.svg"
+MemberOnlyPage:
   icon: "mysite/images/sitetree_images/members.svg"
 SubmittedForm:
   extensions:

@@ -25,11 +25,10 @@
 				<% end_if %>
 
 				<% if $JoinLink.LinkURL %>
-				<span class="btn large">
-					<a href="$JoinLink.LinkURL">Join Now!</a>
-				</span>
+					<span class="btn large">
+						<a href="$JoinLink.LinkURL"><% if $isMember %>Your Membership<% else %>Join Now!<% end_if %></a>
+					</span>
 				<% end_if %>
-
 			</div>
 
 

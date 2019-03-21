@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d2698c8eae35f634dac3015fc823537b",
+    "content-hash": "26ec31712d0b3ed22b5a13de897e4c07",
     "packages": [
         {
             "name": "adrexia/dashboardmods",
@@ -698,6 +698,7 @@
                 "array_column",
                 "column"
             ],
+            "abandoned": true,
             "time": "2015-03-20T22:07:39+00:00"
         },
         {
@@ -850,16 +851,16 @@
         },
         {
             "name": "silverstripe/cms",
-            "version": "3.7.1",
+            "version": "3.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-cms.git",
-                "reference": "7052170e89799051344d45fd8b851bd004e0bd03"
+                "reference": "338c512e154a37936185dd24bf9073c9186f0543"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/7052170e89799051344d45fd8b851bd004e0bd03",
-                "reference": "7052170e89799051344d45fd8b851bd004e0bd03",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/338c512e154a37936185dd24bf9073c9186f0543",
+                "reference": "338c512e154a37936185dd24bf9073c9186f0543",
                 "shasum": ""
             },
             "require": {
@@ -899,20 +900,20 @@
                 "cms",
                 "silverstripe"
             ],
-            "time": "2018-06-11T22:50:03+00:00"
+            "time": "2018-10-03T11:35:49+00:00"
         },
         {
             "name": "silverstripe/contentreview",
-            "version": "3.0.7",
+            "version": "3.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-contentreview.git",
-                "reference": "95d697fcba6a49d9f24619bdfd4e5d430454fea9"
+                "reference": "276c962c8e1ee27e6e7d71f2e0a2ad1bbb81dda2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-contentreview/zipball/95d697fcba6a49d9f24619bdfd4e5d430454fea9",
-                "reference": "95d697fcba6a49d9f24619bdfd4e5d430454fea9",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-contentreview/zipball/276c962c8e1ee27e6e7d71f2e0a2ad1bbb81dda2",
+                "reference": "276c962c8e1ee27e6e7d71f2e0a2ad1bbb81dda2",
                 "shasum": ""
             },
             "require": {
@@ -945,7 +946,7 @@
                 "silverstripe",
                 "workflow"
             ],
-            "time": "2017-10-11T23:49:57+00:00"
+            "time": "2018-06-22T14:25:29+00:00"
         },
         {
             "name": "silverstripe/crontask",
@@ -1041,16 +1042,16 @@
         },
         {
             "name": "silverstripe/framework",
-            "version": "3.7.1",
+            "version": "3.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-framework.git",
-                "reference": "d096a37f32af97b2d7c6a71fff36e21767a302d3"
+                "reference": "bb5701b73d40909caf99d71bac02e0329d301335"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/d096a37f32af97b2d7c6a71fff36e21767a302d3",
-                "reference": "d096a37f32af97b2d7c6a71fff36e21767a302d3",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/bb5701b73d40909caf99d71bac02e0329d301335",
+                "reference": "bb5701b73d40909caf99d71bac02e0329d301335",
                 "shasum": ""
             },
             "require": {
@@ -1118,7 +1119,7 @@
                 "framework",
                 "silverstripe"
             ],
-            "time": "2018-07-17T16:53:27+00:00"
+            "time": "2019-02-12T08:44:41+00:00"
         },
         {
             "name": "silverstripe/html5",
@@ -1264,7 +1265,7 @@
         },
         {
             "name": "silverstripe/reports",
-            "version": "3.7.1",
+            "version": "3.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-reports.git",
@@ -1558,7 +1559,7 @@
         },
         {
             "name": "silverstripe/siteconfig",
-            "version": "3.7.1",
+            "version": "3.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-siteconfig.git",
@@ -2203,10 +2204,10 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "mateusz/frontend": 20,
-        "silverstripe-australia/memberprofiles": 20,
         "adrexia/dashboardmods": 20,
         "adrexia/silverstripe-calendar": 20,
+        "mateusz/frontend": 20,
+        "silverstripe-australia/memberprofiles": 20,
         "unclecheese/dropzone": 20
     },
     "prefer-stable": false,

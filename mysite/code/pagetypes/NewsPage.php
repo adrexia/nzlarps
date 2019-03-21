@@ -15,7 +15,6 @@ class NewsPage extends Page {
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-
 		$gridField = new GridField(
 			'NewsItems',
 			'NewsItems',
@@ -28,6 +27,7 @@ class NewsPage extends Page {
 
 		$fields->removeByName('Content');
 		$fields->removeByName('ExtraContent');
+		$fields->removeByName('MemberOnlyContent');
 		$fields->removeByName('Features');
 
 		return $fields;

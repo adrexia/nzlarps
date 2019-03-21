@@ -1,65 +1,66 @@
 {
-	"name": "silverstripe/installer",
-	"description": "The SilverStripe Framework Installer",
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/adrexia/silverstripe-calendar.git"
-		},
-		{
-			"type": "vcs",
-			"url": "https://github.com/adrexia/silverstripe-memberprofiles.git"
-		},
-		{
-			"type": "vcs",
-			"url": "https://github.com/adrexia/silverstripe-spamprotection-honeypot.git"
-		},
-		{
-			"type": "vcs",
-			"url": "git@github.com:adrexia/silverstripe-select2.git"
-		}
-	],
-	"require": {
-		"php": ">=5.3.2",
-		"silverstripe/cms": "3.7.1",
-		"mateusz/frontend": "dev-master",
-		"silverstripe-australia/memberprofiles": "dev-master",
-		"studiobonito/silverstripe-spamprotection-honeypot": "^1.2",
-		"unclecheese/betterbuttons": "1.3.14",
-		"silverstripe/dashboard": "1.1.2",
-		"silverstripe/userforms": "^4.5",
-		"silverstripe/html5": "1.0.6",
-		"silverstripe/iframe": "^1.0.16",
-		"silverstripe/mimevalidator": "1.0.12",
-		"symbiote/silverstripe-multivaluefield": "3.1.0",
-		"symbiote/silverstripe-queuedjobs": "3.1.1",
-		"silverstripe/restfulserver": "1.0.8",
-		"silverstripe/securityreport": "1.0.10",
-		"silverstripe/selectupload": "1.0.7",
-		"silverstripe/spellcheck": "1.0.11",
-		"adrexia/standardsediting": "1.1.6",
-		"jonom/silverstripe-betternavigator": "3.0.2",
-		"adrexia/dashboardmods": "dev-master",
-		"sheadawson/silverstripe-linkable": "^1.3.7",
-		"unclecheese/display-logic": "1.4.0",
-		"adrexia/silverstripe-calendar" : "dev-master",
-		"heyday/silverstripe-colorpalette": "1.1.0",
-		"silverstripe/crontask": "1.1.2",
-		"silverstripe/redirectedurls": "1.0.2",
-		"unclecheese/silverstripe-kickassets": "^3.3.3",
-		"sheadawson/silverstripe-select2": "1.0.2",
+    "name": "silverstripe/installer",
+    "description": "The SilverStripe Framework Installer",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/adrexia/silverstripe-calendar.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/adrexia/silverstripe-memberprofiles.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/adrexia/silverstripe-spamprotection-honeypot.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:adrexia/silverstripe-select2.git"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "adrexia/dashboardmods": "dev-master",
+        "adrexia/silverstripe-calendar": "dev-master",
+        "adrexia/standardsediting": "1.1.6",
+        "heyday/silverstripe-colorpalette": "1.1.0",
+        "jonom/silverstripe-betternavigator": "3.0.2",
+        "mateusz/frontend": "dev-master",
+        "sheadawson/silverstripe-linkable": "^1.3.7",
+        "sheadawson/silverstripe-select2": "1.0.2",
+        "silverstripe-australia/memberprofiles": "dev-master",
 
-		"unclecheese/dropzone": "dev-master#0eeab6ef8f66c6cb4088a90354127b3ee000b845 as 1.4.13",
+        "silverstripe/cms": "3.7.3",
+        "silverstripe/framework": "3.7.3",
+        "silverstripe/contentreview": "3.0.8",
+        "silverstripe/crontask": "1.1.2",
+        "silverstripe/dashboard": "1.1.2",
+        "silverstripe/html5": "1.0.6",
+        "silverstripe/iframe": "^1.0.16",
+        "silverstripe/mimevalidator": "1.0.12",
+        "silverstripe/redirectedurls": "1.0.2",
+        "silverstripe/restfulserver": "1.0.8",
+        "silverstripe/secureassets": "1.2.0",
+        "silverstripe/securityreport": "1.0.10",
+        "silverstripe/selectupload": "1.0.7",
+        "silverstripe/sharedraftcontent": "1.4.0",
+        "silverstripe/sitewidecontent-report": "2.0.4",
+        "silverstripe/spellcheck": "1.0.11",
+        "silverstripe/userforms": "^4.5",
 
-		"silverstripe/contentreview": "3.0.7",
-		"silverstripe/secureassets": "1.2.0",
-		"silverstripe/sharedraftcontent": "1.4.0",
-		"silverstripe/sitewidecontent-report": "2.0.4",
-		"symbiote/silverstripe-versionedfiles": "2.0.3"
-	},
-	"config": {
-		"process-timeout": 600
-	},
+        "studiobonito/silverstripe-spamprotection-honeypot": "^1.2",
+        "symbiote/silverstripe-multivaluefield": "3.1.0",
+        "symbiote/silverstripe-queuedjobs": "3.1.1",
+        "symbiote/silverstripe-versionedfiles": "2.0.3",
+        "unclecheese/betterbuttons": "1.3.14",
+        "unclecheese/display-logic": "1.4.0",
+        "unclecheese/dropzone": "dev-master#0eeab6ef8f66c6cb4088a90354127b3ee000b845 as 1.4.13",
+        "unclecheese/silverstripe-kickassets": "^3.3.3"
+    },
+    "config": {
+        "process-timeout": 600
+    },
 
-	"minimum-stability": "stable"
+    "minimum-stability": "stable"
 }

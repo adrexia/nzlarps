@@ -74,9 +74,14 @@
 			</div>
 		<% end_if %>
 
-		<% if $ExtraContent %>
+		<% if $ExtraContent || $MemberContent %>
 		<div class="mtm">
+			<% if $MemberContent %>
+				$MemberContent
+			<% end_if %>
+			<% if $ExtraContent %>
 			$ExtraContent.RichLinks.Pagebreaks
+			<% end_if %>
 		</div>
 		<% end_if %>
 		<footer class="content-footer columns twelve">

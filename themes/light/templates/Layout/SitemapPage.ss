@@ -1,5 +1,4 @@
 <div class="row">
-	<% include Breadcrumbs %>
 	<div class="row">
 		<% if Menu(2) %>
 			<% include SecondaryMenu %>

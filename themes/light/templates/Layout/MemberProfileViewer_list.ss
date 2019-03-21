@@ -1,6 +1,5 @@
 <% require css(memberprofiles/css/MemberProfileViewer.css) %>
 <div class="row">
-	<% include Breadcrumbs %>
 	<div class="row">
 		<% include SecondaryMenu %>
 		<div class="columns nine">

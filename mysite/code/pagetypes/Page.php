@@ -7,9 +7,9 @@ class Page extends SiteTree {
 		'Intro' => 'Text',
 		'Colour' => 'Varchar(255)',
 		'ExtraContent' => 'HTMLText',
-		'FullPageSplashImage' => 'Boolean'
-	);
-
+		'FullPageSplashImage' => 'Boolean',
+		'MemberOnlyContent' => 'HTMLText'
+    );
 
 	private static $has_one = array(
 		'SplashImage' => 'Image'
@@ -23,7 +23,6 @@ class Page extends SiteTree {
 		$fields = parent::getCMSFields();
 
 		$fields->insertBefore(TextareaField::create('Intro', 'Intro'),'Content');
-
 
 		$fields->insertAfter(
 			ColorPaletteField::create(
@@ -97,6 +96,11 @@ class Page extends SiteTree {
 
 		}
 
+        $fields->insertBefore('Metadata', $memberContent = HTMLEditorField::create('MemberOnlyContent', 'Member Only Content'));
+
+		$memberContent->addExtraClass('stacked')
+		->setRows(20);
+
 		return $fields;
 	}
 
@@ -145,6 +149,15 @@ class Page_Controller extends ContentController {
 		return MemberProfilePage::get()->First();
 	}
 
+	public function getMemberContent() {
+
+		if ($this->isMember()) {
+			return $this->MemberOnlyContent;
+		}
+
+        return false;
+    }
+
 	public function HomePage() {
 		return HomePage::get_one('HomePage');
 	}
@@ -156,6 +169,20 @@ class Page_Controller extends ContentController {
 			'?BackURL=' . urlencode($this->Link())
 		);
 	}
+
+	public function isMember() {
+		$member =  Member::currentUser();
+
+		if (!$member) {
+			return false;
+		}
+
+		if ($member->MembershipStatus==='Verified' || Permission::check('CMS_ACCESS')) {
+			return true;
+		}
+
+        return false;
+    }
 
 	public function CMSAccess() {
 		return Permission::check('ADMIN') || Permission::check('CMS_ACCESS_LeftAndMain');

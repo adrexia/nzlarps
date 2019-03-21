@@ -7,7 +7,7 @@
 					<article class="item large $EvenOdd $FirstLast">
 						<div class="feature-block $Colour.LowerCase()">
 							<span class="region label $Colour">
-								<span class="prefix">by </span><% if Author %>$Author<% else %>admin<% end_if %>
+								<span class="prefix">by </span><% if $Author %>$Author<% else %>admin<% end_if %>
 							</span>
 
 							<h3 id="ID-{$ID}">
@@ -27,7 +27,7 @@
 
 			</div>
 
-			<% with News %>
+			<% with $News %>
 				<div class="row">
 					<% include Pagination %>
 				</div>

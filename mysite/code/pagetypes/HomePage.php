@@ -19,6 +19,7 @@ class HomePage extends Page {
 		$fields->insertBefore(LinkField::create('JoinLinkID', 'JoinLink'), 'Content');
 
 		$fields->removeByName('Content');
+		$fields->removeByName('MemberOnlyContent');
 		$fields->removeByName('ExtraContent');
 
 		return $fields;
