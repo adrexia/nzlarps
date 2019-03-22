@@ -82,7 +82,7 @@
 	</div>
 	<% include MaterialModal %>
 
-	<script type="text/javascript" src="{$ThemeDir}/js/script.min.js"></script>
+	<script type="text/javascript" src="{$ThemeDir}/js/script.min.js?bust=3"></script>
 
 </body>
 </html>
