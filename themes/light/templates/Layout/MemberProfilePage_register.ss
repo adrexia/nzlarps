@@ -1,15 +1,20 @@
 <div class="row">
 	<div class="columns twelve">
-		<div class="main typography top-panel" role="main" id="main">
-			$Content.RichLinks
-
+		<div class="typography top-panel" role="main" id="main">
 			<% if $MemberContent %>
-				$MemberContent
+				<div class="member">
+					<span class="member-meta">nzlarps member content</span>
+					$MemberContent
+				</div>
 			<% end_if %>
 
-			$Form
-			<% include RelatedPages %>
-			$PageComments
+			<section class="main">
+				$Content.RichLinks
+
+				$Form
+				<% include RelatedPages %>
+				$PageComments
+			</section>
 		</div>
 	</div>
 </div>

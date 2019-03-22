@@ -1,17 +1,18 @@
 <div class="row">
 	<div class="columns twelve">
-		<div class="top-panel <% if URLSegment == Security %>collapse<% end_if %>" role="main" id="main">
+		<div class="top-panel <% if $URLSegment == Security %>collapse<% end_if %>" role="main" id="main">
+
+			<% if $MemberContent %>
+				<div class="member">
+					<span class="member-meta">nzlarps member content</span>
+					$MemberContent
+				</div>
+			<% end_if %>
 
 			<% if $Content %>
 				<% include BackButton %>
 				$Content.RichLinks.Pagebreaks
 			<% end_if %>
-
-			<div class="main">
-			<% if $MemberContent %>
-				$MemberContent
-			<% end_if %>
-			</div>
 
 			<% if $Form %>
 			<div class="main">

@@ -51,10 +51,21 @@ class ProjectForm extends Form {
 				LiteralField::create('editorDiv', '<div class="editable"></div>')
 			),
 			TextField::create('Intro')->setRightTitle('Short intro to show in the page header, and larger listings'),
-			TextField::create('Tagline')->setRightTitle('Short tagline, or subheading to show in smaller listings')
-	);
+			TextField::create('Tagline')->setRightTitle('Short tagline, or subheading to show in smaller listings'),
+			$membersEditor = CompositeField::create(
+				$membersLabel = LabelField::create('MemberOnlyContentField', 'NZLarps Members-only content'),
+				LiteralField::create('MemberOnlyContentNotes', '<p class="field-notes field-notes--textarea">
+This can be used for discount codes and the like. <br />Note: you can select text to apply formatting and insert links</p>'),
+
+				$membersHtml = HTMLEditorField::create('MemberOnlyContent', '', ''),
+				LiteralField::create('editorDiv', '<div class="editable editable--short"></div>')
+			)
+	    );
+
 		$html->addExtraClass('hide');
 		$detailsEditor->addExtraClass('field');
+        $membersHtml->addExtraClass('hide');
+        $membersEditor->addExtraClass('field');
 
 		return $fields;
 	}
@@ -96,7 +107,7 @@ class ProjectForm extends Form {
 		$splashEvent->setConfig('classToSearch', 'PublicEvent');
 		$splashEvent->setConfig('filter', ['SplashImageID:not' => 0]);
 		$splashEvent->setConfig('resultsFormat', $this->renderWith('Select2SplashImageResult'));
-        $splashEvent->addExtraClass('image-dropdown');
+		$splashEvent->addExtraClass('image-dropdown');
 
 		$smLabel->addExtraClass('sr-only');
 		$spLabel->addExtraClass('sr-only');
@@ -191,9 +202,9 @@ class ProjectForm extends Form {
 
 		try {
 			$project->write();
-            $project->writeToStage('Stage');
-            $project->writeToStage('Live');
-        } catch(Exception $e){
+			$project->writeToStage('Stage');
+			$project->writeToStage('Live');
+		} catch(Exception $e){
 			$form->sessionMessage('Technical error: writing project failed. Please try again later, or contact an admin for assistance', 'bad');
 			$control->redirectBack();
 			return;

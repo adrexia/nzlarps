@@ -55,7 +55,7 @@
 	<% end_if %>
 </head>
 
-<body data-spy="scroll" class="$ClassName <% if $Colour %>$Colour<% else %>$Level(1).Colour<% end_if %>">
+<body data-spy="scroll" class="$ClassName <% if $Event && $Event.Colour %>$Event.Colour<% else %><% if $Colour %>$Colour<% else %>$Level(1).Colour<% end_if %><% end_if %>">
 	<% include FBScript %>
 	$BetterNavigator
 	<% include SkipLinks %>

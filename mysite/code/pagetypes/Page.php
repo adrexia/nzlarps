@@ -22,78 +22,12 @@ class Page extends SiteTree {
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-		$fields->insertBefore(TextareaField::create('Intro', 'Intro'),'Content');
-
-		$fields->insertAfter(
-			ColorPaletteField::create(
-				"Colour", "Colour",
-				array(
-					'night'=> '#333333',
-					'air'=> '#009EE2',
-					'earth'=> ' #2e8c6e',
-					'passion'=> '#b02635',
-					'people'=> '#de347f',
-					'inspiration'=> '#783980'
-				)
-			), "Intro"
-		);
-
-		$fields->insertAfter($splash = FileAttachmentField::create('SplashImage', 'Splash Image'), 'Colour');
-
-		$splash->setDescription("Format: JPG <br> Files should be under 250kb <br>Approx dimensions: 1200px * 600px")
-			->setFolderName('Uploads/Splash-Images')
-			->setMaxResolution(50000000)
-			->setMaxFiles(1)
-			->setMultiple(false)
-			->setTrackFiles(true);
-
-		if($this->ClassName !== "HomePage") {
-			$fields->insertAfter(CheckboxField::create('FullPageSplashImage', 'Match splash image to viewport (fullscreen image)'),'SplashImage');
-		}
-
+		$this->getBrandFields($fields);
 
 		if($this->ClassName === "Page" || $this->ClassName === "HomePage") {
-
-			$fields->insertAfter(HTMLEditorField::create('ExtraContent'), 'Content');
-
-			$gridField = new GridField(
-				'FeatureItems',
-				'FeatureItems',
-				$this->FeatureItems()->sort(array('Sort'=>'ASC','Archived'=>'ASC')),
-				$config = GridFieldConfig_RelationEditor::create()
-			);
-			$gridField->setModelClass('FeatureItem');
-			$fields->addFieldToTab('Root.Features', $gridField);
-
-			$config->addComponent(new GridFieldOrderableRows());
-
+			$this->getFeatureFields($fields);
 		} else if($this->ClassName === "CalendarPage") {
-			$content = $fields->dataFieldByName('Content');
-			$content->addExtraClass('no-pagebreak');
-
-			$events = Event::get()->sort(array('StartDateTime'=>'Desc'))->filterByCallback(function($record) {
-				return !$record->getIsPastEvent();
-			});
-
-			$gridField = new GridField(
-				'Event',
-				'Upcoming Events',
-				$events,
-				$config = GridFieldConfig_RecordEditor::create()
-			);
-			$gridField->setModelClass('Event');
-
-			$dataColumns = $config->getComponentByType('GridFieldDataColumns');
-
-			$dataColumns->setDisplayFields(array(
-				'Title' => 'Title',
-				'StartDateTime' => 'Date and Time',
-				'DatesAndTimeframe' => 'Presentation String'
-			));
-
-
-			$fields->addFieldToTab('Root.UpcomingEvents', $gridField);
-
+            $this->getCalendarFields($fields);
 		}
 
         $fields->insertBefore('Metadata', $memberContent = HTMLEditorField::create('MemberOnlyContent', 'Member Only Content'));
@@ -103,6 +37,82 @@ class Page extends SiteTree {
 
 		return $fields;
 	}
+
+	public function getBrandFields($fields) {
+
+        $fields->insertBefore(TextareaField::create('Intro', 'Intro'),'Content');
+
+        $fields->insertAfter(
+            ColorPaletteField::create(
+                "Colour", "Colour",
+                array(
+                    'night'=> '#333333',
+                    'air'=> '#009EE2',
+                    'earth'=> ' #2e8c6e',
+                    'passion'=> '#b02635',
+                    'people'=> '#de347f',
+                    'inspiration'=> '#783980'
+                )
+            ), "Intro"
+        );
+
+        $fields->insertAfter($splash = FileAttachmentField::create('SplashImage', 'Splash Image'), 'Colour');
+
+        $splash->setDescription("Format: JPG <br> Files should be under 250kb <br>Approx dimensions: 1200px * 600px")
+            ->setFolderName('Uploads/Splash-Images')
+            ->setMaxResolution(50000000)
+            ->setMaxFiles(1)
+            ->setMultiple(false)
+            ->setTrackFiles(true);
+
+        if($this->ClassName !== "HomePage") {
+            $fields->insertAfter(CheckboxField::create('FullPageSplashImage', 'Match splash image to viewport (fullscreen image)'),'SplashImage');
+        }
+    }
+
+    /**
+     * @param $fields FieldList
+     */
+	public function getFeatureFields($fields) {
+        $fields->insertAfter('Content', HTMLEditorField::create('ExtraContent'));
+
+        $gridField = new GridField(
+            'FeatureItems',
+            'FeatureItems',
+            $this->FeatureItems()->sort(array('Sort'=>'ASC','Archived'=>'ASC')),
+            $config = GridFieldConfig_RelationEditor::create()
+        );
+        $gridField->setModelClass('FeatureItem');
+        $config->addComponent(new GridFieldOrderableRows());
+        $fields->addFieldToTab('Root.Features', $gridField);
+    }
+
+	public function getCalendarFields($fields) {
+        $content = $fields->dataFieldByName('Content');
+        $content->addExtraClass('no-pagebreak');
+
+        $events = Event::get()->sort(array('StartDateTime'=>'Desc'))->filterByCallback(function($record) {
+            return !$record->getIsPastEvent();
+        });
+
+        $gridField = new GridField(
+            'Event',
+            'Upcoming Events',
+            $events,
+            $config = GridFieldConfig_RecordEditor::create()
+        );
+        $gridField->setModelClass('Event');
+
+        $dataColumns = $config->getComponentByType('GridFieldDataColumns');
+
+        $dataColumns->setDisplayFields(array(
+            'Title' => 'Title',
+            'StartDateTime' => 'Date and Time',
+            'DatesAndTimeframe' => 'Presentation String'
+        ));
+
+        $fields->addFieldToTab('Root.UpcomingEvents', $gridField);
+    }
 
 	public function getCurrentRegistration(){
 		$member = Member::currentUser();

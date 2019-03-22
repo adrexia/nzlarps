@@ -1,0 +1,21 @@
+.member {
+	padding: 5px 20px;
+	border-top: 5px solid #333;
+	background: #f7f7f7;
+	position: relative;
+	border-bottom: 1px dashed #ccc;
+
+	&-meta {
+		background: #333;
+		position: absolute;
+		right: 20px;
+		top: 0;
+		color: #fff;
+		font-size: 12px;
+		padding: 0 5px;
+		border-radius: 0 0 3px 3px;
+	}
+	p {
+		font-size: 15px;
+	}
+}

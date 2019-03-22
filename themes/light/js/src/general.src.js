@@ -55,9 +55,13 @@ $(function() {
 
 		$( "form" ).submit(function( event ) {
 			var editable = $('.editable'),
-				value = editable.html();
+				value,
+				i;
 
-			editable.parent().find('textarea').val(value);
+            for (i = 0; i < editable.length; i = i + 1) {
+                value = $(editable[i]).html();
+                $(editable[i]).parent().find('textarea').val(value);
+            }
 		});
 
 		endless.on('ssendlessbeforepagefetch', function (event) {
@@ -88,16 +92,20 @@ $(function() {
 
 	}
 
-	function  applyEditor() {
+	function applyEditor() {
 		if($('.editable').length < 1) {
 			return;
 		}
 
 		var editor  = new MediumEditor('.editable',  getEditorSettings()),
 			editable = $('.editable'),
-			value = editable.parent().find('textarea').val();
+			value,
+			i;
 
-		editable.html(value);
+		for (i = 0; i < editable.length; i = i + 1) {
+            value = $(editable[i]).parent().find('textarea').val();
+            $(editable[i]).html(value);
+        }
 	}
 
 	function getShareConfig() {

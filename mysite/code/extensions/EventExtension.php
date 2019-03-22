@@ -8,6 +8,7 @@ class EventExtension extends DataExtension {
 	private static $db = array(
 		'Intro' => 'Text',
 		'Colour' => 'Varchar(255)',
+		'MemberOnlyContent' => 'HTMLText',
 		'Recurring' => 'Boolean'
 	);
 
@@ -49,11 +50,16 @@ class EventExtension extends DataExtension {
 		$fields->removeByName('GameDetails');
 
 		$event = $fields->dataFieldByName('EventPageID');
-		$fields->addFieldToTab('Root.Details', TextareaField::create('Intro', 'Intro'), 'AllDay');
 
-		$cID = Calendar::get_one('Calendar')->ID;
-		$fields->push($calendar = HiddenField::create('CalendarID', 'Calendar'));
-		$calendar->setValue($cID);
+		$c = Calendar::get_one('Calendar');
+
+		if ($c && $c->exists()) {
+			$cID = $c->ID;
+			$fields->push($calendar = HiddenField::create('CalendarID', 'Calendar'));
+			$calendar->setValue($cID);
+		} else {
+			$fields->removeByName('CalendarID');
+		}
 
 		$fields->insertAfter($event, 'TimeFrameType');
 		$fields->insertAfter($owner = DropdownField::create('OwnerID',
@@ -72,12 +78,16 @@ class EventExtension extends DataExtension {
 
 		$region->setEmptyString(' ');
 		$fields->removeByName('RelatedPage');
-		$fields->addFieldToTab('Root.Details', TextareaField::create('Intro', 'Intro'));
 
-		$fields->insertBefore(HTMLEditorField::create('Details', ''), 'Intro');
+		$fields->addFieldToTab('Root.Details', TextareaField::create('Intro', 'Intro'));
+		$fields->insertBefore('Intro', HTMLEditorField::create( 'Details', ''));
 
 		$fields->insertBefore($recurring = CheckboxField::create('Recurring'), 'EventPageID');
 		$recurring->setDescription("Note: this will not automatically create events, but allows for recurring events to stay in the calender and out of the listings");
+
+		$fields->addFieldToTab('Root.ForMembers', $memberContent = HTMLEditorField::create('MemberOnlyContent', 'Member Only Content'));
+		$memberContent->addExtraClass('stacked')
+			->setRows(20);
 
 		$fields->addFieldToTab(
 			'Root.Brand',
@@ -242,6 +252,15 @@ class EventExtension extends DataExtension {
 		}
 
 		return $result;
+	}
+
+	public function getMemberContent() {
+
+		if (Controller::curr()->isMember()) {
+			return $this->owner->MemberOnlyContent;
+		}
+
+		return false;
 	}
 
 }

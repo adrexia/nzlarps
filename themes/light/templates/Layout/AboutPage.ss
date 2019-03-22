@@ -2,11 +2,13 @@
 	<div class="columns twelve"  role="main" id="main">
 		<div class="top-panel">
 			<% include BackButton %>
-			$Content.RichLinks.Pagebreaks
-
 			<% if $MemberContent %>
-				$MemberContent
+				<div class="member">
+					<span class="member-meta">nzlarps member content</span>
+					$MemberContent
+				</div>
 			<% end_if %>
+			$Content.RichLinks.Pagebreaks
 
 			$Form
 			<% include RelatedPages %>

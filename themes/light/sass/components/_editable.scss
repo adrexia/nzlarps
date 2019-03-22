@@ -34,6 +34,10 @@
 	min-height: 300px;
 	margin: 0;
 	padding: 10px;
+
+	&--short {
+		min-height: 100px;
+	}
 }
 
 .medium-editor-placeholder:after {

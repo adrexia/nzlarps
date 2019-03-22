@@ -1,7 +1,15 @@
 <div class="row">
 	<div class="columns twelve">
+
 		<div class="top-panel collapse" role="main" id="main">
+			<% if $MemberContent %>
+				<div class="member">
+					<span class="member-meta">nzlarps member content</span>
+					$MemberContent
+				</div>
+			<% end_if %>
 			<div class="main">
+
 				<% include BackButton %>
 
 				<% if $Contact || $Parent.Type || $State || $Tagline || $Website %>
@@ -22,9 +30,6 @@
 					<% if $State %><li><strong>State:</strong> $State</li><% end_if %>
 					<% if $Website %><li><strong>Website:</strong> $Website</li><% end_if %>
 				</ul>
-				<% end_if %>
-				<% if $MemberContent %>
-					$MemberContent
 				<% end_if %>
 			</div>
 			$Content.RichLinks.Pagebreaks

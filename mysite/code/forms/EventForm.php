@@ -23,6 +23,7 @@ class EventForm extends Form {
 		$this->addExtraClass('PublicEventForm');
 		$this->addExtraClass($name);
 
+
 		parent::__construct($controller, $name, $fields, $actions, $validator);
 	}
 
@@ -52,6 +53,14 @@ class EventForm extends Form {
 				LiteralField::create('editorDiv', '<div class="editable"></div>')
 			),
 			TextField::create('Intro')->setRightTitle('Short tagline to show in the page header and in listings'),
+			$membersEditor = CompositeField::create(
+			$membersLabel = LabelField::create('MemberOnlyContentField', 'NZLarps Members-only content'),
+				LiteralField::create('MemberOnlyContentNotes', '<p class="field-notes field-notes--textarea">
+This can be used for discount codes and the like. <br />Note: you can select text to apply formatting and insert links</p>'),
+
+				$membersHtml = HTMLEditorField::create('MemberOnlyContent', '', ''),
+				LiteralField::create('editorDiv', '<div class="editable editable--short"></div>')
+			),
 			$region = DropdownField::create(
 				'RegionID',
 				'Region',
@@ -65,6 +74,8 @@ class EventForm extends Form {
 		);
 		$html->addExtraClass('hide');
 		$detailsEditor->addExtraClass('field');
+		$membersHtml->addExtraClass('hide');
+		$membersEditor->addExtraClass('field');
 		$event->setEmptyString('select (optional)')->setDescription('Existing Project, Affliate or Event Series page (optional)');
 
 		return $fields;
@@ -142,7 +153,7 @@ class EventForm extends Form {
 		$splashEvent->setConfig('classToSearch', 'PublicEvent');
 		$splashEvent->setConfig('filter', ['SplashImageID:not' => 0]);
 		$splashEvent->setConfig('resultsFormat', $this->renderWith('Select2SplashImageResult'));
-        $splashEvent->addExtraClass('image-dropdown');
+		$splashEvent->addExtraClass('image-dropdown');
 
 		$smLabel->addExtraClass('sr-only');
 		$spLabel->addExtraClass('sr-only');
@@ -177,9 +188,13 @@ class EventForm extends Form {
 	public function getFields() {
 		$fields = FieldList::create();
 
-		$cID = Calendar::get_one('Calendar')->ID;
-		$fields->push($calendar = HiddenField::create('CalendarID', 'CalendarID', $cID));
-		$calendar->setValue($cID);
+		$c = Calendar::get_one('Calendar');
+
+		if ($c) {
+			$cID = $c->ID;
+			$fields->push($calendar = HiddenField::create('CalendarID', 'CalendarID', $cID));
+			$calendar->setValue($cID);
+		}
 
 		$member = Member::currentUserID();
 		$fields->push($member = HiddenField::create('OwnerID', 'OwnerID', $member));

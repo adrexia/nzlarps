@@ -1,6 +1,13 @@
 <div class="row">
 	<div class="columns twelve">
 		<div class="top-panel" role="main" id="main">
+			<% if $MemberContent %>
+				<div class="member">
+					<span class="member-meta">nzlarps member content</span>
+					$MemberContent
+				</div>
+			<% end_if %>
+
 			<% include BackButton %>
 			$Content.RichLinks.Pagebreaks
 			$Form
@@ -74,14 +81,9 @@
 			</div>
 		<% end_if %>
 
-		<% if $ExtraContent || $MemberContent %>
+		<% if $ExtraContent %>
 		<div class="mtm">
-			<% if $MemberContent %>
-				$MemberContent
-			<% end_if %>
-			<% if $ExtraContent %>
 			$ExtraContent.RichLinks.Pagebreaks
-			<% end_if %>
 		</div>
 		<% end_if %>
 		<footer class="content-footer columns twelve">
