@@ -26,6 +26,9 @@
 	}
 
 	* {
-		max-width: calc(100% - 135px);
+		@include respond(desktop) {
+			max-width: calc(100% - 135px);
+		}
+
 	}
 }
