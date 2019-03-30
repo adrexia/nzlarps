@@ -10,8 +10,10 @@
 			<% end_if %>
 
 			<% if $Error %>
+			<div class="main">
 				<% include BackButton %>
 				$Error
+			</div>
 			<% end_if %>
 
 		</div>

@@ -10,8 +10,10 @@
 			<% end_if %>
 
 			<% if $Success %>
+			<div class="main">
 				<% include BackButton %>
 				$Success
+			</div>
 			<% end_if %>
 
 		</div>
