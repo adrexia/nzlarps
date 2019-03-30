@@ -14,11 +14,13 @@
 				$Content.RichLinks.Pagebreaks
 			<% end_if %>
 
-			<% if $Form %>
-			<div class="main">
-				$Form
-			</div>
-				<% end_if %>
+			<% if $Form || $SlackSignupForm %>
+				<div class="main">
+					$Form
+					$SlackSignupForm
+				</div>
+			<% end_if %>
+			
 			</div>
 
 
