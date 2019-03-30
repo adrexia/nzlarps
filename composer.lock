@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "26ec31712d0b3ed22b5a13de897e4c07",
+    "content-hash": "5d8c335c5441d1aa721dc302e8359043",
     "packages": [
         {
             "name": "adrexia/dashboardmods",
@@ -356,6 +356,56 @@
                 "twitter cards"
             ],
             "time": "2015-06-27T17:19:54+00:00"
+        },
+        {
+            "name": "firesphere/stripeslack",
+            "version": "0.2",
+            "target-dir": "stripeslack",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Firesphere/silverstripe-stripeslack.git",
+                "reference": "fd7b57e5d292233cb3d1a7db7be0207d3a60d7ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Firesphere/silverstripe-stripeslack/zipball/fd7b57e5d292233cb3d1a7db7be0207d3a60d7ec",
+                "reference": "fd7b57e5d292233cb3d1a7db7be0207d3a60d7ec",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "scriptfusion/phpunit-immediate-exception-printer": "^2.0"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "stripeslack",
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Simon 'Sphere' Erkelens",
+                    "email": "github@casa-laguna.net",
+                    "homepage": "https://casa-laguna.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easy invite new users to your slack group",
+            "keywords": [
+                "Invite",
+                "silverstripe",
+                "slack"
+            ],
+            "time": "2017-10-21T04:12:17+00:00"
         },
         {
             "name": "heyday/silverstripe-colorpalette",

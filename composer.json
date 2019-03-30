@@ -56,7 +56,8 @@
         "unclecheese/betterbuttons": "1.3.14",
         "unclecheese/display-logic": "1.4.0",
         "unclecheese/dropzone": "dev-master#0eeab6ef8f66c6cb4088a90354127b3ee000b845 as 1.4.13",
-        "unclecheese/silverstripe-kickassets": "^3.3.3"
+        "unclecheese/silverstripe-kickassets": "^3.3.3",
+        "firesphere/stripeslack": "^0.2.0"
     },
     "config": {
         "process-timeout": 600
