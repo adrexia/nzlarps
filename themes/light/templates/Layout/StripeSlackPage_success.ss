@@ -12,7 +12,7 @@
 			<% if $Success %>
 			<div class="main">
 				<% include BackButton %>
-				$Success
+				$getSuccess
 			</div>
 			<% end_if %>
 

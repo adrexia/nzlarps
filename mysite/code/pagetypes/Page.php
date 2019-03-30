@@ -294,4 +294,8 @@ class Page_Controller extends ContentController {
 		}
 		return $events->filter('OwnerID', Member::currentUserID())->sort('Created', 'DESC');
 	}
+	
+	public function getSuccess() {
+		return $this->failover->Success;
+	}
 }
