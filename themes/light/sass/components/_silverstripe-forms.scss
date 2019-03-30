@@ -1,366 +1,376 @@
 //  Silverstripe specific gumby form styling (to get forms to work as intended)
 
-
 .message {
-	@extend .alert;
-	@extend .info;
-	color: darken($air, 10%);
-	margin-bottom: 40px;
-	max-width: 100%;
-	padding: 20px;
-	border-radius: 0;
+    @extend .alert;
+    @extend .info;
+    color: darken($air, 10%);
+    margin-bottom: 40px;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 0;
 }
 
 .message.required {
-	color: $passion;
-	background: none;
-	display: block;
-	border: 0;
-	text-align: left;
-	padding: 5px 0;
+    color: $passion;
+    background: none;
+    display: block;
+    border: 0;
+    text-align: left;
+    padding: 5px 0;
 }
-
 
 .good {
-	@extend .success;
+    @extend .success;
 }
-.bad, .error {
-	@extend .danger;
+.bad,
+.error {
+    @extend .danger;
 }
 
-input.text, textarea {
-	@extend .input; //Make Silverstripe form inputs match gumby's
-	@include placeholder-text();
-	@include font-size($norm);
-	line-height:36px;
-	height:36px;
-	background-color: #f7f7f7;
-	border:1px solid #ccc;
-	width: 100%;
-	&:focus {
-		background-color: #FFF;
-		outline: none;
-	}
+input.text,
+textarea {
+    @extend .input; //Make Silverstripe form inputs match gumby's
+    @include placeholder-text();
+    @include font-size($norm);
+    line-height: 36px;
+    height: 36px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    width: 100%;
+    &:focus {
+        background-color: #fff;
+        outline: none;
+    }
 }
 
 .confirmedpassword .showOnClick {
-	text-align: left;
-	> a {
-		display: block;
-		padding-bottom: 10px;
-		font-family: $header-font-family;
-		font-weight: 400;
+    text-align: left;
+    > a {
+        display: block;
+        padding-bottom: 10px;
+        font-family: $header-font-family;
+        font-weight: 400;
 
-		&:before {
-			padding-right: 15px;
-			content: "+";
-			font-size: 1.3em;
-		}
-	}
-	.showOnClickContainer {
-		background: #f7f7f7;
-		padding: 5px 24px 20px;
-	}
+        &:before {
+            padding-right: 15px;
+            content: "+";
+            font-size: 1.3em;
+        }
+    }
+    .showOnClickContainer {
+        background: #f7f7f7;
+        padding: 5px 24px 20px;
+    }
 }
 
-
 .Actions {
-	text-align: center;
-	margin-top:10px;
-	.btn {
-		margin-right:8%;
-		display: inline-block;
-		min-width: 200px;
-		max-width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    .btn {
+        margin-right: 8%;
+        display: inline-block;
+        min-width: 200px;
+        max-width: 100%;
 
-		@include respond(desktop) {
-			margin-top: 30px;
-		}
+        @include respond(desktop) {
+            margin-top: 30px;
+        }
 
-		input {
-			display: block;
-		}
+        input {
+            display: block;
+        }
 
-		&:last-child{
-			margin-right:0;
-		}
-	}
+        &:last-child {
+            margin-right: 0;
+        }
+    }
 }
 
 .main > form:first-child {
-	margin-top: 50px;
+    margin-top: 50px;
 
-	@include respond(tablets){
-		margin-top: 20px;
-	}
-	@include respond(all-phones){
-		margin-top: 0px;
-	}
+    @include respond(tablets) {
+        margin-top: 20px;
+    }
+    @include respond(all-phones) {
+        margin-top: 0px;
+    }
 
-	fieldset:first-of-type {
-		border: 0;
-	}
+    fieldset:first-of-type {
+        border: 0;
+    }
 }
 
 form {
-	@include clearfix;
-	.field {
-		clear:both;
-	}
-	.FormHeading {
-		padding:20px;
-		clear:both;
-	}
-	.optionset {
-		clear:both;
-		label{
-			font-weight:normal;
-		}
-	}
-	legend, label{
-		font-family: $header-font-family;
-		font-weight: 400;
-		width: 100%;
-		text-align: left;
-	}
-	.extra {
-		@include clearfix;
-		clear:both;
-		font-style: italic;
-		display:block;
-		margin-bottom:20px;
-		color:lighten($body-font-color, 5%);
-		float:left;
-	}
-	fieldset{ //Silverstripe uses fieldsets wrongly, so don't style with gumby default
-		border:none;
-		border-top:1px solid #efefef;
+    @include clearfix;
+    .field {
+        clear: both;
+    }
+    .FormHeading {
+        padding: 20px;
+        clear: both;
+    }
+    .optionset {
+        clear: both;
+        label {
+            font-weight: normal;
+        }
+    }
+    legend,
+    label {
+        font-family: $header-font-family;
+        font-weight: 400;
+        width: 100%;
+        text-align: left;
+    }
+    .extra {
+        @include clearfix;
+        clear: both;
+        font-style: italic;
+        display: block;
+        margin-bottom: 20px;
+        color: lighten($body-font-color, 5%);
+        float: left;
+    }
+    fieldset {
+        //Silverstripe uses fieldsets wrongly, so don't style with gumby default
+        border: none;
+        border-top: 1px solid #efefef;
 
-		> .field:first-child {
-			margin-top: 35px
-		}
-		fieldset{
-			border:none;
-			padding:0;
-			margin:0;
-		}
-	}
+        > .field:first-child {
+            margin-top: 35px;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .slackform & {
+            border: 0;
+        }
+    }
 }
 
-#ForgotPassword { //ID only used because silverstripe does not provide a class
-	@include clearfix;
-	float: left;
-	font-size: 0.8em;
-	line-height: 35px;
-	margin: 0;
+.slackform .control-group:first-child {
+    padding-top: 30px;
+}
 
-	@include respond(tablets){
-		text-align: center;
-		float: none;
-		margin-top: 20px;
-	}
-	@include respond(all-phones){
-		text-align: center;
-		float: none;
-		margin-top: 20px;
-	}
+#ForgotPassword {
+    //ID only used because silverstripe does not provide a class
+    @include clearfix;
+    float: left;
+    font-size: 0.8em;
+    line-height: 35px;
+    margin: 0;
 
+    @include respond(tablets) {
+        text-align: center;
+        float: none;
+        margin-top: 20px;
+    }
+    @include respond(all-phones) {
+        text-align: center;
+        float: none;
+        margin-top: 20px;
+    }
 }
 
 //For user forms
-#Form_Form{
-	.field{
-		padding: 20px 20px 20px 0;
-		border-bottom:1px solid #efefef;
-		&:nth-child(odd){
-			background-color:#f6f6f6;
-		}
-	}
+#Form_Form {
+    .field {
+        padding: 20px 20px 20px 0;
+        border-bottom: 1px solid #efefef;
+        &:nth-child(odd) {
+            background-color: #f6f6f6;
+        }
+    }
 }
-
 
 .content .alert {
-	padding:10px;
-	margin-bottom:30px;
-	font-size:15px;
-	&.primary {
-		a {
-			color:darken($body-link-color, 50%);
-		}
-	}
+    padding: 10px;
+    margin-bottom: 30px;
+    font-size: 15px;
+    &.primary {
+        a {
+            color: darken($body-link-color, 50%);
+        }
+    }
 }
 
-
 .col-heading {
-	float: left;
-	width: 15%;
-	margin-top: 6px;
-	font-weight: bold;
+    float: left;
+    width: 15%;
+    margin-top: 6px;
+    font-weight: bold;
 }
 
 .hide-label {
-	label {
-		clip: rect(0 0 0 0);
-		height: 1px; width: 1px;
-		margin: -1px; padding: 0; border: 0;
-		overflow: hidden;
-		position: absolute;
-	}
+    label {
+        clip: rect(0 0 0 0);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+        overflow: hidden;
+        position: absolute;
+    }
 }
 
 form fieldset legend {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 form fieldset.zebra {
-	@include border-radius(3px);
-	margin: 0;
-	padding: 10px 20px;
-	.field, .composite {
-		border: none;
-		@include box-shadow(none);
-	}
-	.composite {
-		padding: 5px 0;
-	}
+    @include border-radius(3px);
+    margin: 0;
+    padding: 10px 20px;
+    .field,
+    .composite {
+        border: none;
+        @include box-shadow(none);
+    }
+    .composite {
+        padding: 5px 0;
+    }
 }
 
 fieldset.odd {
-	background: rgba($navbar-color, 0.5);
+    background: rgba($navbar-color, 0.5);
 }
 
-
-input.text, .tagsinput {
-	@extend .input;
+input.text,
+.tagsinput {
+    @extend .input;
 }
 
 .field {
-	input.text, .tagsinput {
-		line-height: normal;
-	}
-	&.inline {
-		width: 42%;
-		float: left;
-		clear: none;
-		box-sizing: border-box;
-		margin: 0;
-		@include respond(all-phones){
-			width: 100%;
-		}
-		.picker {
-			width: 95%;
-			@include respond(all-phones){
-				width: 98%;
-			}
-		}
-	}
+    input.text,
+    .tagsinput {
+        line-height: normal;
+    }
+    &.inline {
+        width: 42%;
+        float: left;
+        clear: none;
+        box-sizing: border-box;
+        margin: 0;
+        @include respond(all-phones) {
+            width: 100%;
+        }
+        .picker {
+            width: 95%;
+            @include respond(all-phones) {
+                width: 98%;
+            }
+        }
+    }
 
-
-	&.small-input {
-		input {
-			width: 45px;
-			margin-right: 5px;
-		}
-	}
+    &.small-input {
+        input {
+            width: 45px;
+            margin-right: 5px;
+        }
+    }
 }
 
+#Remember {
+    //only supplied an id
 
-#Remember { //only supplied an id
+    .checkbox {
+        float: left;
+        margin-right: 10px;
+        padding-left: 27px;
 
-	.checkbox {
-		float:left;
-		margin-right:10px;
-		padding-left: 27px;
-
-		@include respond(all-phones) {
-			font-size: 0.8em;
-		}
-	}
+        @include respond(all-phones) {
+            font-size: 0.8em;
+        }
+    }
 }
-
-
 
 .icon-check {
-	.alert.primary & {
-		background:rgba(#fff, 0.7);
-		@include border-radius(3px);
-		height:20px;
-		width:20px;
-		border:1px solid rgba(#fff, 0.6);
-		line-height:20px;
-		color: darken($primary-color, 20%);
-		opacity:0.7;
-	}
+    .alert.primary & {
+        background: rgba(#fff, 0.7);
+        @include border-radius(3px);
+        height: 20px;
+        width: 20px;
+        border: 1px solid rgba(#fff, 0.6);
+        line-height: 20px;
+        color: darken($primary-color, 20%);
+        opacity: 0.7;
+    }
 }
 label {
-	position:relative;
-	overflow:hidden;
-	&.checkbox {
-		float:left;
-		margin-top:0;
-		padding-right:30px;
-	}
+    position: relative;
+    overflow: hidden;
+    &.checkbox {
+        float: left;
+        margin-top: 0;
+        padding-right: 30px;
+    }
 }
 .req-indicator {
-	position:absolute;
-	top:-100%;
-	&:after {
-		position:absolute;
-		top:100%;
-		left:5px;
-		content:'*';
-		color:$danger-color;
-		height:15px;
-		width:15px;
-	}
+    position: absolute;
+    top: -100%;
+    &:after {
+        position: absolute;
+        top: 100%;
+        left: 5px;
+        content: '*';
+        color: $danger-color;
+        height: 15px;
+        width: 15px;
+    }
 }
 
 .input.text {
-	float:left;
-	width:100%;
-	.checkablevisibility & {
-		float:right;
-		width:90%;
-		margin-right:10px;
-		.checkbox {
-			margin-top: 5px;
-		}
-	}
+    float: left;
+    width: 100%;
+    .checkablevisibility & {
+        float: right;
+        width: 90%;
+        margin-right: 10px;
+        .checkbox {
+            margin-top: 5px;
+        }
+    }
 }
 
 .checkablevisibility {
-	.checkbox {
-		margin-top: 7px;
-	}
+    .checkbox {
+        margin-top: 7px;
+    }
 }
 
 .field {
-	@include clearfix;
-	clear:both;
-	padding:10px 0;
-	margin:5px 0 5px 0;
+    @include clearfix;
+    clear: both;
+    padding: 10px 0;
+    margin: 5px 0 5px 0;
 
-	.field {
-		border:none;
-		@include box-shadow(none);
-	}
+    .field {
+        border: none;
+        @include box-shadow(none);
+    }
 }
 fieldset.composite {
-	padding-bottom: 40px;
+    padding-bottom: 40px;
 }
 
 .composite {
-	border-bottom: 1px solid #efefef;
-	margin-top: 0;
-	padding-top: 0;
+    border-bottom: 1px solid #efefef;
+    margin-top: 0;
+    padding-top: 0;
 
-	&:last-of-type {
-		border: 0;
-	}
+    &:last-of-type {
+        border: 0;
+    }
 
-	.field {
-		border: 0; //move border to parent
-		@include box-shadow(none);
-	}
+    .field {
+        border: 0; //move border to parent
+        @include box-shadow(none);
+    }
 }

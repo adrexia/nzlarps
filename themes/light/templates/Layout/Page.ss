@@ -17,7 +17,9 @@
 			<% if $Form || $SlackSignupForm %>
 				<div class="main">
 					$Form
+					<div class="slackform">
 					$SlackSignupForm
+					</div>
 				</div>
 			<% end_if %>
 			
