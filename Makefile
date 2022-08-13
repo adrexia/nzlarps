@@ -7,3 +7,7 @@
 
 test:
 	$(MAKE) QUERYSTRING="$(QUERYSTRING)" -C framework test
+
+
+devbuild:
+	./framework/sake dev/build ?flush=all
