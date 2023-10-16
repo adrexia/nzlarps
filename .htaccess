@@ -24,6 +24,7 @@ ErrorDocument 500 /assets/error-500.html
 	RedirectMatch 403 /silverstripe-cache(/|$)
 	RedirectMatch 403 /vendor(/|$)
 	RedirectMatch 403 /composer\.(json|lock)
+	RedirectMatch 403 /\.git
 </IfModule>
 
 <IfModule mod_rewrite.c>
