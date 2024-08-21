@@ -96,12 +96,12 @@ class Page extends SiteTree {
         });
 
         $gridField = new GridField(
-            'Event',
+            'PublicEvent',
             'Upcoming Events',
             $events,
             $config = GridFieldConfig_RecordEditor::create()
         );
-        $gridField->setModelClass('Event');
+        $gridField->setModelClass('PublicEvent');
 
         $dataColumns = $config->getComponentByType('GridFieldDataColumns');
 

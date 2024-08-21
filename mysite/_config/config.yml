@@ -56,10 +56,6 @@ MemberOnlyPage:
 SubmittedForm:
   extensions:
    - SubmittedFormExtension
-KickAssets:
-  menu_icon: "mysite/images/sitetree_images/photo.svg"
-  menu_title: "Files"
-  menu_priority: 8
 
 FormSpamProtectionExtension:
   default_spam_protector: '\StudioBonito\SilverStripe\SpamProtection\Honeypot\SpamProtector\HoneypotSpamProtector'

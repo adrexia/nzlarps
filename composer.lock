@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a58cc72178ef5804c32e1f5353fed905",
+    "content-hash": "874badfc20e518a7d7073c09627e148b",
     "packages": [
         {
             "name": "adrexia/dashboardmods",
@@ -696,7 +696,7 @@
             "version": "0.6.3",
             "source": {
                 "type": "git",
-                "url": "git@github.com:mustangostang/spyc.git",
+                "url": "https://github.com/mustangostang/spyc.git",
                 "reference": "4627c838b16550b666d15aeae1e5289dd5b77da0"
             },
             "dist": {
@@ -739,6 +739,10 @@
                 "yaml",
                 "yml"
             ],
+            "support": {
+                "issues": "https://github.com/mustangostang/spyc/issues",
+                "source": "https://github.com/mustangostang/spyc/tree/0.6.3"
+            },
             "time": "2019-09-10T13:16:29+00:00"
         },
         {
@@ -1145,6 +1149,7 @@
                 "issues": "https://github.com/unclecheese/silverstripe-dashboard/issues",
                 "source": "https://github.com/unclecheese/silverstripe-dashboard/tree/master"
             },
+            "abandoned": "unclecheese/dashboard",
             "time": "2017-05-30T02:19:10+00:00"
         },
         {
@@ -2307,16 +2312,16 @@
         },
         {
             "name": "unclecheese/dropzone",
-            "version": "1.4.14",
+            "version": "dev-php72_SS37_support",
             "source": {
                 "type": "git",
-                "url": "https://github.com/unclecheese/silverstripe-dropzone.git",
-                "reference": "9bd7a3b3513fe4d16e8ae5291c00c85e07fe1aeb"
+                "url": "https://github.com/firebrandhq/silverstripe-dropzone.git",
+                "reference": "f207a2e4f9abd6f1f85e000ef74a0c1791d8fed7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-dropzone/zipball/9bd7a3b3513fe4d16e8ae5291c00c85e07fe1aeb",
-                "reference": "9bd7a3b3513fe4d16e8ae5291c00c85e07fe1aeb",
+                "url": "https://api.github.com/repos/firebrandhq/silverstripe-dropzone/zipball/f207a2e4f9abd6f1f85e000ef74a0c1791d8fed7",
+                "reference": "f207a2e4f9abd6f1f85e000ef74a0c1791d8fed7",
                 "shasum": ""
             },
             "require": {
@@ -2326,7 +2331,6 @@
             "extra": {
                 "installer-name": "dropzone"
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -2338,70 +2342,17 @@
             ],
             "description": "An HTML5 upload field for the CMS and frontend forms.",
             "keywords": [
-                "Forms",
                 "cms",
                 "files",
+                "forms",
                 "silverstripe",
                 "upload",
                 "uploader"
             ],
             "support": {
-                "issues": "https://github.com/unclecheese/silverstripe-dropzone/issues",
-                "source": "https://github.com/unclecheese/silverstripe-dropzone/tree/master"
+                "source": "https://github.com/firebrandhq/silverstripe-dropzone/tree/1.4.20"
             },
-            "time": "2018-09-20T21:24:25+00:00"
-        },
-        {
-            "name": "unclecheese/silverstripe-kickassets",
-            "version": "3.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/unclecheese/silverstripe-kickassets.git",
-                "reference": "1c3cc9655479677ad6628a48071e5a933619b4e7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-kickassets/zipball/1c3cc9655479677ad6628a48071e5a933619b4e7",
-                "reference": "1c3cc9655479677ad6628a48071e5a933619b4e7",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "silverstripe/cms": ">= 3.1.0",
-                "silverstripe/framework": ">= 3.1.0",
-                "unclecheese/dropzone": "^1.4"
-            },
-            "replace": {
-                "silverstripe/kickassets": "*",
-                "unclecheese/kickassets": "*"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "kickassets"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Uncle Cheese",
-                    "email": "unclecheese@leftandmain.com"
-                }
-            ],
-            "description": "Provides an alternative file management interface for SilverStripe CMS with drag-and-drop, multi-selection, and several other desktop-like UI conventions.",
-            "keywords": [
-                "AssetAdmin",
-                "assets",
-                "files",
-                "silverstripe",
-                "upload"
-            ],
-            "support": {
-                "issues": "https://github.com/unclecheese/silverstripe-kickassets/issues",
-                "source": "https://github.com/unclecheese/silverstripe-kickassets/tree/master"
-            },
-            "time": "2018-01-06T21:45:05+00:00"
+            "time": "2018-10-04T22:04:32+00:00"
         }
     ],
     "packages-dev": [],
@@ -2411,7 +2362,8 @@
         "adrexia/dashboardmods": 20,
         "adrexia/silverstripe-calendar": 20,
         "mateusz/frontend": 20,
-        "silverstripe-australia/memberprofiles": 20
+        "silverstripe-australia/memberprofiles": 20,
+        "unclecheese/dropzone": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
