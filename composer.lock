@@ -47,12 +47,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/adrexia/silverstripe-calendar.git",
-                "reference": "b7f4fd08025fd8ad8ea64ab6a82a20c85561b454"
+                "reference": "de84c6c546c562a710510a047537ea34961927e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adrexia/silverstripe-calendar/zipball/b7f4fd08025fd8ad8ea64ab6a82a20c85561b454",
-                "reference": "b7f4fd08025fd8ad8ea64ab6a82a20c85561b454",
+                "url": "https://api.github.com/repos/adrexia/silverstripe-calendar/zipball/de84c6c546c562a710510a047537ea34961927e0",
+                "reference": "de84c6c546c562a710510a047537ea34961927e0",
                 "shasum": ""
             },
             "default-branch": true,
@@ -87,7 +87,7 @@
             "support": {
                 "source": "https://github.com/adrexia/silverstripe-calendar/tree/master"
             },
-            "time": "2022-08-13T05:35:28+00:00"
+            "time": "2024-08-21T08:46:20+00:00"
         },
         {
             "name": "adrexia/standardsediting",
