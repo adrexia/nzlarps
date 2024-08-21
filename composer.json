@@ -54,7 +54,8 @@
         "symbiote/silverstripe-versionedfiles": "2.0.3",
         "unclecheese/betterbuttons": "1.3.14",
         "unclecheese/display-logic": "^1.7",
-        "unclecheese/dropzone": "dev-php72_SS37_support",
+        "unclecheese/silverstripe-kickassets": "^3.3.3",
+        "unclecheese/dropzone": "dev-php72_SS37_support as 1.4.20",
         "firesphere/stripeslack": "^0.2.0"
     },
     "config": {

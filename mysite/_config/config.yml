@@ -65,3 +65,8 @@ LeftAndMain:
   extra_requirements_css:
    - 'mysite/css/leftandmain.css'
    - 'mysite/css/custom.css'
+
+KickAssets:
+  menu_icon: "mysite/images/sitetree_images/photo.svg"
+  menu_title: "Files"
+  menu_priority: 8
